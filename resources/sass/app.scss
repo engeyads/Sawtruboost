@@ -25,6 +25,8 @@
 
 
  //backgrounds and photos'
+ $Logo: url('../images/SVG/Logo.svg');
+ $logoText: url('../images/SVG/logo-text.svg');
  $archtech: url('../images/Footer-Test-.webp');
  $yellowbg: url('../images/BGYellow.webp');
  $arrow: url('../images/SVG/arrow.svg');
@@ -4093,13 +4095,12 @@
  */
 
  footer {
+    margin-top: -200px;
      position: relative;
      bottom: 0;
      padding-bottom: 0;
-     color: white;
-     background-color: #1d2124;
+background-color: none;
 
-     overflow: hidden;
      .footerTitle{
 
          padding-bottom: 30px;
@@ -4166,7 +4167,74 @@
  ** Custom Pro Footer
  */
 
+ .footerContent{
 
+    position:absolute;
+    top: 13rem;
+    bottom: 0;
+    z-index: 5;
+    padding:4rem;
+ }
+
+ #footerAnimation {
+    bottom: 0;
+    z-index: 0;
+}
+
+footer-animation {
+    display: block;
+    position: relative;
+    pointer-events: none;
+    padding-top: 4rem;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    width: 100%;
+    z-index: 3;
+}
+animation-instance {
+    display: block;
+    height: 19.688rem;
+    position: relative;
+    z-index: 1;
+}
+animation-rear {
+    bottom: 0rem;
+    z-index: 1;
+}
+animation-instance>* {
+    display: block;
+    height: 19.688rem;
+    left: 0;
+    position: absolute;
+    width: 6000px;
+}
+animation-instance svg {
+    display: block;
+    height: 19.688rem;
+    position: relative;
+    width: 6000px;
+    z-index: 1;
+}
+.svg .m {
+    fill: #efefef;
+}
+.svg .m_shading {
+    fill: rgba(0, 0, 0, .05);
+}
+animation-front {
+    bottom: 2rem;
+    z-index: 2;
+}
+.svg .h {
+    fill: #efefef;
+}
+.svg .h_shading {
+    fill: rgba(0, 0, 0, .05);
+}
+
+/*
+**  cursor
+*/
 
 
  /*
