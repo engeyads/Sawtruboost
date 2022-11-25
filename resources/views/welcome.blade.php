@@ -1,15 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class='w-full first customYellowbg'>
+    <section class='w-full first customYellowbg' style="direction:ltr">
 
         <div class='bground'>
             <h2 class="heading">
-                MARKETING <br />SOLUTIONS PIONEERS
+                {{ __('messages.CompanyWord') }}<br />
+                {{ __('messages.CompanyWord2') }}
+
             </h2>
-            <button class='btn'>
+            <button class='btn' style="direction:{{ __('messages.direction') }}">
                 <h1>
-                    Boost Now !
+                    {{ __('messages.boostnow') }}
                 </h1>
             </button>
         </div>
@@ -50,120 +52,252 @@
     <section class='w-full second'>
         <div>
             <center>
-                <h2 class='socilaword text-xxl font-bold'>With our expert digital marketing services and solutions, get
-                    a BOOST and watch as your company reaches its pinnacle of success.</h2>
+                <h2 class='socilaword text-xxl font-bold'>{{ __('messages.socialword') }}</h2>
             </center>
         </div>
     </section>
 
-    <section class="yellowbg third">
+    <section class=" third" style="direction:ltr">
         <section id="panels">
 
             <div id="panels-container">
-                <article id="panel-1" class="panel full-screen red">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-6">
+                <h2 class="text-xl ml-12 mt-32 w-full font-bold fontBlont text-custom-gray absolute">
+                    {{ __('messages.OURMAGICALBOOSTS2') }}
+                </h2>
+                <article id="panel-1" class="panel w-full">
 
-                                <img src="" alt="" />
+                    <div class="container1">
+                        <div class="">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="txt">
 
-                            </div>
-                            <div class="col-6 ">
+                                                <h2 class='text-xxl fontBlont discription text-custom-gray'>
+                                                    {{ __('messages.DIGITALMARKETING') }}</h2>
+                                                <p class="step-description">
+                                                    {{ __('messages.DIGITALMARKETING2') }}
+                                                </p>
 
-                                <h2 class='text-xxl fontBlont discription text-custom-gray'>OUR MAGICAL BOOSTS</h2>
+                                                <div class="pt-8">
+                                                    <p>
+                                                        {{ __('messages.DIGITALMARKETING3') }}
+                                                    </p>
+                                                </div>
 
-                                <p class="step-description">
-                                    INVADE THE DIGITAL WORD WITH SAWTRU BOOST.
-                                </p>
+                                        </td>
+                                        <td class="img">
+
+                                                <img class="" src={{ URL::asset('images/digital_marketing.webp') }}
+                                                    alt="" />
 
 
-                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </article>
-                <article id="panel-2" class="panel full-screen orange">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-6">
+                <article id="panel-2" class="panel w=full">
+                    <div class="container1">
+                        <div class="">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="txt">
+                                            <div class="">
+                                                <h2 class='text-xxl fontBlont discription text-custom-gray'>
+                                                    {{ __('messages.GROWTHSTUDIES') }}
+                                                </h2>
 
-                                <img src="" alt="" />
+                                                <p class="step-description">
+                                                    {{ __('messages.GROWTHSTUDIES2') }}
+                                                </p>
 
-                            </div>
-                            <div class="col-6 ">
+                                                <div class="pt-8">
+                                                    <p>
+                                                        {{ __('messages.GROWTHSTUDIES3') }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="img">
+                                            <div class="">
+                                                <img class="" src={{ URL::asset('images/growth_studies.webp') }}
+                                                    alt="" />
 
-                                <h2 class='text-xxl fontBlont discription text-custom-gray'>DIGITAL MARKETING</h2>
-
-                                <p class="step-description">
-                                    Going digital is not just a cliché when you do it with SAWTRU BOOST.
-                                </p>
-
-
-                            </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </article>
-                <article id="panel-3" class="panel full-screen purple">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-6">
+                <article id="panel-3" class="panel w=full">
+                    <div class="container1">
+                        <div class="">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="txt">
+                                            <div class="">
+                                                <h2 class='text-xxl fontBlont discription text-custom-gray'>
+                                                    {{ __('messages.CONSULTANCY') }}
+                                                </h2>
 
-                                <img src="" alt="" />
+                                                <p class="step-description">
+                                                    {{ __('messages.CONSULTANCY2') }}
+                                                </p>
 
-                            </div>
-                            <div class="col-6 ">
+                                                <div class="pt-8">
+                                                    <p>
+                                                        {{ __('messages.CONSULTANCY3') }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="img">
+                                            <div class="">
+                                                <img class="" src={{ URL::asset('images/consultancy.webp') }}
+                                                    alt="" />
 
-                                <h2 class='text-xxl fontBlont discription text-custom-gray'>GROWTH STUDIES</h2>
-
-                                <p class="step-description">
-                                    Have you ever given your future any thought? Let us work together on this.
-                                </p>
-
-
-                            </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </article>
-                <article id="panel-4" class="panel full-screen green">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-6">
+                <article id="panel-4" class="panel w=full">
+                    <div class="container1">
+                        <div class="">
+                            <table>
+                                <tbody>
 
-                                <img src="" alt="" />
+                                    <tr>
+                                        <td class="txt">
+                                            <div class="">
+                                                <h2 class='text-xxl fontBlont discription text-custom-gray'>
+                                                    {{ __('messages.INNOVATION') }}
+                                                </h2>
 
-                            </div>
-                            <div class="col-6 ">
+                                                <p class="step-description">
+                                                    {{ __('messages.INNOVATION2') }}
+                                                </p>
+                                                <div class="pt-8">
+                                                    <p>
+                                                        {{ __('messages.INNOVATION3') }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="img">
+                                            <div class="">
+                                                <img class="" src={{ URL::asset('images/innovation_&_creativity.webp') }}
+                                                    alt="" />
 
-                                <h2 class='text-xxl fontBlont discription text-custom-gray'>CONSULTANCY</h2>
-
-                                <p class="step-description">
-                                    Getting a second opinion is indeed the wisest course of action in business.
-                                </p>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article id="panel-5" class="panel full-screen gray">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-6">
-
-                                <img src="" alt="" />
-
-                            </div>
-                            <div class="col-6 ">
-
-                                <h2 class='text-xxl fontBlont discription text-custom-gray'>INNOVATION & CREATIVITY</h2>
-
-                                <p class="step-description">
-                                    Intelligent, robust, and impactful invention
-                                </p>
-                            </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </article>
             </div>
+        </section>
+
+        <section id="panelsMobile">
+            <h2 class="text-xl mt-32 w-full font-bold fontBlont text-custom-gray ">
+                {{ __('messages.OURMAGICALBOOSTS2') }}
+            </h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="">
+                            <div class="">
+                                <h2 class='text-xxl fontBlont discription text-custom-gray'>
+                                    {{ __('messages.DIGITALMARKETING') }}</h2>
+
+                                <p class="step-description">
+                                    {{ __('messages.DIGITALMARKETING2') }}
+                                </p>
+                            </div>
+                        </td>
+                        <td class="">
+                            <div class="">
+                                <img class="" src={{ URL::asset('images/digital_marketing.webp') }} alt="" />
+
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="">
+                            <div class="">
+                                <h2 class='text-xxl fontBlont discription text-custom-gray'>
+                                    {{ __('messages.GROWTHSTUDIES') }}
+                                </h2>
+
+                                <p class="step-description">
+                                    {{ __('messages.GROWTHSTUDIES2') }}
+                                </p>
+                            </div>
+                        </td>
+                        <td class="">
+                            <div class="">
+                                <img class="" src={{ URL::asset('images/growth_studies.webp') }} alt="" />
+
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="">
+                            <div class="">
+                                <h2 class='text-xxl fontBlont discription text-custom-gray'>
+                                    {{ __('messages.CONSULTANCY') }}
+                                </h2>
+
+                                <p class="step-description">
+                                    {{ __('messages.CONSULTANCY2') }}
+                                </p>
+                            </div>
+                        </td>
+                        <td class="">
+                            <div class="">
+                                <img class="" src={{ URL::asset('images/consultancy.webp') }} alt="" />
+
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="">
+                            <div class="">
+                                <h2 class='text-xxl fontBlont discription text-custom-gray'>
+                                    {{ __('messages.INNOVATION') }}
+                                </h2>
+
+                                <p class="step-description">
+                                    {{ __('messages.INNOVATION2') }}
+                                </p>
+                            </div>
+                        </td>
+                        <td class="">
+                            <div class="">
+                                <img class="" src={{ URL::asset('images/innovation_&_creativity.webp') }} alt="" />
+
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
         </section>
     </section>
 
@@ -171,7 +305,7 @@
         <div>
             <center>
                 <table>
-                    <tr class="py-4">
+                    <tr class="py-4 partners">
                         <td><img src={{ URL::asset('images/client1.webp') }} width="160px" alt="" /></td>
                         <td><img src={{ URL::asset('images/client3.webp') }} width="160px" alt="" /></td>
                         <td><img src={{ URL::asset('images/client2.webp') }} width="160px" alt="" /></td>
@@ -188,7 +322,7 @@
             <div class=" justify-content-center">
                 <div class="">
                     <center>
-                        <h3 class="mb-2">LATEST INSIGHTS</h3>
+                        <h3 class="mb-2">{{ __('messages.LATESTINSIGHTS') }}</h3>
                     </center>
                     {{-- <h6 class="subtitle font-weight-normal">You can relay on our amazing features list and also our customer services will be great experience for you without doubt</h6> --}}
                 </div>
@@ -259,10 +393,7 @@
     </section>
 
     @push('custom-scripts')
-
         <script>
-
-
             gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
             /* Main navigation */
