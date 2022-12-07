@@ -106,37 +106,37 @@
                         <center>
                             <table>
                                 <tbody>
-                                    <tr>
-                                        <td class='text-right'>
+                                    {{-- <tr>
+                                        <td class='{{ __('messages.direction') === 'ltr' ? 'text-right' : 'text-left'  }} font-weight-bold'>
                                             {{ __('messages.Belgium') }}:
                                         </td>
-                                        <td class='text-left'>
+                                        <td style='direction:ltr' class='{{ __('messages.direction') === 'ltr' ? 'text-left' : 'text-right'  }}'>
                                             <a>+32 537 913 04 51</a>
                                         </td>
                                     </tr>
 
                                     <tr>
-                                        <td class='text-right'>
+                                        <td class='{{ __('messages.direction') === 'ltr' ? 'text-right' : 'text-left'  }} font-weight-bold'>
                                             {{ __('messages.SaudiArabia') }}:
                                         </td>
-                                        <td class='text-left'>
+                                        <td style='direction:ltr' class='{{ __('messages.direction') === 'ltr' ? 'text-left' : 'text-right'  }}'>
                                             <a>+966 537 913 04 51</a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class='text-right'>
+                                        <td class='{{ __('messages.direction') === 'ltr' ? 'text-right' : 'text-left'  }} font-weight-bold'>
                                             {{ __('messages.UAE') }}:
                                         </td>
-                                        <td class='text-left'>
+                                        <td style='direction:ltr' class='{{ __('messages.direction') === 'ltr' ? 'text-left' : 'text-right'  }}'>
                                             <a>+971 537 913 04 51</a>
                                         </td>
-                                    </tr>
+                                    </tr> --}}
                                     <tr>
-                                        <td class='text-right'>
+                                        <td class='{{ __('messages.direction') === 'ltr' ? 'text-right' : 'text-left'  }} font-weight-bold'>
                                             {{ __('messages.Turkiye') }}:
                                         </td>
-                                        <td class='text-left'>
-                                            <a>+90 537 913 04 51</a>
+                                        <td style='direction:ltr' class='{{ __('messages.direction') === 'ltr' ? 'text-left' : 'text-right'  }}'>
+                                            <a>+90 506 467 79 87</a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -154,13 +154,19 @@
                         <tbody>
                             <tr>
 
-                                <td><a href="{{ route('changeLang') }}?lang=en"><img class='inline-flex' width='22px'
-                                            src={{ URL::asset('images/united-kingdom.svg') }} alt="English Language Flag" />
+                                <td><a href="{{ route('changeLang') }}?lang=en"><img class='inline-flex'
+                                            width='22px' src={{ URL::asset('images/united-kingdom.svg') }}
+                                            alt="English Language Flag" />
                                         En</a>
                                 </td>
-                                <td><a href="{{ route('changeLang') }}?lang=ar"><img class='inline-flex' width='22px'
-                                            src={{ URL::asset('images/palestine.svg') }} alt="Arabic Language Flag" /> Ar</a>
+                                <td><a href="{{ route('changeLang') }}?lang=ar"><img class='inline-flex'
+                                            width='22px' src={{ URL::asset('images/palestine.svg') }}
+                                            alt="Arabic Language Flag" /> Ar</a>
                                 </td>
+                                {{--<td><a href="{{ route('changeLang') }}?lang=tr"><img class='inline-flex'
+                                            width='22px' src={{ URL::asset('images/turkish.svg') }}
+                                            alt="Turkish Language Flag" /> Tr</a>
+                                </td>--}}
                             </tr>
                         </tbody>
                     </table>

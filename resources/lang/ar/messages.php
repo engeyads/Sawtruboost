@@ -7,10 +7,22 @@ return [
     //language Direction
     'direction' => 'rtl',
 
+    //Header
+    'CompanyProfile' => 'ملف الشركة',
+    'Blog' => 'المدونة',
+    'Services' => 'الخدمات',
+    'Digital' => 'رقمي',
+    'Consultancy' => 'استشارات',
+    'GrowthStudies' => 'دراسات النمو',
+    'Creativity' => 'الإِبداع',
+    'AboutUs' => 'من نحن',
+    'ContactUs' => 'التواصل',
+    'People' => 'الناس',
+
     //head words and button
     'CompanyWord' => 'رواد الحلول',
     'CompanyWord2' => 'التسويق',
-    'boostnow' => 'ارفع الآن !',
+    'boostnow' => 'عزز الآن !',
 
     //second section word
     'socialword' => 'من خلال خدمات وحلول التسويق الرقمي الخبيرة لدينا ، احصل على دفعة وشاهد شركتك تصل إلى ذروة نجاحها.',
@@ -35,6 +47,10 @@ return [
     'INNOVATION2' => 'اختراع ذكي وقوي ومؤثر',
     'INNOVATION3' => 'نحن ملتزمون بدعم شركائنا في خلق بيئة عمل إبداعية ومبتكرة. بمساعدة فريق المحللين والاستشاريين لدينا ، قد يقارن شركاؤنا عمليات الابتكار الخاصة بهم بتلك الخاصة بنظرائهم في الصناعة في مزيد من البصيرة. ومع ذلك ، يمكنهم تصفية جميع آفاق الابتكار بناءً على جدواهم التجارية وتوافقهم الاستراتيجي مع الشركة.',
 
+    //Partners
+    'Partners' => 'شــركاؤنا',
+    'TrustedPartners' => 'شركاء موثوق بهم مع',
+
     //Blog
     'LATESTINSIGHTS' => 'أحدث الإحصاءات',
 
@@ -43,7 +59,6 @@ return [
     'footerword2' => 'استكشف فرص النمو الخاصة بك عن طريق الاتصال بأحد أعضائنا بالطريقة التي تفضلها.',
     'Contact' => 'اتصال',
     'Careers' => 'وظائف',
-    'Partners' => 'شركاء',
     'Contactus' => 'اتصل بنا',
     'Condetions' => 'الشروط',
     'Terms' => 'شروط',
@@ -54,4 +69,110 @@ return [
     'UAE' => 'الإمارات',
     'Turkiye' => 'تركيا',
     'rightsreserved' => 'جميع الحقوق محفوظة',
+
+    //services page
+    'Our' => 'Our',
+    'Magical' => 'Magical',
+    'Boosts' => 'Boosts',
+    'ourmagicalboosts3' => 'معززاتنا السحرية',
+    'servicesSecondHeading' => 'We produce digitally accelerated solutions.',
+    'servicesLastHeading' => 'Focused on the digital connection of your business we can advice, research and identify new opportunities. From your leadership throughto the marketing team our knowledge and craft into all levels of your business to transform and deliver against your company\'s growth objectives.',
+
+    'DigitalIdentity' => 'الهوية الرقمية',
+    'Digitalmarketingstrategy' => 'استراتيجية التسويق الرقمي',
+    'Socialmediamarketing' => 'تسويق وسائل الاعلام الاجتماعية',
+    'SearchEngineOptimization' => 'محرك البحث الامثل',
+    'Webdesignanddevelopment' => 'تصميم وتطوير المواقع الإلكترونية',
+
+    'Growthplanrealization' => 'تحقيق خطة النمو',
+    'Marketresearch' => 'البحث عن المتجر',
+    'Innovation&newproductsdevelopment' => 'الابتكار وتطوير المنتجات الجديدة',
+    'Competitionanalysis' => 'تحليل المنافسة',
+    'Speedtomarket' => 'سرعة الوصول إلى السوق',
+    'Demandsurgeresponse' => 'استجابة زيادة الطلب',
+    'Saleseffectiveness' => 'فعالية المبيعات',
+    'Supplychainoptimization' => 'تحسين سلسلة التوريد',
+
+    'Digitaltransformation' => 'التحول الرقمي',
+    'Marketingstrategyanalysis' => 'تحليل استراتيجية التسويق',
+    'Leadershipdevelopment' => 'تنمية المهارات القيادية',
+    'Culturechange' => 'تغيير الثقافة',
+
+    'Strategicgrowthinnovation' => 'ابتكار النمو الاستراتيجي',
+    'Art&illustration' => 'الفن والتوضيح',
+    'Design&brand' => 'التصميم والعلامة التجارية',
+    'BusinessCollateralDesign' => 'تصميم ضمانات الأعمال',
+    'IndustrialDesign' => 'التصميم الصناعي',
+    'Content&copywriting' => 'المحتوى والكتابة',
+    'ContentManagement' => 'ادارة المحتوى',
+    'Editing&proofreading' => 'التحرير والتدقيق اللغوي',
+
+    // About Us Page
+    'AboutUs2' => 'نسعى جاهدين لنكون مبدعين بكل مظاهره.',
+
+    'OurStory' => 'قصتنا',
+    'OurStory2' => 'من الصعب للغاية أن تزدهر كشركة ناشئة أو حتى شركة كبرى فيها
+    أحد أكثر المجالات تنافسية إذا لم تكن محدثًا بأحدثها
+    استراتيجيات واتجاهات نمو الأعمال. لتنمية عملك في العصر الحالي ،
+    يجب أن تصبح رقميًا.',
+    'OurStory3' => 'تعمل SAWTRU BOOST رسميًا في مواقع مختلفة حول العالم ،
+    مع مقرنا الرئيسي في اسطنبول ، تركيا ، كتطوير أعمال و
+    وكالة تسويق تحت مظلة SAWTRU INTERNATIONAL. فريقنا
+    من الخبراء المؤهلين تأهيلا عاليا طور نهجا فريدا لمرافقة
+    أنت في رحلة النمو ، حيث تقدم مجموعة متنوعة من دراسات التسويق والأعمال
+    الخدمات والحلول.',
+
+    'readmore' => 'إقرأ المزيد عنا في',
+
+    'WhoWeAre' => 'من نحن',
+    'WhoWeAre2' => 'معززاتنا مزيج من الفلسطينيين والسعوديين
+    سوري، سوداني، مصري، اردني،
+    الجنسيات اللبنانية والبلجيكية والتركية
+    والثقافات التي اجتمعت من أجلها
+    إنشاء فريق محترف مع المشترك
+    هدف إنتاج العمل الأكثر أصالة من أجله
+    عملائنا. نحن حرفيا نخلق تألق مع
+    وجهات نظر متنوعة.',
+
+    'Meetour' => 'ععرف على',
+    'team' => 'فريقنا',
+
+    'WhatWeDo' => 'الذي نفعله',
+    'WhatWeDo2' => 'نحن نتعاون معك من المفهوم إلى
+    إنجاز لتحقيقه
+    النمو التحولي. نبدأ بـ
+    لدينا استراتيجيات النمو المجربة والحقيقية و
+    تقدم إلى سلسلة من الخدمات التي من شأنها
+    مساعدتك في الفهم والتخطيط
+    وتنفيذ النمو التحولي.',
+
+    'exploremore' => 'استكشف المزيد عن',
+
+    // boostnow landing page
+    'needa' => 'تحتاج ',
+    'boost' => 'الى تعزيز ؟',
+    'boost1' => 'تواصل معنا الآن ودع عملك يزدهر',
+
+    'boostmsg' => 'اكتشف مكان صنع السحر من خلال زيارة مقر مختبر الإبداع لدينا أو الاتصال بمكاتبنا مباشرة',
+
+    'boostmsg1' => 'إلقاء نظرة على ملفنا الشخصي',
+    'boostmsg2' => 'لتحديد الخدمات أنت',
+    'boostmsg3' => 'بحاجة إلى إطلاق العنان الخاص بك',
+    'boostmsg4' => 'إمكانات العمل',
+
+    'boostmsg5' => ' إلقاء نظرة على ملفنا الشخصي',
+    'boostmsg6' => 'لتحديد الخدمات أنت',
+    'boostmsg7' => 'بحاجة إلى إطلاق العنان الخاص بك',
+    'boostmsg8' => 'إمكانات العمل',
+
+    //form
+    'name' => 'الاسم',
+    'company' => 'اسم الشركة',
+    'area' => 'كود المنطقة',
+    'phone' => 'رقم الهاتف',
+    'email' => 'البريد الالكتروني',
+    'website' => 'الموقع الالكتروني للشركة',
+    'services' => 'الخدمات التي تهمك',
+    'msg' => 'ادخل رسالتك و ملاحظاتك هنا',
+    'submit' => 'ارسال',
 ];

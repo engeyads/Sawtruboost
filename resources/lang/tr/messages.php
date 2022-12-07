@@ -7,6 +7,18 @@ return [
     //language Direction
     'direction' => 'ltr',
 
+    //Header
+    'CompanyProfile' => 'şirket Profili',
+    'Blog' => 'Blog',
+    'Services' => 'Hizmetler',
+    'Digital' => 'Dijital',
+    'Consultancy' => 'Danışmanlık',
+    'GrowthStudies' => 'Büyüme Çalışmaları',
+    'Creativity' => 'Yaratıcılık',
+    'AboutUs' => 'Hakkımızda',
+    'ContactUs' => 'Bize Ulaşın',
+    'People' => 'İnsanlar',
+
     //head words and button
     'CompanyWord' => 'PAZARLAMA',
     'CompanyWord2' => 'ÇÖZÜMLERİNİN ÖNCÜLERİ',
@@ -34,6 +46,10 @@ return [
     'INNOVATION' => 'YENİLİK & YARATICILIK',
     'INNOVATION2' => 'Akıllı, sağlam ve etkili buluş',
     'INNOVATION3' => 'Yaratıcı ve yenilikçi bir iş yeri ortamı yaratma konusunda ortaklarımızı desteklemeye kararlıyız. Analistlerden ve danışmanlardan oluşan ekibimizin yardımıyla ortaklarımız, inovasyon süreçlerini sektördeki emsallerininkilerle daha fazla içgörü açısından karşılaştırabilirler. Bununla birlikte, ticari fizibilitelerine ve şirketle stratejik uyumlarına göre tüm yenilik olasılıklarını filtreleyebilirler.',
+
+    //Partners
+    'Partners' => 'Ortaklar',
+    'TrustedPartners' => 'ile Güvenilir İş Ortakları',
 
     //Blog
     'LATESTINSIGHTS' => 'SON BİLGİLER',

@@ -1,5 +1,5 @@
 <div class="sticky-icon">
-    <a href="#" class="Tiktok"> {{-- Tiktok --}} <i class="fab fa-tiktok"></i></a>
+    <a href="https://www.tiktok.com/@sawtruboost" class="Tiktok"> {{-- Tiktok --}} <i class="fab fa-tiktok"></i></a>
     <a href="https://www.linkedin.com/company/sawtruboost/" class="linkedin"> {{-- LinkedIn --}} <i
             class="fab fa-linkedin" aria-hidden="true"></i></a>
     <a href="https://www.instagram.com/sawtruboost/" class="Instagram"> {{-- Instagram --}} <i
