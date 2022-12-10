@@ -7,6 +7,9 @@ return [
     //language Direction
     'direction' => 'ltr',
 
+    //social links
+    'whatsappmessage' => 'Hello, I came across your website and would like to learn more about your services. Could you please provide me with more information?',
+
     //Header
     'CompanyProfile' => 'Company Profile',
     'Blog' => 'Blog',
@@ -161,10 +164,10 @@ return [
     'boostmsg3' => 'need to unleash your',
     'boostmsg4' => 'business potentials',
 
-    'boostmsg5' => 'HAVE A LOOK AT OUR PROFILE',
-    'boostmsg6' => 'TO IDENTIFY THE SERVICES YOU',
-    'boostmsg7' => 'need to unleash your',
-    'boostmsg8' => 'business potentials',
+    'boostmsg5' => 'DISCOVER WHERE THE MAGIC MADE',
+    'boostmsg6' => 'BY VISITING PUR CREATIVITY LAB',
+    'boostmsg7' => 'HEADQUARTERS OR CONTACTING',
+    'boostmsg8' => 'OUR OFFICES DIRECTLY',
 
     //form
     'name' => 'NAME',
@@ -176,4 +179,10 @@ return [
     'services' => 'SERVICES YOU\'RE INTERESTED IN',
     'msg' => 'YOUR MESSAGE',
     'submit' => 'SEND',
+
+    // dashboard translations
+    'Dashboard by Sawtru Boost' => 'Dashboard by Sawtru Boost',
+    'Dashboard' => 'Dashboard',
+    'Sawtru Boost' => 'Sawtru Boost',
+    'Users Behavior' => 'Users Behavior',
 ];

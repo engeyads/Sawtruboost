@@ -7,6 +7,9 @@ return [
     //language Direction
     'direction' => 'rtl',
 
+    //social links
+    'whatsappmessage' => 'مرحبا، قمت بزيارة موقعكم الالكتروني و أرغب في الحصول على معلومات إضافية، هل يمكننا التحدث حول هذا؟',
+
     //Header
     'CompanyProfile' => 'ملف الشركة',
     'Blog' => 'المدونة',
@@ -160,10 +163,10 @@ return [
     'boostmsg3' => 'بحاجة إلى إطلاق العنان الخاص بك',
     'boostmsg4' => 'إمكانات العمل',
 
-    'boostmsg5' => ' إلقاء نظرة على ملفنا الشخصي',
-    'boostmsg6' => 'لتحديد الخدمات أنت',
-    'boostmsg7' => 'بحاجة إلى إطلاق العنان الخاص بك',
-    'boostmsg8' => 'إمكانات العمل',
+    'boostmsg5' => 'اكتشف مكان صنع السحر',
+    'boostmsg6' => 'من خلال زيارة مختبر الإبداع لدينا',
+    'boostmsg7' => 'المقر أو الاتصال',
+    'boostmsg8' => 'مكاتبنا مباشرة',
 
     //form
     'name' => 'الاسم',
@@ -175,4 +178,11 @@ return [
     'services' => 'الخدمات التي تهمك',
     'msg' => 'ادخل رسالتك و ملاحظاتك هنا',
     'submit' => 'ارسال',
+
+
+    // dashboard translations
+    'Dashboard by Sawtru Boost' => 'Dashboard by Sawtru Boost',
+    'Dashboard' => 'Dashboard',
+    'Sawtru Boost' => 'Sawtru Boost',
+    'Users Behavior' => 'Users Behavior',
 ];

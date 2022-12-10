@@ -13,10 +13,12 @@
                         <h1 class="display-one">Our Blog!</h1>
                         <p>Enjoy reading our posts. Click on a post to read!</p>
                     </div>
-                    <div class="col-4">
-                        <p>Create new Post</p>
-                        <a href="/blog/create/post" class="btn btn-primary btn-sm">Add Post</a>
-                    </div>
+                    @can('createpost')
+                        <div class="col-4">
+                            <p>Create new Post</p>
+                            <a href="/blog/create/post" class="btn btn-primary btn-sm">Add Post</a>
+                        </div>
+                    @endcan
                 </div>
                 @forelse($posts as $post)
                     <ul>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\BlogPost;
 use App\Models\Leads;
 use Illuminate\Http\Request;
 
@@ -36,16 +36,6 @@ class PagesController extends Controller
     public function contact()
     {
         return view('contact');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function blog()
-    {
-        return view('blog');
     }
 
      /**
@@ -87,5 +77,33 @@ class PagesController extends Controller
         ]);
 
         return redirect()->back();
+    }
+
+    /**
+     * Display all the static pages when authenticated
+     *
+     * @param string $page
+     * @return \Illuminate\View\View
+     */
+    public function index(string $page)
+    {
+        if (view()->exists("pages.{$page}")) {
+            return view("pages.{$page}");
+        }
+
+        return abort(404);
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function blog()
+    {
+        $posts = BlogPost::orderby('created_at','desc')->paginate(5); //fetch all blog posts from DB
+        return view('pages.blog.index',[
+            'posts' => $posts,
+        ]);
     }
 }

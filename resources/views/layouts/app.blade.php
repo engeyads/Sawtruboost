@@ -62,6 +62,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src='https://assets.codepen.io/16327/ScrollTrigger.min.js'></script>
+    <script>
+        jQuery(function() {
+                    var tl1 = new TimelineMax(),
+                        tl2 = new TimelineMax();
+                    var el1 = jQuery('#rear'),
+                        el2 = jQuery('#front');
+
+                    function on_el1() {
+                        tl1.to(el1, 40, {
+                            ease: Power0.easeNone,
+                            x: -2600,
+                            repeat: -1
+                        });
+                    }
+
+                    function on_el2() {
+                        tl2.to(el2, 30, {
+                            ease: Power0.easeNone,
+                            x: -2600,
+                            repeat: -1
+                        });
+                    }
+
+                    function start() {
+                        on_el1();
+                        on_el2();
+                    }
+                    start();
+                });
+    </script>
     @stack('custom-scripts')
 </body>
 

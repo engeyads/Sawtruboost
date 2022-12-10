@@ -628,63 +628,36 @@
             let fourth = $('#fourth');
             let fifth = $('#fifth');
 
-            gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
-            /* Main navigation */
-            let panelsSection = document.querySelector("#panels");
-            let panelsContainer = document.querySelector("#panels-container");
-            let tween;
-
-            /* Panels */
-            const panels = gsap.utils.toArray("#panels-container .panel");
-            tween = gsap.to(panels, {
-                xPercent: {{ __('messages.direction') == 'ltr' ? -100 : 100 }} * (panels.length - 1),
-                ease: "none",
-                scrollTrigger: {
-                    trigger: "#panels-container",
-                    pin: true,
-                    start: "top top",
-                    scrub: 1,
-                    snap: {
-                        snapTo: 1 / (panels.length - 1),
-                        inertia: false,
-                        duration: {
-                            min: 0.1,
-                            max: 0.1
-                        }
-                    },
-                    end: () => "+=" + (panelsContainer.offsetWidth - innerWidth)
-                }
-            });
 
             if (!isMobile) {
-                jQuery(function() {
-                    var tl1 = new TimelineMax(),
-                        tl2 = new TimelineMax();
-                    var el1 = jQuery('#rear'),
-                        el2 = jQuery('#front');
+                gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
-                    function on_el1() {
-                        tl1.to(el1, 40, {
-                            ease: Power0.easeNone,
-                            x: -2600,
-                            repeat: -1
-                        });
-                    }
+                /* Main navigation */
+                let panelsSection = document.querySelector("#panels");
+                let panelsContainer = document.querySelector("#panels-container");
+                let tween;
 
-                    function on_el2() {
-                        tl2.to(el2, 30, {
-                            ease: Power0.easeNone,
-                            x: -2600,
-                            repeat: -1
-                        });
+                /* Panels */
+                const panels = gsap.utils.toArray("#panels-container .panel");
+                tween = gsap.to(panels, {
+                    xPercent: {{ __('messages.direction') == 'ltr' ? -100 : 100 }} * (panels.length - 1),
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: "#panels-container",
+                        pin: true,
+                        start: "top top",
+                        scrub: 1,
+                        snap: {
+                            snapTo: 1 / (panels.length - 1),
+                            inertia: false,
+                            duration: {
+                                min: 0.1,
+                                max: 0.1
+                            }
+                        },
+                        end: () => "+=" + (panelsContainer.offsetWidth - innerWidth)
                     }
-
-                    function start() {
-                        on_el1();
-                        on_el2();
-                    }
-                    start();
                 });
 
                 if (second !== null) {

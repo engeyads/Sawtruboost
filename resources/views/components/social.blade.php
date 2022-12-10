@@ -1,4 +1,6 @@
 <div class="sticky-icon">
+
+    <a href="https://wa.me/+905064677987?text={{ __('messages.whatsappmessage') }}" class="Whatsapp"> {{-- Tiktok --}} <i class="fab fa-whatsapp"></i></a>
     <a href="https://www.tiktok.com/@sawtruboost" class="Tiktok"> {{-- Tiktok --}} <i class="fab fa-tiktok"></i></a>
     <a href="https://www.linkedin.com/company/sawtruboost/" class="linkedin"> {{-- LinkedIn --}} <i
             class="fab fa-linkedin" aria-hidden="true"></i></a>

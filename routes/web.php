@@ -5,6 +5,8 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,4 +43,19 @@ Route::delete('/blog/{blogPost}', [BlogPostController::class, 'destroy']); //del
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+
+
+Route::group(['middleware' => 'auth'], function () {
+	Route::resource('user', UserController::class, ['except' => ['show']]);
+	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
+	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
+	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
+	Route::get('users/create', ['as' => 'user.create', 'uses' => 'App\Http\Controllers\UserController@create']);
+    Route::resource('/dashboard/roles', RoleController::class);
+    Route::resource('/dashboard/user', UserController::class);
+
+	Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PagesController@index']);
+	Route::get('dashboard/blogs', ['as' => 'pages.blog.index', 'uses' => 'App\Http\Controllers\PagesController@blog']);
+});

@@ -2863,12 +2863,12 @@ a {
 .sticky-icon {
     z-index: 10;
     position: fixed;
-    top: 40%;
+    top: 30%;
     left: 0%;
     width: 20px;
     height: 20px;
     font-size: 20px;
-    transform: translate(0, -40%);
+    transform: translate(0, -30%);
     flex-direction: column;
     text-align: center;
     line-height: 40px;
@@ -2983,8 +2983,8 @@ fab-linkedin {
         font-size: 25px;
         font-weight: bold;
 
-        a{
-            &:hover{
+        a {
+            &:hover {
                 color: white !important;
             }
         }
@@ -3290,13 +3290,15 @@ fab-linkedin {
     animation-delay: -0.5s;
 }
 
-[dir=ltr] .boostnowform{
+[dir=ltr] .boostnowform {
     table {
         width: 100%;
-        tr{
+
+        tr {
             padding: 3rem;
-            td{
-                p{
+
+            td {
+                p {
                     width: fit-content;
                     text-align: left;
                 }
@@ -3304,13 +3306,16 @@ fab-linkedin {
         }
     }
 }
-[dir=rtl] .boostnowform{
+
+[dir=rtl] .boostnowform {
     table {
         width: 100%;
-        tr{
+
+        tr {
             padding: 3rem;
-            td{
-                p{
+
+            td {
+                p {
                     width: fit-content;
                     text-align: right;
                 }
@@ -3318,12 +3323,14 @@ fab-linkedin {
         }
     }
 }
-.secondline{
+
+.secondline {
     position: relative;
-    width:134%;
+    width: 134%;
 
     height: auto;
-    .wave{
+
+    .wave {
         max-height: 400px;
         width: 100%;
         stroke-width: 1;
@@ -3331,8 +3338,8 @@ fab-linkedin {
     }
 }
 
-[dir=ltr] .secondline{
-    left:-17%;
+[dir=ltr] .secondline {
+    left: -17%;
 
     -moz-transform: scale(-1, 1);
     -webkit-transform: scale(-1, 1);
@@ -3341,25 +3348,30 @@ fab-linkedin {
     transform: scale(-1, 1);
 }
 
-[dir=rtl] .secondline{
-    right:-17%;
+[dir=rtl] .secondline {
+    right: -17%;
 }
 
-.contactForm{
+.contactForm {
 
-        width:100%;
-        table{
+    width: 100%;
+
+    table {
+        width: 100%;
+
+        tr {
             width: 100%;
-            tr{
-                width: 100%;
-                td{
-                    padding: .5rem;
-                    input,textarea{
-                        width: 100%;
-                    }
+
+            td {
+                padding: .5rem;
+
+                input,
+                textarea {
+                    width: 100%;
                 }
             }
         }
+    }
 
 }
 
@@ -4356,7 +4368,8 @@ $animationSpeed: 20s;
     .desc {
         text-align: justify;
         text-justify: inter-word;
-        ul{
+
+        ul {
             font-weight: 700;
             list-style-type: square;
         }
@@ -4501,11 +4514,11 @@ $animationSpeed: 20s;
 
     }
 
-    h2{
+    h2 {
         margin-left: 5rem;
     }
 
-    h2{
+    h2 {
         margin-left: 5rem;
     }
 }
@@ -4528,22 +4541,26 @@ $animationSpeed: 20s;
         transform: scale(-1, 1);
     }
 
-    h2{
+    h2 {
         margin-right: 5rem;
     }
 }
+
 .pageHeading {
     position: relative;
     margin-top: 7.6rem;
 
     font-size: 4em;
 }
+
 [dir=ltr] .pageHeading {
     padding-left: 6rem;
 }
+
 [dir=rtl] .pageHeading {
     padding-right: 6rem;
 }
+
 .circle {
     position: absolute;
     width: 100%;
@@ -5738,7 +5755,7 @@ button.tablinks .celebration-svg {
 
         }
 
-        h2{
+        h2 {
             font-size: 2vw;
         }
     }

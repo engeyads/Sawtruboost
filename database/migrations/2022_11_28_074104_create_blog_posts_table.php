@@ -21,8 +21,9 @@ return new class extends Migration
             $table->text('title');  // Title of our blog post
             $table->text('body');   // Body of our blog post
             $table->text('user_id'); // user_id of our blog post author
-            $table->text('seo_keywords')->nullable(); // user_id of our blog post author
-            $table->text('seo_description')->nullable(); // user_id of our blog post author
+            $table->text('featured_image'); // featured_image of our blog post author
+            $table->text('seo_keywords')->nullable(); // seo_keywords of our blog post author
+            $table->text('seo_description')->nullable(); // seo_description of our blog post author
 
           /* We stopped adding code here*/
 
