@@ -10,10 +10,10 @@
 
                 <p>{!! $post->body !!}</p>
                 <hr>
-                @can('editpost')
+                @can('edit-blogs')
                     <a href="/blog/{{ $post->id }}/edit" class="btn btn-outline-primary">Edit Post</a>
                 @endcan
-                @can('deletepost')
+                @can('delete-blogs')
                     <br><br>
                     <form id="delete-frm" class="" action="" method="POST">
                         @method('DELETE')

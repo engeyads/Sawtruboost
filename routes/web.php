@@ -7,6 +7,7 @@ use App\Http\Controllers\LangController;
 use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FileUpload;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +40,7 @@ Route::get('/blog/create/post', [BlogPostController::class, 'create']); //shows 
 Route::post('/blog/create/post', [BlogPostController::class, 'store']); //saves the created post to the databse
 Route::get('/blog/{blogPost}/edit', [BlogPostController::class, 'edit']); //shows edit post form
 Route::put('/blog/{blogPost}/edit', [BlogPostController::class, 'update']); //commits edited post to the database
+Route::delete('/dashboard/blogs/{blogPost}', [BlogPostController::class, 'destroy']); //deletes post from the database
 Route::delete('/blog/{blogPost}', [BlogPostController::class, 'destroy']); //deletes post from the database
 
 Auth::routes();
@@ -49,6 +51,7 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', UserController::class, ['except' => ['show']]);
+	Route::resource('blog', BlogPostController::class);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
@@ -57,5 +60,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/dashboard/user', UserController::class);
 
 	Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PagesController@index']);
-	Route::get('dashboard/blogs', ['as' => 'pages.blog.index', 'uses' => 'App\Http\Controllers\PagesController@blog']);
+	Route::get('dashboard/blogs', ['as' => 'page.blog.index', 'uses' => 'App\Http\Controllers\PagesController@blog']);
+    Route::post('/upload-file', [FileUpload::class, 'fileUpload'])->name('fileUpload');
 });

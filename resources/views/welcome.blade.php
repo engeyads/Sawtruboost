@@ -82,12 +82,13 @@
                                     <h1 class='fontBlont font-bold text-custom-gray'>{{ __('messages.TrustedPartners') }}</h1>
                                 </center>
                             </td>
-                            <td><img src={{ URL::asset('images/google.webp') }} width="160px" alt="" /></td>
-                            <td><img src={{ URL::asset('images/meta.webp') }} width="160px" alt="" /></td>
-                            <td><img src={{ URL::asset('images/microsoft.webp') }} width="160px" alt="" /></td>
-                            <td><img src={{ URL::asset('images/wix.webp') }} width="160px" alt="" /></td>
-                            <td><img src={{ URL::asset('images/wordpress.webp') }} width="160px" alt="" /></td>
-                            <td><img src={{ URL::asset('images/shopify.webp') }} width="160px" alt="" /></td>
+                            <td><img src={{ URL::asset('images/google.webp') }} width="160px" alt="google logo" /></td>
+                            <td><img src={{ URL::asset('images/meta.webp') }} width="160px" alt="meta logo" /></td>
+                            <td><img src={{ URL::asset('images/microsoft.webp') }} width="160px" alt="microsoft logo" /></td>
+                            <td><img src={{ URL::asset('images/wix.webp') }} width="160px" alt="wix logo" /></td>
+                            <td><img src={{ URL::asset('images/wordpress.webp') }} width="160px" alt="wordpress logo" /></td>
+                            <td><img src={{ URL::asset('images/shopify.webp') }} width="160px" alt="shopify logo" /></td>
+                            <td><img src={{ URL::asset('images/sortlist.webp') }} width="160px" alt="sortlist logo" /></td>
                         </tr>
                     </table>
                 </div>

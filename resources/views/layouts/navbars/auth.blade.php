@@ -42,8 +42,8 @@
                     </ul>
                 </div>
             </li>
-            <li class="{{ $elementActive == 'blogs' ? 'active' : '' }}">
-                <a href="{{ route('pages.blog.index', 'Blogs') }}">
+            <li class="{{ $elementActive == 'blog' ? 'active' : '' }}">
+                <a href="{{ route('page.blog.index', '') }}">
                     <i class="nc-icon nc-button-play"></i>
                     <p>{{ __('Blogs') }}</p>
                 </a>

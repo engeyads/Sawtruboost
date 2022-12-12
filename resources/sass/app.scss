@@ -4950,6 +4950,9 @@ animation-front {
     }
 }
 
+/*
+**  blog
+*/
 
 
 
@@ -4968,6 +4971,26 @@ animation-front {
 .tabPanel-widget>label {
     position: absolute;
     z-index: 1;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    color: #ffc107 !important;
+}
+
+.pagination > li > a:hover,
+.pagination > li > span:hover{
+    color: #b18604 !important;
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
 }
 
 /**

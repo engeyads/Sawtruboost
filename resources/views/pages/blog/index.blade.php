@@ -9,8 +9,9 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title"> Users</h4>
+                        <h4 class="card-title">Blogs</h4>
                     </div>
+
                     <div class="card-body">
                         <div class="table-responsive">
 
@@ -34,7 +35,7 @@
                                                 <a href="./post/{{ $post->id }}">{{ ucfirst($post->title) }}</a>
                                             </td>
                                             <td>
-                                                <a href="./post/{{ $post->id }}">{{ ucfirst($post->created_at) }}</a>
+                                                {{ ucfirst($post->created_at) }}
                                             </td>
                                             <td>
                                                 <div class='flex'>
@@ -56,8 +57,7 @@
 
                                 </tbody>
                             </table>
-                            {{ $posts->onEachSide(5)->links() }}
-
+                                {{$posts->onEachSide(5)->links("pagination::bootstrap-5")}}
                         </div>
                     </div>
                 </div>

@@ -52,7 +52,7 @@
 
                                 </tbody>
                             </table>
-                            {{ $users->onEachSide(5)->links() }}
+                            {{$users->onEachSide(5)->links("pagination::bootstrap-4")}}
                             @endcan
                         </div>
                     </div>

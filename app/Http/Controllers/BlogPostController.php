@@ -20,7 +20,7 @@ class BlogPostController extends Controller
      */
     public function index()
     {
-        $posts = BlogPost::orderby('created_at','desc')->paginate(5); //fetch all blog posts from DB
+        $posts = BlogPost::orderby('created_at','desc')->paginate(9); //fetch all blog posts from DB
 	    return view('blog.index', [
             'posts' => $posts,
         ]); //returns the view with posts
@@ -33,7 +33,7 @@ class BlogPostController extends Controller
      */
     public function create()
     {
-        return view('blog.create');
+        return view('pages.blog.create');
     }
 
     /**
@@ -74,7 +74,7 @@ class BlogPostController extends Controller
      */
     public function edit(BlogPost $blogPost)
     {
-        return view('blog.edit', [
+        return view('pages.blog.edit', [
             'post' => $blogPost,
             ]); //returns the edit view with the post
     }
@@ -106,6 +106,6 @@ class BlogPostController extends Controller
     {
         $blogPost->delete();
 
-        return redirect('/blog');
+        return redirect('/dashboard/blogs');
     }
 }

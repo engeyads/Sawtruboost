@@ -23,6 +23,27 @@ Licensed under the MIT license - http://opensource.org/licenses/MIT
 Copyright (c) 2015 Daniel Eden
 */
 
+
+.pagination > li > a,
+.pagination > li > span {
+    color: #ffc107 !important;
+}
+
+.pagination > li > a:hover,
+.pagination > li > span:hover{
+    color: #b18604 !important;
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
+}
+
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
