@@ -12,25 +12,39 @@
 
     <!-- Fonts -->
     <a rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="icon" href="{{ URL::asset('favicon.ico') }}" >
+        <link rel="icon" href="{{ URL::asset('favicon.ico') }}">
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XSWQYV6GBT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSWQYV6GBT"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-XSWQYV6GBT');
-</script>
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-N4MVMMS');</script>
-    <!-- End Google Tag Manager -->
+            gtag('config', 'G-XSWQYV6GBT');
+        </script>
+
+        <!-- Google Tag Manager -->
+        <script>
+            (function(w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({
+                    'gtm.start': new Date().getTime(),
+                    event: 'gtm.js'
+                });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-N4MVMMS');
+        </script>
+        <!-- End Google Tag Manager -->
 
         <!-- Scripts -->
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -54,8 +68,8 @@
     {{ \TawkTo::widgetCode() }}
 
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N4MVMMS"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N4MVMMS" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
@@ -63,47 +77,49 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src='https://assets.codepen.io/16327/ScrollTrigger.min.js'></script>
     <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/6396f7e1b0d6371309d3f9e1/1gk2rgi7u';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6396f7e1b0d6371309d3f9e1/1gk2rgi7u';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
     </script>
     <!--End of Tawk.to Script-->
     <script>
         jQuery(function() {
-                    var tl1 = new TimelineMax(),
-                        tl2 = new TimelineMax();
-                    var el1 = jQuery('#rear'),
-                        el2 = jQuery('#front');
+            var tl1 = new TimelineMax(),
+                tl2 = new TimelineMax();
+            var el1 = jQuery('#rear'),
+                el2 = jQuery('#front');
 
-                    function on_el1() {
-                        tl1.to(el1, 40, {
-                            ease: Power0.easeNone,
-                            x: -2600,
-                            repeat: -1
-                        });
-                    }
-
-                    function on_el2() {
-                        tl2.to(el2, 30, {
-                            ease: Power0.easeNone,
-                            x: -2600,
-                            repeat: -1
-                        });
-                    }
-
-                    function start() {
-                        on_el1();
-                        on_el2();
-                    }
-                    start();
+            function on_el1() {
+                tl1.to(el1, 40, {
+                    ease: Power0.easeNone,
+                    x: -2600,
+                    repeat: -1
                 });
+            }
+
+            function on_el2() {
+                tl2.to(el2, 30, {
+                    ease: Power0.easeNone,
+                    x: -2600,
+                    repeat: -1
+                });
+            }
+
+            function start() {
+                on_el1();
+                on_el2();
+            }
+            start();
+        });
     </script>
     @stack('custom-scripts')
 </body>
