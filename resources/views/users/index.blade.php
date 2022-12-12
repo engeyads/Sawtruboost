@@ -36,7 +36,7 @@
                                     @forelse($users as $user)
                                         <tr>
                                             <td>
-                                                <a href="./user/{{ $user->id }}">{{ ucfirst($user->email) }}</a>
+                                                <a href="{{ route('user.show', $user->id) }}">{{ ucfirst($user->email) }}</a>
                                             </td>
                                             <td>
                                                 {{ ucfirst($user->name) }}

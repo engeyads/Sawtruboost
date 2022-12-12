@@ -11,7 +11,7 @@
             @can('create-blogs')
                 <div class="col-4">
                     <p>Create new Post</p>
-                    <a href="/blog/create/post" class="btn btn-primary btn-sm">Add Post</a>
+                    <a href="/dashboard/blog/create" class="btn btn-primary btn-sm">Add Post</a>
                 </div>
             @endcan
             <!-- BLOG POSTS -->

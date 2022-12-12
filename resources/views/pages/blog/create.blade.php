@@ -21,13 +21,13 @@
 
                             <hr>
 
-                            <form action="" method="POST">
+                            <form action="{{route('blog.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="control-group col-12">
                                         <label for="title">Post Featured Image</label>
-                                        <input type="text" id="title" class="form-control" name="title"
-                                               placeholder="Enter Post Title" required>
+                                        <input type="file" id="featured" class="form-control" name="featured"
+                                               placeholder="Enter Post Featured Image" required>
                                     </div>
 
                                     <div class="control-group col-12">

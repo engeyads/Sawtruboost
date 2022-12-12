@@ -32,7 +32,7 @@
                                     @forelse($posts as $post)
                                         <tr>
                                             <td>
-                                                <a href="./post/{{ $post->id }}">{{ ucfirst($post->title) }}</a>
+                                                <a href="{{ route('blog.edit', $post->id) }}">{{ ucfirst($post->title) }}</a>
                                             </td>
                                             <td>
                                                 {{ ucfirst($post->created_at) }}
@@ -41,7 +41,7 @@
                                                 <div class='flex'>
 
                                                         <br><br>
-                                                        <form id="delete-frm" class="" action="" method="POST">
+                                                        <form id="delete-frm" class="" action="{{ route('blog.destroy', $post->id) }}" method="POST">
                                                             @method('DELETE')
                                                             @csrf
                                                             <button class="btn btn-danger">Delete Post</button>

@@ -88,7 +88,7 @@
                             <td><img src={{ URL::asset('images/wix.webp') }} width="160px" alt="wix logo" /></td>
                             <td><img src={{ URL::asset('images/wordpress.webp') }} width="160px" alt="wordpress logo" /></td>
                             <td><img src={{ URL::asset('images/shopify.webp') }} width="160px" alt="shopify logo" /></td>
-                            <td><img src={{ URL::asset('images/sortlist.webp') }} width="160px" alt="sortlist logo" /></td>
+                            <td><img src={{ URL::asset('images/sortlist-silver.webp') }} width="160px" alt="sortlist logo" /></td>
                         </tr>
                     </table>
                 </div>

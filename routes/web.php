@@ -34,14 +34,13 @@ Route::post('/boostnow/newlead', [PagesController::class, 'storelead'])->name('s
 
 Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
 
-Route::get('/blog', [BlogPostController::class, 'index']); // The route we have created to show all blog posts.
-Route::get('/blog/{blogPost}', [BlogPostController::class, 'show']); // The route we have created to show all blog posts.
-Route::get('/blog/create/post', [BlogPostController::class, 'create']); //shows create post form
-Route::post('/blog/create/post', [BlogPostController::class, 'store']); //saves the created post to the databse
-Route::get('/blog/{blogPost}/edit', [BlogPostController::class, 'edit']); //shows edit post form
-Route::put('/blog/{blogPost}/edit', [BlogPostController::class, 'update']); //commits edited post to the database
-Route::delete('/dashboard/blogs/{blogPost}', [BlogPostController::class, 'destroy']); //deletes post from the database
-Route::delete('/blog/{blogPost}', [BlogPostController::class, 'destroy']); //deletes post from the database
+Route::get('/blog', [BlogPostController::class, 'endindex']); // The route we have created to show all blog posts.
+Route::get('/blog/{blogPost}', [BlogPostController::class, 'endshow']); // The route we have created to show all blog posts.
+//Route::get('/blog/create/post', [BlogPostController::class, 'create']); //shows create post form
+//Route::post('/blog/create/post', [BlogPostController::class, 'store']); //saves the created post to the databse
+//Route::get('/blog/{blogPost}/edit', [BlogPostController::class, 'edit']); //shows edit post form
+//Route::put('/blog/{blogPost}/edit', [BlogPostController::class, 'update']); //commits edited post to the database
+//Route::delete('/blog/{blogPost}', [BlogPostController::class, 'destroy']); //deletes post from the database
 
 Auth::routes();
 
@@ -51,15 +50,24 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', UserController::class, ['except' => ['show']]);
-	Route::resource('blog', BlogPostController::class);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 	Route::get('users/create', ['as' => 'user.create', 'uses' => 'App\Http\Controllers\UserController@create']);
+    Route::resource('/dashboard/blog', BlogPostController::class )->parameters([
+        'blog' => 'blogPost'
+    ]);
+    //Route::get('/dashboard/blog', [BlogPostController::class, 'index']);
+    //Route::get('/dashboard/blog/{blogPost}', [BlogPostController::class, 'show']);
+    //Route::get('/dashboard/blog/create', [BlogPostController::class, 'create']);
+    //Route::post('/dashboard/blog/create', [BlogPostController::class, 'store']);
+    //Route::get('/dashboard/blog/{blogPost}/edit', [BlogPostController::class, 'edit']);
+    //Route::put('/dashboard/blog/{blogPost}/edit', [BlogPostController::class, 'update']);
+    //Route::delete('/dashboard/blog/{blogPost}', [BlogPostController::class, 'destroy']);
     Route::resource('/dashboard/roles', RoleController::class);
     Route::resource('/dashboard/user', UserController::class);
 
 	Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PagesController@index']);
-	Route::get('dashboard/blogs', ['as' => 'page.blog.index', 'uses' => 'App\Http\Controllers\PagesController@blog']);
+
     Route::post('/upload-file', [FileUpload::class, 'fileUpload'])->name('fileUpload');
 });

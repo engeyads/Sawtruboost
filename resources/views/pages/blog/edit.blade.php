@@ -1,6 +1,6 @@
 @extends('layouts.dashboard', [
     'class' => '',
-    'elementActive' => 'blog'
+    'elementActive' => 'blog',
 ])
 
 @section('content')
@@ -13,15 +13,15 @@
                     </div>
 
 
-<div class="col-12 pt-2">
-                        <a href="/blog" class="btn btn-outline-primary btn-sm">Go back</a>
+                    <div class="col-12 pt-2">
+                        <a href="{{ route('blog.index') }}" class="btn btn-outline-primary btn-sm">Go back</a>
                         <div class="border rounded mt-5 pl-4 pr-4 pt-4 pb-4">
                             <h1 class="display-4">Edit Post</h1>
                             <p>Edit and submit this form to update a post</p>
 
                             <hr>
 
-                            <form action="" method="POST">
+                            <form action="{{route('blog.update', $post->id)}}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="row">
@@ -52,11 +52,4 @@
 
         </div>
     </div>
-
-
-
-
-
-
-
 @endsection

@@ -10,7 +10,7 @@ class BlogPostController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except(['index','show']);
+        $this->middleware('auth')->except(['endindex','endshow']);
     }
 
     /**
@@ -19,6 +19,19 @@ class BlogPostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+    {
+        $posts = BlogPost::orderby('created_at','desc')->paginate(9); //fetch all blog posts from DB
+	    return view('pages.blog.index', [
+            'posts' => $posts,
+        ]); //returns the view with posts
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function endindex()
     {
         $posts = BlogPost::orderby('created_at','desc')->paginate(9); //fetch all blog posts from DB
 	    return view('blog.index', [
@@ -44,10 +57,12 @@ class BlogPostController extends Controller
      */
     public function store(Request $request)
     {
+        $user_id = auth()->user()->id;
         $newPost = BlogPost::create([
+            'featured' => $request->featured_image,
             'title' => $request->title,
             'body' => $request->body,
-            'user_id' => 1
+            'user_id' => $user_id
         ]);
 
         return redirect('blog/' . $newPost->id);
@@ -60,6 +75,19 @@ class BlogPostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(BlogPost $blogPost)
+    {
+        return view('pages.blog.show', [
+            'post' => $blogPost,
+        ]); //returns the view with the post
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\BlogPost  $blogPost
+     * @return \Illuminate\Http\Response
+     */
+    public function endshow(BlogPost $blogPost)
     {
         return view('blog.show', [
             'post' => $blogPost,
@@ -93,7 +121,7 @@ class BlogPostController extends Controller
             'body' => $request->body
         ]);
 
-        return redirect('blog/' . $blogPost->id);
+        return redirect('/dashboard/blog/' . $blogPost->id);
     }
 
     /**
@@ -106,6 +134,6 @@ class BlogPostController extends Controller
     {
         $blogPost->delete();
 
-        return redirect('/dashboard/blogs');
+        return redirect('/dashboard/blog');
     }
 }
