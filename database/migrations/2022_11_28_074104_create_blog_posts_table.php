@@ -15,19 +15,15 @@ return new class extends Migration
     {
         Schema::create('blog_posts', function (Blueprint $table) {
             $table->id();
-
-          /* We started adding code here*/
-
             $table->text('title');  // Title of our blog post
             $table->text('body');   // Body of our blog post
-            $table->text('user_id'); // user_id of our blog post author
+            $table->unsignedBigInteger('uid')->nullable(); // user_id of our blog post author
             $table->text('featured_image')->nullable(); // featured_image of our blog post author
             $table->text('seo_keywords')->nullable(); // seo_keywords of our blog post author
             $table->text('seo_description')->nullable(); // seo_description of our blog post author
-
-          /* We stopped adding code here*/
-
             $table->timestamps();
+
+            $table->foreign('uid')->references('id')->on('users')->onDelete('SET NULL')->onUpdate('cascade');
         });
     }
 

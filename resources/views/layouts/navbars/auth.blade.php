@@ -31,7 +31,7 @@
                         </li>
                         @can('list-users')
                         <li class="{{ $elementActive == 'user' ? 'active' : '' }}">
-                            <a href="{{ route('page.index', 'user') }}">
+                            <a href="{{ route('user.index', 'user') }}">
                                 <i class='nc-icon nc-single-02'></i>
                                 <p class="">{{ __(' User Management ') }}</p>
                             </a>

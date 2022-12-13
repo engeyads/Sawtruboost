@@ -1,6 +1,6 @@
 @extends('layouts.dashboard', [
     'class' => '',
-    'elementActive' => 'blog'
+    'elementActive' => 'blog',
 ])
 
 @section('content')
@@ -9,7 +9,17 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Blogs</h4>
+
+                        <div class="row">
+                            <div class="col-lg-12 margin-tb">
+                                <div class="pull-left">
+                                    <h2>Blogs</h2>
+                                </div>
+                                <div class="pull-right">
+                                    <a class="btn btn-primary" href="{{ route('blog.create', '') }}"> Create Blog</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="card-body">
@@ -39,14 +49,12 @@
                                             </td>
                                             <td>
                                                 <div class='flex'>
-
-                                                        <br><br>
-                                                        <form id="delete-frm" class="" action="{{ route('blog.destroy', $post->id) }}" method="POST">
-                                                            @method('DELETE')
-                                                            @csrf
-                                                            <button class="btn btn-danger">Delete Post</button>
-                                                        </form>
-
+                                                    <form id="delete-frm" class=""
+                                                        action="{{ route('blog.destroy', $post->id) }}" method="POST">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <button class="btn btn-outline-danger">Delete Post</button>
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>
@@ -57,7 +65,7 @@
 
                                 </tbody>
                             </table>
-                                {{$posts->onEachSide(5)->links("pagination::bootstrap-5")}}
+                            {{ $posts->onEachSide(5)->links('pagination::bootstrap-5') }}
                         </div>
                     </div>
                 </div>

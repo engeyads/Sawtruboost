@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-
+use App\Models\userProfiles;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
@@ -54,6 +54,10 @@ class UserController extends Controller
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
 
+        $userProfile = userProfiles::create([
+            'uid' => $user->id,
+        ]);
+
         return redirect()->route('user.index')
                         ->with('success','User created successfully');
     }
@@ -68,5 +72,18 @@ class UserController extends Controller
     {
         $user = User::find($id);
         return view('user.show',compact('user'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        User::find($id)->delete();
+        return redirect()->route('user.index')
+                        ->with('success','User deleted successfully');
     }
 }

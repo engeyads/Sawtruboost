@@ -56,6 +56,12 @@ return [
             'throw' => false,
         ],
 
+        'uploads' => [
+            'driver' => 'local',
+            'root' => 'uploads',
+            'url' => 'uploads',
+          ],
+
     ],
 
     /*

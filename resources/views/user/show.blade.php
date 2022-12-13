@@ -1,6 +1,6 @@
 @extends('layouts.dashboard', [
     'class' => '',
-    'elementActive' => 'profile'
+    'elementActive' => 'user'
 ])
 
 @section('content')
@@ -19,17 +19,17 @@
             <div class="col-md-4">
                 <div class="card card-user">
                     <div class="image">
-                        <img src="{{ asset('paper/img/damir-bosnjak.jpg') }}" alt="...">
+                        <img src="{{ $user->userProfile->bgphoto == '' ? asset('profiles/bgphoto/default-bgphoto.jpg') : asset('profiles/bgphoto').'/'.$user->userProfile->bgphoto }}" alt="...">
                     </div>
                     <div class="card-body">
                         <div class="author">
                             <a href="#">
-                                <img class="avatar border-gray" src="{{ asset('paper/img/mike.jpg') }}" alt="...">
+                                <img class="avatar border-gray" src="{{ $user->userProfile->photo == '' ? asset('profiles/default-avatar.png') : asset('profiles').'/'.$user->userProfile->photo }}" alt="...">
 
-                                <h5 class="title">{{ __(auth()->user()->name)}}</h5>
+                                <h5 class="title">{{ __($user->name)}}</h5>
                             </a>
                             <p class="description">
-                            @ {{ __(auth()->user()->name)}}
+                            @ {{ __($user->name) }}
                             </p>
                         </div>
                         <p class="description text-center">

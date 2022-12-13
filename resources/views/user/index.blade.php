@@ -9,14 +9,22 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title"> Users</h4>
-                    </div>
-                    <div class="card-body">
-                        @can('create-users')
-                        <div>
-                            <button onclick="location.href = '{{ route('user.create') }}'">Add User</button>
+
+                        <div class="row">
+                            <div class="col-lg-12 margin-tb">
+                                <div class="pull-left">
+                                    <h2>Users</h2>
+                                </div>
+                                @can('create-users')
+                                    <div class="pull-right">
+                                        <a class="btn btn-primary" href="{{ route('user.create', '') }}"> Add User</a>
+                                    </div>
+                                @endcan
+                            </div>
                         </div>
-                        @endcan
+                            </div>
+                    <div class="card-body">
+
                         <div class="table-responsive">
                             @can('list-users')
 
@@ -43,6 +51,19 @@
                                             </td>
                                             <td>
                                                 {{ ucfirst($user->email) }}
+                                            </td>
+                                            <td>
+                                                @can('delete-users')
+                                                    @if ($user->id != __(auth()->user()->id) && $user->id != 1)
+                                                    <div class='flex'>
+                                                        <form id="delete-frm" class="" action="{{ route('user.destroy', $user->id) }}" method="POST">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button class="btn btn-outline-danger">Delete User</button>
+                                                        </form>
+                                                    </div>
+                                                    @endif
+                                                @endcan
                                             </td>
                                         </tr>
                                     @empty

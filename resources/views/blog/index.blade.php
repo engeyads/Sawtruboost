@@ -27,20 +27,25 @@
                             <a href="./blog/{{ $post->id }}"
                                 class="a card-meta-tagList-item">
                             <img class="card-img"
-                                src={{ URL::asset('images/top-view-man-doing-online-shopping-his-laptop.webp') }}
+                                src="{{ URL::asset('postimages').'/'.$post->featured_image }}"
                                 alt="Card image" />
-                            <div class="card-img-overlay overflow-hidden">
-                                <div class="d-flex align-items-center">
-                                    <span
-                                        class="bg-danger-gradiant badge overflow-hidden text-white px-3 py-1 font-weight-normal">Admin</span>
-                                    <div class="ml-2">
-                                        <span class="ml-2">Nov 18, 2022</span>
-                                    </div>
-                                </div>
-                                <h5 class="card-title my-3 font-weight-normal">{{ ucfirst($post->title) }}</h5>
-                                {{-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...</p> --}}
-                            </div>
+
                             </a>
+                        </div>
+                        <div class=" overflow-hidden">
+                            <div class="d-flex align-items-center">
+                                <span
+                                    class="bg-danger-gradiant badge overflow-hidden text-white px-3 py-1 font-weight-normal">{{ $post->author->name }}</span>
+                                <div class="ml-2">
+                                    <span class="ml-2">{{ date('d-m-Y', strtotime($post->created_at))  }}</span>
+                                </div>
+                            </div>
+                            <h5 class="card-title my-3 font-weight-normal">{{ ucfirst($post->title) }}</h5>
+                            @if (strlen($post->body) > 30)
+                                <p class="card-text">{{ substr(ucfirst($post->body), 0, 30); }} ...</p>
+                            @else
+                                <p class="card-text">{{ substr("", 0, 10); }} ...</p>
+                            @endif
                         </div>
                     </div>
 

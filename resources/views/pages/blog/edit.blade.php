@@ -21,10 +21,17 @@
 
                             <hr>
 
-                            <form action="{{route('blog.update', $post->id)}}" method="POST">
+                            <form action="{{ route('blog.update', $post->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="row">
+                                    <img src="{{ $post->featured_image == '' ? '' : asset('postimages').'/'.$post->featured_image }}" width='300' alt="featured">
+                                    <div class="control-group col-12">
+                                        <label for="title">Post Featured Image</label>
+                                        <input type="file" id="featured" class="form-control" name="featured"
+                                               placeholder="Enter Post Featured Image" required>
+                                    </div>
+
                                     <div class="control-group col-12">
                                         <label for="title">Post Title</label>
                                         <input type="text" id="title" class="form-control" name="title"

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BlogPost;
 use Illuminate\Http\Request;
-
+use App\Models\BlogPost;
+use App\Models\PostImage;
+use Storage;
+use Image;
 class BlogPostController extends Controller
 {
 
@@ -20,7 +22,7 @@ class BlogPostController extends Controller
      */
     public function index()
     {
-        $posts = BlogPost::orderby('created_at','desc')->paginate(9); //fetch all blog posts from DB
+        $posts = BlogPost::with('post_images')->orderby('created_at','desc')->paginate(9); //fetch all blog posts from DB
 	    return view('pages.blog.index', [
             'posts' => $posts,
         ]); //returns the view with posts
@@ -33,7 +35,7 @@ class BlogPostController extends Controller
      */
     public function endindex()
     {
-        $posts = BlogPost::orderby('created_at','desc')->paginate(9); //fetch all blog posts from DB
+        $posts = BlogPost::with('post_images')->orderby('created_at','desc')->paginate(9); //fetch all blog posts from DB
 	    return view('blog.index', [
             'posts' => $posts,
         ]); //returns the view with posts
@@ -58,12 +60,32 @@ class BlogPostController extends Controller
     public function store(Request $request)
     {
         $user_id = auth()->user()->id;
+
+        $image = $request->featured;
+        $filename = $image->getClientOriginalName();
+        Image::make($image->getRealPath())->save('postimages/' . $filename);
+
+        $title = $request->title;
+        $body = $request->body;
+        //$images = $request->images;
+
         $newPost = BlogPost::create([
-            'featured' => $request->featured_image,
-            'title' => $request->title,
-            'body' => $request->body,
-            'user_id' => $user_id
+            'featured_image' => $filename,
+            'title' => $title,
+            'body' => $body,
+            'uid' => $user_id
         ]);
+
+        /*
+        foreach($images as $image){
+            $imagePath = Storage::disk('uploads')->put($user->email . '/posts/' .$post->id, $image);
+            PostImage::create([
+                'post_image_caption' => $title,
+                'post_image_path' => $imagePath,
+                'post_id' => $title,
+            ]);
+        }
+        */
 
         return redirect('blog/' . $newPost->id);
     }

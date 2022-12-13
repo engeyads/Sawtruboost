@@ -19,12 +19,12 @@
             <div class="col-md-4">
                 <div class="card card-user">
                     <div class="image">
-                        <img src="{{ asset('paper/img/damir-bosnjak.jpg') }}" alt="...">
+                        <img src="{{ __(auth()->user()->bgphoto) == '' ? asset('profiles/bgphoto/default-bgphoto.jpg') : asset('profiles/bgphoto').'/'.__(auth()->user()->bgphoto) }}" alt="...">
                     </div>
                     <div class="card-body">
                         <div class="author">
                             <a href="#">
-                                <img class="avatar border-gray" src="{{ asset('paper/img/mike.jpg') }}" alt="...">
+                                <img class="avatar border-gray" src="{{ __(auth()->user()->userProfile->photo) == '' ? URL::asset('profiles/default-avatar.png') : URL::asset('profiles'). '/'.__(auth()->user()->userProfile->photo) }}" alt="...">
 
                                 <h5 class="title">{{ __(auth()->user()->name)}}</h5>
                             </a>

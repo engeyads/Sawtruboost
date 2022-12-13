@@ -9,5 +9,14 @@ class BlogPost extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'body', 'user_id','seo_keywords','seo_description'];
+    protected $fillable = ['title', 'featured_image', 'body', 'uid','seo_keywords','seo_description'];
+
+    function author(){
+        return $this->belongsTo(User::class, 'uid', 'id');
+    }
+
+    public function post_images()
+    {
+        return $this->hasMany(PostImage::class,'post_id','id');
+    }
 }
