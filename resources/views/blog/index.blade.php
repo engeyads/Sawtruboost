@@ -3,61 +3,39 @@
 @section('content')
     <section class='w-full second'>
 
-            <!-- SEARCH SECTION -->
-            <section id="search">
-                <h2 id="blogPost-header">Recent Blog Posts</h2>
-                <input type="text" id="blogSearch" placeholder="What sounds yummy today?">
-            </section>
-            @can('create-blogs')
-                <div class="col-4">
-                    <p>Create new Post</p>
-                    <a href="/dashboard/blog/create" class="btn btn-primary btn-sm">Add Post</a>
-                </div>
-            @endcan
-            <!-- BLOG POSTS -->
-            <section class="blog-posts">
-                <div class="card-container">
-                    <div class="blog-home5 py-5">
-                        <div class="row mt-4">
-                    <!-- CARD -->
-                    @forelse($posts as $post)
+        <!-- SEARCH SECTION -->
+        <section id="search">
+            <h2 id="blogPost-header">Recent Blog Posts</h2>
+            <input type="text" id="blogSearch" placeholder="What sounds yummy today?">
+        </section>
+        @can('create-blogs')
+            <div class="col-4">
+                <p>Create new Post</p>
+                <a href="/dashboard/blog/create" class="btn btn-primary btn-sm">Add Post</a>
+            </div>
+        @endcan
+        <!-- BLOG POSTS -->
+        <section class="blog-posts ">
+            <div class="card-container">
+                <div class="blog-home5 py-5">
+                    <div id='data-wrapper' class="row mt-4">
 
-                    <div class="col-md-4">
-                        <div class="card b-h-box position-relative font-14 border-0 mb-4">
-                            <a href="./blog/{{ $post->id }}"
-                                class="a card-meta-tagList-item">
-                            <img class="card-img"
-                                src="{{ URL::asset('postimages').'/'.$post->featured_image }}"
-                                alt="Card image" />
-
-                            </a>
-                        </div>
-                        <div class=" overflow-hidden">
-                            <div class="d-flex align-items-center">
-                                <span
-                                    class="bg-danger-gradiant badge overflow-hidden text-white px-3 py-1 font-weight-normal">{{ $post->author->name }}</span>
-                                <div class="ml-2">
-                                    <span class="ml-2">{{ date('d-m-Y', strtotime($post->created_at))  }}</span>
-                                </div>
-                            </div>
-                            <h5 class="card-title my-3 font-weight-normal">{{ ucfirst($post->title) }}</h5>
-                            @if (strlen($post->body) > 30)
-                                <p class="card-text">{{ substr(ucfirst($post->body), 0, 30); }} ...</p>
-                            @else
-                                <p class="card-text">{{ substr("", 0, 10); }} ...</p>
-                            @endif
-                        </div>
                     </div>
-
-                    @empty
-                        <p class="text-warning">No blog Posts available</p>
-                    @endforelse
-                        </div>
+                    <div class="auto-load text-center">
+                        <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            x="0px" y="0px" height="60" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+                            <path fill="#000"
+                                d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                                <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s"
+                                    from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+                            </path>
+                        </svg>
                     </div>
-                    {{ $posts->onEachSide(5)->links() }}
-
                 </div>
-            </section>
+
+
+            </div>
+        </section>
 
 
     </section>
@@ -70,24 +48,46 @@
 
             function filterPosts() {
                 let filterValue = blogSearch.value.toLowerCase();
-                const posts = document.querySelectorAll(".card").forEach(post => {
+                const posts = document.querySelectorAll(".articles").forEach(post => {
                     post.innerText.toLowerCase().indexOf(filterValue) >
                         -1 ? post.style.display = '' : post.style.display = 'none';
                 })
             }
-            // intersection observer
-            const header = document.querySelector(".hero");
-            const mainNav = document.querySelector(".mainNav");
 
-            const navObsCallback = (e) => {
-                !e[0].isIntersecting ? mainNav.classList.add("applyBackground") : mainNav.classList.remove(
-                    "applyBackground");
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            var ENDPOINT = "{{ url('/') }}";
+            var page = 1;
+            infinteLoadMore(page);
+            $(window).scroll(function() {
+                if ($(window).scrollTop() + $(window).height() >= $(document).height()-$('footer').height()) {
+                    page++;
+                    infinteLoadMore(page);
+                }
+            });
+
+            function infinteLoadMore(page) {
+                $.ajax({
+                        url: ENDPOINT + "/blog?page=" + page,
+                        datatype: "html",
+                        type: "get",
+                        beforeSend: function() {
+                            $('.auto-load').show();
+                        }
+                    })
+                    .done(function(response) {
+                        if (response.length == 0) {
+                            $('.auto-load').html("Thank you for checking out our blog. Thats it :)");
+                            return;
+                        }
+                        $('.auto-load').hide();
+                        $("#data-wrapper").append(response);
+                    })
+                    .fail(function(jqXHR, ajaxOptions, thrownError) {
+                        console.log('Server error occured');
+                    });
             }
-            const navObsOptions = {}
-
-            const navObs = new IntersectionObserver(navObsCallback, navObsOptions);
-
-            navObs.observe(header);
         </script>
     @endpush
 @endsection

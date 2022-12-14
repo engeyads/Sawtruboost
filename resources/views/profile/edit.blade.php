@@ -1,6 +1,6 @@
 @extends('layouts.dashboard', [
     'class' => '',
-    'elementActive' => 'profile'
+    'elementActive' => 'profile',
 ])
 
 @section('content')
@@ -19,17 +19,27 @@
             <div class="col-md-4">
                 <div class="card card-user">
                     <div class="image">
-                        <img src="{{ __(auth()->user()->bgphoto) == '' ? asset('profiles/bgphoto/default-bgphoto.jpg') : asset('profiles/bgphoto').'/'.__(auth()->user()->bgphoto) }}" alt="...">
+                        <img src="{{ __(auth()->user()->bgphoto) == '' ? asset('profiles/bgphoto/default-bgphoto.jpg') : asset('profiles/bgphoto') . '/' . __(auth()->user()->bgphoto) }}"
+                            alt="...">
                     </div>
                     <div class="card-body">
                         <div class="author">
+                            <div class="avatar-upload">
+                                <div class="avatar-edit">
+                                    <input type='file' id="imageUpload" name='profile' accept=".png, .jpg, .jpeg" />
+                                    <label for="imageUpload"></label>
+                                </div>
+                                <div class="avatar-preview">
+                                    <div id="imagePreview"
+                                        style="background-image: url('{{ __(auth()->user()->userProfile->photo) == '' ? URL::asset('profiles/default-avatar.png') : URL::asset('profiles') . '/' . __(auth()->user()->userProfile->photo) }}');">
+                                    </div>
+                                </div>
+                            </div>
                             <a href="#">
-                                <img class="avatar border-gray" src="{{ __(auth()->user()->userProfile->photo) == '' ? URL::asset('profiles/default-avatar.png') : URL::asset('profiles'). '/'.__(auth()->user()->userProfile->photo) }}" alt="...">
-
-                                <h5 class="title">{{ __(auth()->user()->name)}}</h5>
+                                <h5 class="title">{{ __(auth()->user()->name) }}</h5>
                             </a>
                             <p class="description">
-                            @ {{ __(auth()->user()->name)}}
+                                @ {{ __(auth()->user()->name) }}
                             </p>
                         </div>
                         <p class="description text-center">
@@ -74,8 +84,8 @@
                                 <div class="row">
                                     <div class="col-md-2 col-2">
                                         <div class="avatar">
-                                            <img src="{{ asset('paper/img/faces/ayo-ogunseinde-2.jpg') }}" alt="Circle Image"
-                                                class="img-circle img-no-padding img-responsive">
+                                            <img src="{{ asset('paper/img/faces/ayo-ogunseinde-2.jpg') }}"
+                                                alt="Circle Image" class="img-circle img-no-padding img-responsive">
                                         </div>
                                     </div>
                                     <div class="col-md-7 col-7">
@@ -100,7 +110,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-7 col-7">
-                                            {{ __('Creative Tim') }}
+                                        {{ __('Creative Tim') }}
                                         <br />
                                         <span class="text-success">
                                             <small>{{ __('Available') }}</small>
@@ -116,8 +126,8 @@
                                 <div class="row">
                                     <div class="col-md-2 col-2">
                                         <div class="avatar">
-                                            <img src="{{ asset('paper/img/faces/clem-onojeghuo-2.jpg') }}" alt="Circle Image"
-                                                class="img-circle img-no-padding img-responsive">
+                                            <img src="{{ asset('paper/img/faces/clem-onojeghuo-2.jpg') }}"
+                                                alt="Circle Image" class="img-circle img-no-padding img-responsive">
                                         </div>
                                     </div>
                                     <div class="col-ms-7 col-7">
@@ -138,7 +148,8 @@
                 </div>
             </div>
             <div class="col-md-8 text-center">
-                <form class="col-md-12" action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
+                <form class="col-md-12" action="{{ route('profile.update') }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="card">
@@ -150,7 +161,8 @@
                                 <label class="col-md-3 col-form-label">{{ __('Name') }}</label>
                                 <div class="col-md-9">
                                     <div class="form-group">
-                                        <input type="text" name="name" class="form-control" placeholder="Name" value="{{ auth()->user()->name }}" required>
+                                        <input type="text" name="name" class="form-control" placeholder="Name"
+                                            value="{{ auth()->user()->name }}" required>
                                     </div>
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
@@ -163,7 +175,8 @@
                                 <label class="col-md-3 col-form-label">{{ __('Email') }}</label>
                                 <div class="col-md-9">
                                     <div class="form-group">
-                                        <input type="email" name="email" class="form-control" placeholder="Email" value="{{ auth()->user()->email }}" required>
+                                        <input type="email" name="email" class="form-control" placeholder="Email"
+                                            value="{{ auth()->user()->email }}" required>
                                     </div>
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
@@ -176,7 +189,8 @@
                         <div class="card-footer ">
                             <div class="row">
                                 <div class="col-md-12 text-center">
-                                    <button type="submit" class="btn btn-info btn-round">{{ __('Save Changes') }}</button>
+                                    <button type="submit"
+                                        class="btn btn-info btn-round">{{ __('Save Changes') }}</button>
                                 </div>
                             </div>
                         </div>
@@ -194,7 +208,8 @@
                                 <label class="col-md-3 col-form-label">{{ __('Old Password') }}</label>
                                 <div class="col-md-9">
                                     <div class="form-group">
-                                        <input type="password" name="old_password" class="form-control" placeholder="Old password" required>
+                                        <input type="password" name="old_password" class="form-control"
+                                            placeholder="Old password" required>
                                     </div>
                                     @if ($errors->has('old_password'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
@@ -207,7 +222,8 @@
                                 <label class="col-md-3 col-form-label">{{ __('New Password') }}</label>
                                 <div class="col-md-9">
                                     <div class="form-group">
-                                        <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                        <input type="password" name="password" class="form-control"
+                                            placeholder="Password" required>
                                     </div>
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
@@ -220,7 +236,8 @@
                                 <label class="col-md-3 col-form-label">{{ __('Password Confirmation') }}</label>
                                 <div class="col-md-9">
                                     <div class="form-group">
-                                        <input type="password" name="password_confirmation" class="form-control" placeholder="Password Confirmation" required>
+                                        <input type="password" name="password_confirmation" class="form-control"
+                                            placeholder="Password Confirmation" required>
                                     </div>
                                     @if ($errors->has('password_confirmation'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
@@ -233,7 +250,8 @@
                         <div class="card-footer ">
                             <div class="row">
                                 <div class="col-md-12 text-center">
-                                    <button type="submit" class="btn btn-info btn-round">{{ __('Save Changes') }}</button>
+                                    <button type="submit"
+                                        class="btn btn-info btn-round">{{ __('Save Changes') }}</button>
                                 </div>
                             </div>
                         </div>
@@ -242,4 +260,37 @@
             </div>
         </div>
     </div>
+    @push('scripts')
+        <script>
+            $('#imageUpload').on('change', function() {
+                if ($(this).val() != '') {
+
+                    let fd = new FormData();
+                    fd.append('profile', $(this).get(0).files[0]);
+
+                    console.log(fd.values());
+                    $.ajax({
+                        url: "{{ route('profile.photo') }}",
+                        headers: {
+                            'X-CSRF-Token': '{{ csrf_token() }}',
+                        },
+                        data: fd,
+                        processData: false,
+                        contentType: false,
+                        type: 'POST',
+                        dataType: 'json',
+                        success: (response) => {
+                            if (response) {
+                                this.reset();
+                                alert('File has been uploaded successfully');
+                            }
+                        },
+                        error: function(response) {
+                            console.log(response.responseJSON.message);
+                        }
+                    });
+                }
+            });
+        </script>
+    @endpush
 @endsection

@@ -3,8 +3,13 @@
 <section class='w-full second'>
     <div>
     <div class="container">
-        <div class="row">
+
             <div class="col-12 pt-2">
+                <div class=" b-h-box position-relative font-14 border-0 mb-4">
+                    <img class="card-img-inside"
+                        src="{{ $post->featured_image == '' ? URL::asset('postimages/default-blog.jpg') : URL::asset('postimages').'/'.$post->featured_image }}"
+                        alt="post image" />
+                </div>
                 <a href="/blog" class="btn btn-outline-primary btn-sm">Go back</a>
                 <h1 class="display-one">{{ ucfirst($post->title) }}</h1>
 
@@ -23,7 +28,7 @@
                 @endcan
             </div>
         </div>
-    </div>
+
     </div>
 </section>
 @endsection

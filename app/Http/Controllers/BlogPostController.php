@@ -33,10 +33,40 @@ class BlogPostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function endindex()
+    public function endindex(Request $request)
     {
-        $posts = BlogPost::with('post_images')->orderby('created_at','desc')->paginate(9); //fetch all blog posts from DB
-	    return view('blog.index', [
+        $posts = BlogPost::with('post_images')->orderby('created_at','desc')->paginate(4); //fetch all blog posts from DB
+        $artilces = '';
+        if ($request->ajax()) {
+            foreach ($posts as $result) {
+                $artilces.='
+                <div class="col-md-6">
+                    <div class="card b-h-box position-relative font-14 border-0 mb-4">
+                        <a href="./blog/'. $result->id .'" class="a card-meta-tagList-item">
+                            <img class="card-img"
+                                src="'. ($result->featured_image == "" ? '/postimages/default-blog.jpg' : '/postimages/' . $result->featured_image ).
+                                '" alt="Card image" />
+
+                        </a>
+                    </div>
+                    <div class=" overflow-hidden">
+                        <div class="d-flex align-items-center">
+                            <span
+                                class="bg-danger-gradiant badge overflow-hidden text-white px-3 py-1 font-weight-normal">'. $result->author->name .'</span>
+                            <div class="ml-2">
+                                <span class="ml-2">'. date('d-m-Y', strtotime($result->created_at)) .'</span>
+                            </div>
+                        </div>
+                        <h5 class="card-title my-3 font-weight-normal">'. ucfirst($result->title) .'</h5>'.
+                        (strlen($result->body) > 30 ? '<p class="card-text">'. substr(ucfirst($result->body), 0, 30)  .'...</p>' : '<p class="card-text">'. substr('', 0, 10) .' ...</p>').
+                    '</div>
+                </div>
+                ';
+            }
+            return $artilces;
+        }
+
+        return view('blog.index', [
             'posts' => $posts,
         ]); //returns the view with posts
     }
