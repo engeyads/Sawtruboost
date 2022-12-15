@@ -31,6 +31,7 @@ class BlogPostController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function endindex(Request $request)
@@ -40,7 +41,7 @@ class BlogPostController extends Controller
         if ($request->ajax()) {
             foreach ($posts as $result) {
                 $artilces.='
-                <div class="col-md-6">
+                <div class="col-md-6 pb-8">
                     <div class="card b-h-box position-relative font-14 border-0 mb-4">
                         <a href="./blog/'. $result->id .'" class="a card-meta-tagList-item">
                             <img class="card-img"
@@ -141,12 +142,25 @@ class BlogPostController extends Controller
      */
     public function endshow(BlogPost $blogPost)
     {
+        $next = $blogPost->id;
+		$prev = $blogPost->id;
+        if(BlogPost::where('id', '>', $blogPost->id)->min('id')){
+            $next = BlogPost::where('id', '>', $blogPost->id)->min('id');
+        }elseif(BlogPost::where('id', '<', $blogPost->id)->min('id')){
+            $next = BlogPost::where('id', '<', $blogPost->id)->min('id');
+        }
 
-        $next = BlogPost::where('id', '>', $blogPost->id)->min('id');
+        if(BlogPost::where('id', '<', $blogPost->id)->max('id')){
+            $prev = BlogPost::where('id', '<', $blogPost->id)->max('id');
+        }elseif(BlogPost::where('id', '>', $blogPost->id)->max('id')){
+            $prev = BlogPost::where('id', '>', $blogPost->id)->max('id');
+        }
+
         return view('blog.show', [
             'post' => $blogPost,
-            'next' => $next
-        ]); //returns the view with the post
+            'next' => $next,
+            'prev' => $prev
+        ]);
     }
 
     /**

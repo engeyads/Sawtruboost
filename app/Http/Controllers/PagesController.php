@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\BlogPost;
 use App\Models\Leads;
 use Illuminate\Http\Request;
-
+use App\Models\userProfiles;
 class PagesController extends Controller
 {
 
@@ -74,6 +74,10 @@ class PagesController extends Controller
             'service' => $request->service,
             'website' => $request->website,
             'msg' => $request->msg,
+        ]);
+
+        $userProfile = userProfiles::create([
+            'lid' => $newPost->id,
         ]);
 
         return redirect()->back();

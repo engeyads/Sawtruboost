@@ -24,4 +24,14 @@ class Leads extends Model
         'website',
         'msg',
     ];
+
+    public function userProfile()
+    {
+        return $this->hasOne(userProfiles::class,'lid','id');
+    }
+
+    public function Deals()
+    {
+        return $this->hasMany(Deals::class,'lid','id');
+    }
 }

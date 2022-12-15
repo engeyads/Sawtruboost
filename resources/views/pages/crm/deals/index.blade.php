@@ -1,6 +1,6 @@
 @extends('layouts.dashboard', [
     'class' => '',
-    'elementActive' => 'blog',
+    'elementActive' => 'deals',
 ])
 
 @section('content')
@@ -13,10 +13,10 @@
                         <div class="row">
                             <div class="col-lg-12 margin-tb">
                                 <div class="pull-left">
-                                    <h2>Blogs</h2>
+                                    <h2>Deals</h2>
                                 </div>
                                 <div class="pull-right">
-                                    <a class="btn btn-primary" href="{{ route('blog.create', '') }}"> Create Blog</a>
+                                    <a class="btn btn-primary" href="{{ route('deals.create', '') }}"> add new Lead</a>
                                 </div>
                             </div>
                         </div>
@@ -29,49 +29,48 @@
                             <table class="table">
                                 <thead class=" text-primary">
                                     <th>
-                                        Title
+                                        name
                                     </th>
                                     <th>
-                                        by
-                                    </th>
-                                    <th>
-                                        Created At
-                                    </th>
-                                    <th>
-
+                                        message
                                     </th>
                                 </thead>
                                 <tbody>
-                                    @forelse($posts as $post)
+                                    @forelse($deals as $deal)
                                         <tr>
                                             <td>
-                                                <a href="{{ route('blog.edit', $post->id) }}">{{ ucfirst($post->title) }}</a>
+                                                {{--<a href="{{ route('lead.edit', $lead->id) }}">--}}{{ ucfirst($deal->lead->name) }}{{--</a>--}}
                                             </td>
                                             <td>
-                                                {{ ucfirst($post->author->name) }}
-                                            </td>
-                                            <td>
-                                                {{ ucfirst($post->created_at) }}
+                                                {{ ucfirst($deal->lead->message) }}
                                             </td>
                                             <td>
                                                 <div class='flex'>
                                                     <form id="delete-frm" class=""
-                                                        action="{{ route('blog.destroy', $post->id) }}" method="POST">
+                                                        action="{{ route('deals.destroy', $deal->id) }}" method="POST">
                                                         @method('DELETE')
                                                         @csrf
-                                                        <button class="btn btn-outline-danger">Delete Post</button>
+                                                        <button class="btn btn-outline-danger">Delete Record</button>
                                                     </form>
+                                                </div>
+                                                <div class='flex'>
+                                                    <select name="success" id="success">
+                                                        <option >is Success?</option>
+                                                        <option value="1">Successful</option>
+                                                        <option value="2">in Progress</option>
+                                                        <option value="0">Lost Deal</option>
+                                                    </select>
                                                 </div>
                                             </td>
                                         </tr>
                                     @empty
-                                        <p class="text-warning">No posts available</p>
+                                        <p class="text-warning">No deals available</p>
                                     @endforelse
 
 
                                 </tbody>
                             </table>
-                            {{ $posts->onEachSide(5)->links('pagination::bootstrap-5') }}
+                            {{ $deals->onEachSide(5)->links('pagination::bootstrap-5') }}
                         </div>
                     </div>
                 </div>

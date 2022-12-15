@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('uid');
+            $table->unsignedBigInteger('uid')->nullable();
+            $table->unsignedBigInteger('lid')->nullable();
             $table->string('tag')->nullable();
             $table->string('title')->nullable();
             $table->string('fname')->nullable();
@@ -42,6 +43,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('uid')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('lid')->references('id')->on('leads')->onDelete('cascade')->onUpdate('cascade');
         });
 
     }

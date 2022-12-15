@@ -78,7 +78,7 @@
                     })
                     .done(function(response) {
                         if (response.length == 0) {
-                            $('.auto-load').html("Thank you for checking out our blog. Thats it :)");
+                            $('.auto-load').html("<p class='p-12'>Thank you for checking out our blog. Thats it :)</p>");
                             return;
                         }
                         $('.auto-load').hide();

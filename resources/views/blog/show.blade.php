@@ -7,10 +7,11 @@
             <div class="col-12 pt-2">
                 <div class='w-full row p-12'>
                     <div class='absolute left-0'>
-                        <a href="/blog" class="btn btn-primary btn-sm"><i class="fa-solid fa-arrow-left"></i> back</a>
+                        <a href="/blog" class="btn btn-warning btn-sm"><i class="fa-solid fa-arrow-left"></i> Back</a>
                     </div>
                     <div class='absolute right-0'>
-                        <a href="{{ route('blog.endshow',$next) }}" class="btn btn-primary btn-sm">Next <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="{{ route('blog.endshow',$prev) }}" class="btn btn-warning btn-sm"><i class="fa-solid fa-arrow-left"></i> Prevous</a>
+                        <a href="{{ route('blog.endshow',$next) }}" class="btn btn-warning btn-sm">Next <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class=" b-h-box position-relative font-14 border-0 mb-4">
@@ -22,7 +23,7 @@
 
                 <div class='pt-12'>
 
-                    <p>{{ $post->body }}</p>
+                    {!! nl2br($post->body) !!}
                 </div>
                 <hr>
                 @can('edit-blogs')

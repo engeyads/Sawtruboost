@@ -76,7 +76,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src='https://assets.codepen.io/16327/ScrollTrigger.min.js'></script>
-    <!--Start of Tawk.to Script-->
+    <!--Start of Tawk.to Script
     <script type="text/javascript">
         var Tawk_API = Tawk_API || {},
             Tawk_LoadStart = new Date();
@@ -90,7 +90,7 @@
             s0.parentNode.insertBefore(s1, s0);
         })();
     </script>
-    <!--End of Tawk.to Script-->
+    <!--End of Tawk.to Script
     <script>
         jQuery(function() {
             var tl1 = new TimelineMax(),
@@ -120,7 +120,26 @@
             }
             start();
         });
+
     </script>
+
+    <!-- Meta Pixel Code
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1638312446679714');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1638312446679714&ev=PageView&noscript=1"
+    /></noscript>
+     End Meta Pixel Code -->
     @stack('custom-scripts')
 </body>
 

@@ -8,6 +8,8 @@ use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FileUpload;
+use App\Http\Controllers\LeadsController;
+use App\Http\Controllers\DealsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,13 +56,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/dashboard/blog', BlogPostController::class )->parameters([
         'blog' => 'blogPost'
     ]);
-    //Route::get('/dashboard/blog', [BlogPostController::class, 'index']);
-    //Route::get('/dashboard/blog/{blogPost}', [BlogPostController::class, 'show']);
-    //Route::get('/dashboard/blog/create', [BlogPostController::class, 'create']);
-    //Route::post('/dashboard/blog/create', [BlogPostController::class, 'store']);
-    //Route::get('/dashboard/blog/{blogPost}/edit', [BlogPostController::class, 'edit']);
-    //Route::put('/dashboard/blog/{blogPost}/edit', [BlogPostController::class, 'update']);
-    //Route::delete('/dashboard/blog/{blogPost}', [BlogPostController::class, 'destroy']);
+    Route::resource('/dashboard/crm/leads', LeadsController::class )->parameters([
+        'leads' => 'lead'
+    ]);
+    Route::resource('/dashboard/crm/deals', DealsController::class )->parameters([
+        'deals' => 'deal'
+    ]);
     Route::resource('/dashboard/roles', RoleController::class);
     Route::resource('/dashboard/user', UserController::class);
 

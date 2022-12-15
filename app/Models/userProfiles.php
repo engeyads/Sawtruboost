@@ -51,4 +51,8 @@ class userProfiles extends Model
     function user(){
         return $this->belongsTo(User::class, 'id', 'uid');
     }
+
+    function lead(){
+        return $this->belongsTo(Lealds::class, 'id', 'uid');
+    }
 }
