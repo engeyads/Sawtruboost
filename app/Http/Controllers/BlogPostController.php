@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Response;
 use App\Models\BlogPost;
 use App\Models\PostImage;
 use Storage;
 use Image;
+
 class BlogPostController extends Controller
 {
 
@@ -93,18 +95,21 @@ class BlogPostController extends Controller
         $user_id = auth()->user()->id;
 
         $image = $request->featured;
-        $filename = $image->getClientOriginalName();
-        Image::make($image->getRealPath())->save('postimages/' . $filename);
-
         $title = $request->title;
         $body = $request->body;
-        //$images = $request->images;
 
         $newPost = BlogPost::create([
-            'featured_image' => $filename,
             'title' => $title,
             'body' => $body,
             'uid' => $user_id
+        ]);
+
+        // rename the uploaded file
+        $filename = date('dmYHis') .'-post'. $newPost->id . '.' . $image->getClientOriginalExtension();
+        Image::make($image->getRealPath())->save('postimages/' . $filename);
+
+        $newPost->update([
+            'featured_image' => $filename
         ]);
 
         /*
@@ -185,10 +190,7 @@ class BlogPostController extends Controller
      */
     public function update(Request $request, BlogPost $blogPost)
     {
-        $blogPost->update([
-            'title' => $request->title,
-            'body' => $request->body
-        ]);
+        $blogPost->update($request->all());
 
         return redirect('/dashboard/blog/' . $blogPost->id);
     }
@@ -204,5 +206,24 @@ class BlogPostController extends Controller
         $blogPost->delete();
 
         return redirect('/dashboard/blog');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\BlogPost  $blogPost
+     * @return \Illuminate\Http\Response
+     */
+    public function updatepostimage(Request $request, BlogPost $blogPost)
+    {
+        $image = $request->file('featured');
+
+        $filename = date('dmYHis') .'-post'. $blogPost->id . '.' . $image->getClientOriginalExtension();
+        Image::make($image->getRealPath())->save('postimages/' . $filename);
+
+        $blogPost->update(['featured_image' => $filename]);
+
+        return Response::json( $filename );
     }
 }

@@ -25,11 +25,12 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="row">
-                                    <img src="{{ $post->featured_image == '' ? '' : asset('postimages').'/'.$post->featured_image }}" width='300' alt="featured">
+                                    <img id='featuredimg' src="{{ $post->featured_image == '' ? '' : asset('postimages') . '/' . $post->featured_image }}"
+                                        width='300' alt="featured">
                                     <div class="control-group col-12">
                                         <label for="title">Post Featured Image</label>
                                         <input type="file" id="featured" class="form-control" name="featured"
-                                               placeholder="Enter Post Featured Image" required>
+                                            placeholder="Enter Post Featured Image" required>
                                     </div>
 
                                     <div class="control-group col-12">
@@ -59,4 +60,33 @@
 
         </div>
     </div>
+    @push('scripts')
+        <script>
+            $('#featured').on('change', function() {
+                if ($(this).val() != '') {
+
+                    let fd = new FormData();
+                    fd.append('featured', $(this).get(0).files[0]);
+
+                    $.ajax({
+                        url: "{{ route('blog.featured', $post) }}",
+                        headers: {
+                            'X-CSRF-Token': '{{ csrf_token() }}',
+                        },
+                        data: fd,
+                        processData: false,
+                        contentType: false,
+                        type: 'POST',
+                        dataType: 'json',
+                        success: function(result) {
+                            $('#featuredimg').attr('src','{{ asset('postimages') . '/' }}'+result);
+                        },
+                        error: function(result) {
+                            console.log(result);
+                        }
+                    });
+                }
+            });
+        </script>
+    @endpush
 @endsection

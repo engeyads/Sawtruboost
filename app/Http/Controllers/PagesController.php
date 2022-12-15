@@ -65,7 +65,7 @@ class PagesController extends Controller
      */
     public function storelead(Request $request)
     {
-        $newPost = Leads::create([
+        $newLead = Leads::create([
             'name' => $request->name,
             'company' => $request->company,
             'area' => $request->area,
@@ -74,13 +74,12 @@ class PagesController extends Controller
             'service' => $request->service,
             'website' => $request->website,
             'msg' => $request->msg,
+        ])->userProfile()->create([
+            'full_name' => $request->name,
+            'mobile' => $request->phone,
         ]);
 
-        $userProfile = userProfiles::create([
-            'lid' => $newPost->id,
-        ]);
-
-        return redirect()->back();
+        return back()->withStatus(__('Your Request has been submitted, thanks you!'));
     }
 
     /**

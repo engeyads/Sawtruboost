@@ -28,7 +28,22 @@ class LeadsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        return '';
+
+        $newLead = Leads::create([
+            'name' => $request->name,
+            'company' => $request->company,
+            'area' => $request->area,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'service' => $request->service,
+            'website' => $request->website,
+            'msg' => $request->msg,
+        ])->userProfile()->create([
+            'full_name' => $request->name,
+            'mobile' => $request->phone,
+        ]);
+
+        return back()->withStatus(__('Suceessfuly stored!'));
     }
 
     /**
@@ -38,7 +53,7 @@ class LeadsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        return '';
+        return 'pages.crm.leads.create';
     }
 
     /**
@@ -48,7 +63,8 @@ class LeadsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(int $id){
-        return '';
+        $lead = Leads::find($id);
+        return view('pages.crm.leads.show',compact('lead'));
     }
 
    /**
@@ -57,8 +73,11 @@ class LeadsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function update(){
-        return '';
+    public function update(Request $request,Leads $lead){
+
+        $lead->update($request->all());
+
+        return back()->withStatus(__('Profile successfully updated.'));
     }
 
     /**
@@ -68,7 +87,9 @@ class LeadsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(int $id){
-        return '';
+        Leads::find($id)->delete();
+        return redirect()->route('leads.index')
+                        ->with('success','Lead deleted successfully');
     }
 
     /**

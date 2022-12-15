@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('lid')->nullable();
             $table->string('tag')->nullable();
             $table->string('title')->nullable();
+            $table->string('full_name')->nullable();
             $table->string('fname')->nullable();
             $table->string('mname')->nullable();
             $table->string('lname')->nullable();

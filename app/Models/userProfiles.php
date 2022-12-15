@@ -16,7 +16,13 @@ class userProfiles extends Model
      */
     protected $fillable = [
         'uid',
+        'lid',
         'tag',
+        'title',
+        'full_name',
+        'fname',
+        'mname',
+        'lname',
         'gender',
         'birthday',
         'photo',
