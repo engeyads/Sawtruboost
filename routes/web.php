@@ -34,13 +34,9 @@ Route::post('/boostnow/newlead', [PagesController::class, 'storelead'])->name('s
 
 Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
 
-Route::get('/blog', [BlogPostController::class, 'endindex']); // The route we have created to show all blog posts.
-Route::get('/blog/{blogPost}', [BlogPostController::class, 'endshow']); // The route we have created to show all blog posts.
-//Route::get('/blog/create/post', [BlogPostController::class, 'create']); //shows create post form
-//Route::post('/blog/create/post', [BlogPostController::class, 'store']); //saves the created post to the databse
-//Route::get('/blog/{blogPost}/edit', [BlogPostController::class, 'edit']); //shows edit post form
-//Route::put('/blog/{blogPost}/edit', [BlogPostController::class, 'update']); //commits edited post to the database
-//Route::delete('/blog/{blogPost}', [BlogPostController::class, 'destroy']); //deletes post from the database
+//guist blog
+Route::get('/blog', [BlogPostController::class, 'endindex'])->name('blog.endindex');
+Route::get('/blog/{blogPost}', [BlogPostController::class, 'endshow'])->name('blog.endshow');
 
 Auth::routes();
 

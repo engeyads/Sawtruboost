@@ -141,8 +141,11 @@ class BlogPostController extends Controller
      */
     public function endshow(BlogPost $blogPost)
     {
+
+        $next = BlogPost::where('id', '>', $blogPost->id)->min('id');
         return view('blog.show', [
             'post' => $blogPost,
+            'next' => $next
         ]); //returns the view with the post
     }
 
