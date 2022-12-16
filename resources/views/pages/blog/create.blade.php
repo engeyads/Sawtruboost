@@ -35,11 +35,22 @@
                                         <input type="text" id="title" class="form-control" name="title"
                                                placeholder="Enter Post Title" required>
                                     </div>
-                                    <div class="control-group col-12 mt-2">
-                                        <label for="body">Post Body</label>
-                                        <textarea id="body" class="form-control" name="body" placeholder="Enter Post Body"
-                                                  rows="" required></textarea>
-                                    </div>
+
+                                    <div ng-app="textAngularTest" ng-controller="wysiwygeditor" class="container app">
+                                        <h3>Editor</h3>
+                                        <div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'></div>
+                                        <h3>Raw HTML in a text area</h3>
+                                        <textarea name='body' ng-model="htmlcontent" style="width: 100%" rows="10"></textarea>
+                                        <h3>Bound with ng-bind-html</h3>
+                                        <div ng-bind-html="htmlcontent"></div>
+                                        <h3>Bound with ta-bind, our internal html-binding directive</h3>
+                                        <div ta-bind="text" ng-model="htmlcontent" ta-readonly='disabled'></div>
+                                        <button type="button" ng-click="htmlcontent = orightml">Reset</button>
+                                        <p>Note: although we support classes and styles, angularjs' ng-bind-html directive will strip out all style attributes.</p>
+
+                                        <h3>Option to masquerade as a fancy text-area - complete with form submission and optional ngModel</h3>
+                                        <text-angular name="htmlcontent"><p>Any <b>HTML</b> we put in-between the text-angular tags gets automatically put into the editor if there <strong style="font-size: 12pt;"><u><em>is not</em></u></strong> a ngModel</p></text-angular>
+                                      </div>
 
                                     {{--<div class="control-group col-12 mt-2">
                                         <label for="images">Post images</label>
@@ -64,4 +75,18 @@
 
         </div>
     </div>
+    @push('scripts')
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-sanitize.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.1.2/textAngular.min.js'></script>
+    <script>
+        	angular.module("textAngularTest", ['textAngular']);
+            function wysiwygeditor($scope) {
+                $scope.orightml = '';
+                $scope.htmlcontent = $scope.orightml;
+                $scope.disabled = false;
+            };
+
+    </script>
+    @endpush
 @endsection

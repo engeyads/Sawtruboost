@@ -52,6 +52,7 @@
                                     <th>
                                         message
                                     </th>
+                                    <th></th>
                                 </thead>
                                 <tbody>
                                     @forelse($leads as $lead)
@@ -66,10 +67,7 @@
                                                 {{ ucfirst($lead->company) }}
                                             </td>
                                             <td>
-                                                {{ ucfirst($lead->area) }}
-                                            </td>
-                                            <td>
-                                                {{ ucfirst($lead->phone) }}
+                                                {{ '+('.ucfirst($lead->area) . ')' . ucfirst($lead->phone) }}
                                             </td>
                                             <td>
                                                 {{ ucfirst($lead->email) }}

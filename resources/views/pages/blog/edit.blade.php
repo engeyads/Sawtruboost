@@ -30,7 +30,7 @@
                                     <div class="control-group col-12">
                                         <label for="title">Post Featured Image</label>
                                         <input type="file" id="featured" class="form-control" name="featured"
-                                            placeholder="Enter Post Featured Image" required>
+                                            placeholder="Enter Post Featured Image" >
                                     </div>
 
                                     <div class="control-group col-12">
@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="control-group col-12 mt-2">
                                         <label for="body">Post Body</label>
-                                        <textarea id="body" class="form-control" name="body" placeholder="Enter Post Body" rows="5" required>{{ $post->body }}</textarea>
+                                        <textarea id="body" class="form-control" name="body" placeholder="Enter Post Body" style='height:20rem' required>{!! $post->body !!}</textarea>
                                     </div>
                                 </div>
                                 <div class="row mt-2">
@@ -87,6 +87,7 @@
                     });
                 }
             });
+
         </script>
     @endpush
 @endsection

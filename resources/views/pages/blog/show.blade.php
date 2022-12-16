@@ -16,7 +16,7 @@
                 <a href="{{ route('blog.index') }}" class="btn btn-outline-primary btn-sm">Go back</a>
                 <h1 class="display-one">{{ ucfirst($post->title) }}</h1>
 
-                <p>{!! $post->body !!}</p>
+                {!! $post->body !!}
                 <hr>
                 @can('edit-blogs')
                     <a href="/blog/{{ $post->id }}/edit" class="btn btn-outline-primary">Edit Post</a>
@@ -35,4 +35,7 @@
     </div>
     </div>
 </section>
+@push('scripts')
+
+@endpush
 @endsection

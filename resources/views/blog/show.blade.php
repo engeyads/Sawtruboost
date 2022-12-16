@@ -1,6 +1,14 @@
 @extends('layouts.app')
 @section('content')
 <section class='w-full second'>
+    <style>
+        pre{
+            background: black;
+        }
+        code{
+            color: white;
+        }
+    </style>
     <div>
     <div class="container">
 
@@ -23,7 +31,7 @@
 
                 <div class='pt-12'>
 
-                    {!! nl2br($post->body) !!}
+                    {!! $post->body !!}
                 </div>
                 <hr>
                 @can('edit-blogs')
@@ -44,5 +52,30 @@
 </section>
         @push('custom-scripts')
             <script type="module" src="{{ URL::asset('js/home.js') }}"></script>
+            <script>
+                function myFunction() {
+
+                  // Select the text field
+                  this.select();
+                  this.setSelectionRange(0, 99999); // For mobile devices
+
+                  // Copy the text inside the text field
+                  navigator.clipboard.writeText(this.value);
+
+                }
+
+
+                $( "<button class='copycode btn btn-warning absolute right-0 mt-4 mr-8'>copy</button>" ).insertBefore($( "code" ));
+                if($('.copycode')[0]){
+                    $('.copycode').click(function() {
+                        var txt = $(this).next().find('xmp').text();
+                        var $temp = $("<input>");
+                        $(this).append($temp);
+                        $temp.val(txt).select();
+                        document.execCommand("copy");
+                        $temp.remove();
+                    });
+                }
+                </script>
         @endpush
 @endsection
