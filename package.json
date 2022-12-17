@@ -2,7 +2,8 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "css-rtl": "cross-env NODE_ENV=RTL postcss --config build/postcss.config.js --dir \"dist/css\" --ext \".rtl.css\" \"dist/css/*.css\" \"!dist/css/*.min.css\" \"!dist/css/*.rtl.css\""
     },
     "devDependencies": {
         "@popperjs/core": "^2.10.2",

@@ -37,28 +37,24 @@ $twitter: url('../images/SVG/twitter.svg');
 $pintrest: url('../images/SVG/pintrest.svg');
 $linkedin: url('../images/SVG/linkedin.svg');
 
-$font-rtl: url("./fonts/abdo.otf") !default;
-$font-blont: url("./fonts/blont.otf") !default;
-$font-Nunito: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+$font-rtl: 'abdo' !default;
+$font-ltr: 'blont' !default;
+$font-Nunito: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji" !default;
+$sans-serif: sans-serif !default;
 
 .text-custom-gray {
     color: $headings;
 }
 
+
 @font-face {
     font-family: blont;
-    font-family: $font-blont;
-    [dir=rtl] & {
-      font-family: $font-rtl;
-    }
+    src: url("./fonts/blont.otf") format("opentype")
 }
 
 @font-face {
-    font-family: ltrrtl;
-    font-family: $font-Nunito;
-    [dir=rtl] & {
-      font-family: $font-rtl;
-    }
+    font-family: abdo;
+    src: url("./fonts/abdo.otf") format("opentype")
 }
 
 *,
@@ -81,7 +77,10 @@ html {
     -moz-tab-size: 4;
     -o-tab-size: 4;
     tab-size: 4;
-    font-family: ltrrtl;
+    font-family: $font-Nunito;
+    [dir=rtl] & {
+        font-family: $font-rtl;
+    }
     overflow-x: hidden;
 }
 
@@ -89,7 +88,10 @@ body {
     margin: 0;
     line-height: inherit;
     background: #F5F5F5;
-    font-family: ltrrtl
+    font-family: $sans-serif;
+    [dir=rtl] & {
+        font-family: $font-rtl;
+    }
 }
 
 hr {
@@ -3943,7 +3945,11 @@ fieldset[disabled] .btn-link.active {
     width: 25vw;
     height: 90px;
     color: #fcd24b;
-    font-family: blont;
+    font-family: $font-ltr;
+    [dir=rtl] & {
+        font-family: $font-rtl;
+    }
+
     white-space: nowrap;
     filter: grayscale(100%) brightness(50%);
     font-size: xx-large;
@@ -4110,7 +4116,10 @@ a {
         top: 50%;
         transform: translateY(-50%);
         font-size: 50px;
-        font-family: 'blont', serif;
+        font-family: $font-ltr, serif;
+        [dir=rtl] & {
+            font-family: $font-rtl, serif;
+        }
         font-weight: 400;
         text-align: center;
     }
@@ -4458,7 +4467,10 @@ code:hover > .copycode,pre:hover > .copycode{
         table {
             position: relative;
             color: $headings;
-            font-family: 'blont';
+            font-family: $font-ltr, serif;
+            [dir=rtl] & {
+                font-family: $font-rtl, serif;
+            }
             font-weight: bold;
             top: 50%;
             left: 10%;
@@ -4475,7 +4487,10 @@ code:hover > .copycode,pre:hover > .copycode{
     .btn {
         position: relative;
         text-align: center;
-        font-family: 'blont', serif;
+        font-family: $font-ltr, serif;
+        [dir=rtl] & {
+            font-family: $font-rtl, serif;
+        }
         background-color: #8b8b8b;
         border-radius: 20px 20px 20px 20px;
         padding: 5px 15px 5px 15px;
@@ -4508,7 +4523,10 @@ code:hover > .copycode,pre:hover > .copycode{
  */
 
 .fontBlont {
-    font-family: 'blont';
+    font-family: $font-ltr;
+    [dir=rtl] & {
+        font-family: $font-rtl;
+    }
 }
 
 
@@ -5720,7 +5738,10 @@ $animationSpeed: 20s;
         margin-top: 8rem;
         width: 100%;
         font-weight: bold;
-        font-family: blont;
+        font-family: $font-ltr;
+        [dir=rtl] & {
+            font-family: $font-rtl;
+        }
         color: $headings;
     }
 }
@@ -5779,7 +5800,10 @@ $animationSpeed: 20s;
 
     .discription {
         font-size: xx-large;
-        font-family: blont;
+        font-family: $font-ltr;
+        [dir=rtl] & {
+            font-family: $font-rtl;
+        }
         color: $headings;
     }
 
@@ -5859,7 +5883,10 @@ $animationSpeed: 20s;
 
     .discription {
         font-size: xx-large;
-        font-family: blont;
+        font-family: $font-ltr;
+        [dir=rtl] & {
+            font-family: $font-rtl;
+        }
         color: $headings;
     }
 
@@ -6421,7 +6448,10 @@ animation-front {
         color: $headings;
         transition: color 0.2s;
         cursor: pointer;
-        font-family: blont;
+        font-family: $font-ltr;
+        [dir=rtl] & {
+            font-family: $font-rtl;
+        }
 
         &.active {
             color: #fff;

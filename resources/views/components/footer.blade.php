@@ -64,7 +64,7 @@
         <div class='w-full footerContent'>
 
             <div class='footerTitle'>
-                <h2 class='text-xxl font-bold'>{{ __('messages.footerword') }}</h2>
+                <h2 class='text-xxl font-bold pb-4 fontBlont'>{{ __('messages.footerword') }}</h2>
                 <p>{{ __('messages.footerword2') }}</p>
 
             </div>
