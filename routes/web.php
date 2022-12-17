@@ -57,6 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/dashboard/blog', BlogPostController::class )->parameters([
         'blog' => 'blogPost'
     ]);
+    Route::get('/dashboard/crm/leads/export', 'App\Http\Controllers\LeadsController@exportData');
     Route::resource('/dashboard/crm/leads', LeadsController::class )->parameters([
         'leads' => 'lead'
     ]);

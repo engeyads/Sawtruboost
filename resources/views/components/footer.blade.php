@@ -64,14 +64,14 @@
         <div class='w-full footerContent'>
 
             <div class='footerTitle'>
-                <h2 class='text-xxl font-bold pb-4 fontBlont'>{{ __('messages.footerword') }}</h2>
-                <p>{{ __('messages.footerword2') }}</p>
+                <h2 class='text-xxl font-bold pb-8 fontBlont'>{{ __('messages.footerword') }}</h2>
+                <p class='text-xl'>{{ __('messages.footerword2') }}</p>
 
             </div>
-            <section>
+            <section class='pt-14'>
                 <div id="grid1" class="grid1">
                     <div class="grid__item text-center">
-                        <h4 class='text-l font-bold'>
+                        <h4 class='fontBlont text-l font-bold pb-3'>
                             {{ __('messages.Contact') }}
                         </h4>
                         <ul class='align-items-center'>
@@ -82,12 +82,12 @@
                                 <a>{{ __('messages.Partners') }}</a>
                             </li>
                             <li>
-                                <a>{{ __('messages.Contactus') }}</a>
+                                <a href="{{ route('contact') }}">{{ __('messages.Contactus') }}</a>
                             </li>
                         </ul>
                     </div>
                     <div class="grid__item text-center">
-                        <h4 class='text-l font-bold'>
+                        <h4 class='fontBlont text-l font-bold pb-3'>
                             {{ __('messages.Condetions') }}
                         </h4>
                         <ul>
@@ -132,7 +132,7 @@
                                         </td>
                                     </tr> --}}
                                     <tr>
-                                        <td class='{{ __('messages.direction') === 'ltr' ? 'text-right' : 'text-left'  }} font-weight-bold'>
+                                        <td class='fontBlont {{ __('messages.direction') === 'ltr' ? 'text-right' : 'text-left'  }} font-weight-bold'>
                                             {{ __('messages.Turkiye') }}:
                                         </td>
                                         <td style='direction:ltr' class='{{ __('messages.direction') === 'ltr' ? 'text-left' : 'text-right'  }}'>

@@ -3441,16 +3441,44 @@ fieldset[disabled] .btn-link.active {
     padding-bottom: 5rem
 }
 
-.pt-16 {
-    padding-top: 4.5rem
+.pt-1 {
+    padding-top: .25rem
+}
+
+.pt-2 {
+    padding-top: .5rem
+}
+
+.pt-3 {
+    padding-top: .75rem
+}
+
+.pt-4 {
+    padding-top: 1rem
+}
+
+.pt-6 {
+    padding-top: 1.5rem
 }
 
 .pt-8 {
     padding-top: 2rem
 }
 
-.pt-1 {
-    padding-top: .25rem
+.pt-12 {
+    padding-top: 3rem
+}
+
+.pt-14 {
+    padding-top: 3.5rem
+}
+
+.pt-16 {
+    padding-top: 4rem
+}
+
+.pt-18 {
+    padding-top: 4.5rem;
 }
 
 .pl-3 {
@@ -3465,9 +3493,6 @@ fieldset[disabled] .btn-link.active {
     padding-right: 1rem
 }
 
-.pt-2 {
-    padding-top: .5rem
-}
 
 .pb-3 {
     padding-bottom: .75rem
@@ -3477,9 +3502,7 @@ fieldset[disabled] .btn-link.active {
     padding-bottom: .5rem
 }
 
-.pt-4 {
-    padding-top: 1rem
-}
+
 
 .pb-1 {
     padding-bottom: .25rem
@@ -3489,17 +3512,19 @@ fieldset[disabled] .btn-link.active {
     padding-bottom: 2rem
 }
 
+.pb-12 {
+    padding-bottom: 3rem
+}
+
 .pb-14 {
-    padding-bottom: 3.5
+    padding-bottom: 3.5rem
 }
 
 .pb-16 {
-    padding-bottom: 4;
+    padding-bottom: 4rem
 }
 
-.pt-6 {
-    padding-top: 1.5rem
-}
+
 
 .text-left {
     text-align: left
@@ -3900,6 +3925,10 @@ fieldset[disabled] .btn-link.active {
     top: 0;
     z-index: 99;
     color: #4e4e4e;
+    font-family: $font-ltr;
+    [dir=rtl] & {
+        font-family: $font-rtl;
+    }
 }
 
 /*[dir=ltr]*/
