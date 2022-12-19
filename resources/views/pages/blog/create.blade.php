@@ -31,32 +31,35 @@
                                     </div>
 
                                     <div class="control-group col-12">
-                                        <label for="title">Post Title</label>
+                                        <label for="title">Post Title for English</label>
                                         <input type="text" id="title" class="form-control" name="title"
-                                               placeholder="Enter Post Title" required>
+                                               placeholder="Enter Post Title for English" required>
                                     </div>
 
-                                    <div ng-app="textAngularTest" ng-controller="wysiwygeditor" class="container app">
-                                        <h3>Editor</h3>
-                                        <div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'></div>
-                                        <h3>Raw HTML in a text area</h3>
-                                        <textarea name='body' ng-model="htmlcontent" style="width: 100%" rows="10"></textarea>
-                                        <h3>Bound with ng-bind-html</h3>
-                                        <div ng-bind-html="htmlcontent"></div>
-                                        <h3>Bound with ta-bind, our internal html-binding directive</h3>
-                                        <div ta-bind="text" ng-model="htmlcontent" ta-readonly='disabled'></div>
-                                        <button type="button" ng-click="htmlcontent = orightml">Reset</button>
-                                        <p>Note: although we support classes and styles, angularjs' ng-bind-html directive will strip out all style attributes.</p>
+                                    <div ng-app="textAngularTest" class="container app">
+                                        <h3>Editor for English Blog</h3>
+                                        <text-angular ng-model="htmlcontent"></text-angular>
 
-                                        <h3>Option to masquerade as a fancy text-area - complete with form submission and optional ngModel</h3>
-                                        <text-angular name="htmlcontent"><p>Any <b>HTML</b> we put in-between the text-angular tags gets automatically put into the editor if there <strong style="font-size: 12pt;"><u><em>is not</em></u></strong> a ngModel</p></text-angular>
-                                      </div>
+                                        <textarea name='body' ng-model="htmlcontent" style="width: 100%;display:none" rows="10"></textarea>
 
-                                    {{--<div class="control-group col-12 mt-2">
-                                        <label for="images">Post images</label>
-                                        <input type='file' id="images" class="form-control" name="images" placeholder="Enter Post images"
-                                                  rows="" multiple required/>
-                                    </div>--}}
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="control-group col-12">
+                                        <label for="titlear">Post Title for Arabic</label>
+                                        <input type="text" id="titlear" class="form-control" name="title"
+                                               placeholder="Enter Post Title for Arabic" required>
+                                    </div>
+
+                                    <div ng-app="textAngularTestAr" class="container app">
+                                        <h3>Editor for Arabic Blog</h3>
+                                        <text-angular ng-model="htmlcontent"></text-angular>
+
+                                        <textarea name='bodyar' ng-model="htmlcontent" style="width: 100%;display:none" rows="10"></textarea>
+
+
+                                    </div>
                                 </div>
                                 <div class="row mt-2">
                                     <div class="control-group col-12 text-center">
@@ -73,6 +76,7 @@
                 </div>
             </div>
 
+
         </div>
     </div>
     @push('scripts')
@@ -80,12 +84,12 @@
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-sanitize.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.1.2/textAngular.min.js'></script>
     <script>
-        	angular.module("textAngularTest", ['textAngular']);
-            function wysiwygeditor($scope) {
-                $scope.orightml = '';
-                $scope.htmlcontent = $scope.orightml;
-                $scope.disabled = false;
-            };
+
+            var app = angular.module("textAngularTest", ["textAngular"]);
+            var app2 = angular.module("textAngularTestAr", ["textAngular"]);
+
+
+
 
     </script>
     @endpush

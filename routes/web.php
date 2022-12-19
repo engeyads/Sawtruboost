@@ -71,3 +71,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('/upload-file', [FileUpload::class, 'fileUpload'])->name('fileUpload');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

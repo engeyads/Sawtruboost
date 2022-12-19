@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Leads;
+use App\Models\Areas;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Reader\Exception;
 use PhpOffice\PhpSpreadsheet\Writer\Xls;
@@ -32,6 +33,7 @@ class LeadsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
+        $area = Areas::select('name')->where('code',$request->area)->first();
 
         $newLead = Leads::create([
             'name' => $request->name,
@@ -43,8 +45,10 @@ class LeadsController extends Controller
             'website' => $request->website,
             'msg' => $request->msg,
         ])->userProfile()->create([
+            'tag' => substr($request->email, 0,strpos($request->email,"@")),
             'full_name' => $request->name,
             'mobile' => $request->phone,
+            'country' => $area->name
         ]);
 
         return back()->withStatus(__('Suceessfuly stored!'));

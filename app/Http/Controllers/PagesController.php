@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\BlogPost;
+use App\Models\Areas;
 use App\Models\Leads;
 use Illuminate\Http\Request;
 use App\Models\userProfiles;
@@ -75,11 +76,13 @@ class PagesController extends Controller
             'website' => $request->website,
             'msg' => $request->msg,
         ])->userProfile()->create([
+            'tag' => substr($request->email, 0,strpos($request->email,"@")),
             'full_name' => $request->name,
             'mobile' => $request->phone,
+            'country' => $request->area
         ]);
 
-        return back()->withStatus(__('Your Request has been submitted, thanks you!'));
+        return back()->withStatus(__('Suceessfuly stored!'));
     }
 
     /**

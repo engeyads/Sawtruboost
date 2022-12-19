@@ -24,11 +24,12 @@ class CreateAdminUserSeeder extends Seeder
 
         userProfiles::create([
             'uid' => $user->id,
+            'full_name' => 'System Admin',
             'fname' => 'admin',
             'title' => 'mr',
             'tag' => 'admin',
             'gender' => 'male',
-            'country' => 'palestine',
+            'country' => '970',
             'career' => 'System Administrator',
         ]);
 

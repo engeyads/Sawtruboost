@@ -97,10 +97,22 @@ class BlogPostController extends Controller
         $image = $request->featured;
         $title = $request->title;
         $body = $request->body;
+        $titlear = $request->titlear;
+        $bodyar = $request->bodyar;
+        $seo_keywords = $request->seo_keywords;
+        $seo_description = $request->seo_description;
+        $seo_keywordsar = $request->seo_keywordsar;
+        $seo_descriptionar = $request->seo_descriptionar;
 
         $newPost = BlogPost::create([
             'title' => $title,
             'body' => $body,
+            'titlear' => $titlear,
+            'bodyar' => $bodyar,
+            'seo_keywords' => $seo_keywords,
+            'seo_description' => $seo_description,
+            'seo_keywordsar' => $seo_keywordsar,
+            'seo_descriptionar' => $seo_descriptionar,
             'uid' => $user_id
         ]);
 

@@ -17,10 +17,14 @@ return new class extends Migration
             $table->id();
             $table->text('title');  // Title of our blog post
             $table->text('body');   // Body of our blog post
+            $table->text('titlear');  // Title of our blog post
+            $table->text('bodyar');   // Body of our blog post
             $table->unsignedBigInteger('uid')->nullable(); // user_id of our blog post author
             $table->text('featured_image')->nullable(); // featured_image of our blog post author
             $table->text('seo_keywords')->nullable(); // seo_keywords of our blog post author
             $table->text('seo_description')->nullable(); // seo_description of our blog post author
+            $table->text('seo_keywordsar')->nullable(); // seo_keywords of our blog post author
+            $table->text('seo_descriptionar')->nullable(); // seo_description of our blog post author
             $table->timestamps();
 
             $table->foreign('uid')->references('id')->on('users')->onDelete('SET NULL')->onUpdate('cascade');

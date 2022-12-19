@@ -35,9 +35,6 @@
                                         company
                                     </th>
                                     <th>
-                                        area
-                                    </th>
-                                    <th>
                                         phone
                                     </th>
                                     <th>
@@ -59,9 +56,6 @@
                                         <tr>
                                             <td>
                                                 <a href="{{ route('leads.edit', $lead->id) }}">{{ ucfirst($lead->name) }}</a>
-                                            </td>
-                                            <td>
-                                                {{ ucfirst($lead->name) }}
                                             </td>
                                             <td>
                                                 {{ ucfirst($lead->company) }}

@@ -34,4 +34,8 @@ class Leads extends Model
     {
         return $this->hasMany(Deals::class,'lid','id');
     }
+
+    function country(){
+        return $this->belongsTo(Areas::class, 'code', 'area');
+    }
 }

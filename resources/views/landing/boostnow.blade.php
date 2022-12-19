@@ -55,7 +55,7 @@
                     <tr align="center">
                         <td>
                             <div class='flex'>
-                                <input name='area' type="text" list="area" placeholder="{{ __('messages.area') }}">
+                                <input name='area' type="number" list="area" max="99999" min='0' placeholder="{{ __('messages.area') }}">
                                 <datalist id="area">
                                     <option disabled selected value="default">Country</option>
                                     <option data-countryCode="DZ" value="213">Algeria (+213)</option>
@@ -205,6 +205,7 @@
                                     <option data-countryCode="NO" value="47">Norway (+47)</option>
                                     <option data-countryCode="OM" value="968">Oman (+968)</option>
                                     <option data-countryCode="PW" value="680">Palau (+680)</option>
+                                    <option data-countryCode="PS" value="970">Palestine (+970)</option>
                                     <option data-countryCode="PA" value="507">Panama (+507)</option>
                                     <option data-countryCode="PG" value="675">Papua New Guinea (+675)</option>
                                     <option data-countryCode="PY" value="595">Paraguay (+595)</option>
@@ -274,7 +275,7 @@
                                     <option data-countryCode="ZM" value="260">Zambia (+260)</option>
                                     <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
                                 </datalist>
-                                <input name='phone' type='tel' id="seller_phone1" placeholder="{{ __('messages.phone') }}" />
+                                <input name='phone' type='number' min='1000000000' max='9999999999' id="seller_phone1" placeholder="{{ __('messages.phone') }}" />
                         </td>
                         </div>
                         </td>

@@ -2347,6 +2347,10 @@ textarea.form-control {
   line-height: 2;
 }
 
+.ta-text,.ta-editor{
+    min-height: 8rem;
+}
+
 .has-success.form-group .form-control,
 .has-success.form-group.no-border .form-control,
 .has-danger.form-group .form-control,
