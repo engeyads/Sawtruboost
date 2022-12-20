@@ -40,10 +40,11 @@ The above copyright notice and this permission notice shall be included in all c
     <link href="{{ asset('paper') }}/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{ asset('paper') }}/demo/demo.css" rel="stylesheet" />
-
+    @vite('resources/js/app.js')
 </head>
 
-<body class="{{ $class }}">
+<body class="{{ $class }}" >
+
 
     @auth()
         @include('layouts.page_templates.auth')
@@ -53,6 +54,7 @@ The above copyright notice and this permission notice shall be included in all c
     @guest
         @include('layouts.page_templates.guest')
     @endguest
+
 
     <!--   Core JS Files   -->
     <script src="{{ asset('paper') }}/js/core/jquery.min.js"></script>
@@ -74,7 +76,7 @@ The above copyright notice and this permission notice shall be included in all c
 
     @stack('scripts')
 
-    @include('layouts.navbars.fixed-plugin-js')
+
 </body>
 
 </html>

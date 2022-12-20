@@ -7,10 +7,12 @@
             <tr>
                 <td>
                     <h1 class="heading">
+
                         {{ __('messages.CompanyWord') }}<br />
                         {{ __('messages.CompanyWord2') }}
 
                     </h1>
+
                 </td>
 
             </tr>

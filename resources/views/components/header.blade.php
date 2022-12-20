@@ -52,7 +52,7 @@
                         </div>
                     </li>
                     <li><a href="{{ URL::to('contact') }}">{{ __('messages.ContactUs') }}</a></li>
-                    <li><a href="/">{{ __('messages.People') }}</a></li>
+                    <li><a href="{{ route('people') }}">{{ __('messages.People') }}</a></li>
                     <li class='extramenu'><a href="{{ URL::to('blog') }}">{{ __('messages.Blog') }}</a></li>
                     <li class='extramenu'><a href="@if(session()->get('locale') == 'en' || session()->get('locale') == null) {{ URL::asset('files/Sawtruboost_Company_Profile.pdf') }} @elseif(session()->get('locale') == 'ar') {{ URL::asset('files/Sawtruboost_Company_ProfileAr.pdf') }} @endif"
                             target="_blank">{{ __('messages.CompanyProfile') }}</a></li>

@@ -152,6 +152,12 @@ return [
 
     'exploremore' => 'Explore More About',
 
+    // people page translations
+    'PEPOLE' => 'PEPOLE',
+    'We are listeners,' => 'We are listeners,',
+    'advisors and' => 'advisors and',
+    'changemakers.' => 'changemakers.',
+
     // boostnow landing page
     'needa' => 'NEED',
     'boost' => 'A BOOST ?',

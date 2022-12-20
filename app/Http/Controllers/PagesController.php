@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\BlogPost;
 use App\Models\Areas;
 use App\Models\Leads;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\userProfiles;
 class PagesController extends Controller
@@ -50,13 +51,48 @@ class PagesController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    public function people()
+    public function people(Request $request)
     {
-        return view('people');
+        $people = User::with('userProfile')->paginate(6); //fetch all blog posts from DB
+        $grid = '';
+        if ($request->ajax()) {
+            foreach ($people as $result) {
+                if($result->name != 'admin'){
+                    $grid.='
+                    <div class="col-md-4 pb-8">
+                        <div class="card b-h-box position-relative font-14 border-0 mb-4">
+                            <a href="./people/'. $result->id .'" class="a card-meta-tagList-item">
+                                <img class="card-img"
+                                    src="'. ($result->userProfile->photo == "" ? '/profiles/default-avatar.png' : '/profiles/' . $result->userProfile->photo ).
+                                    '" alt="Card image" />
+
+                            </a>
+                        </div>
+                        <div class=" overflow-hidden">
+                            <div class="d-flex align-items-center">
+
+                                <div class="ml-2">
+
+                                </div>
+                            </div>
+                            <h5 class="card-title my-3 font-weight-normal">'. ucfirst($result->userProfile->full_name) .'</h5>'.
+                            (strlen($result->userProfile->bio) > 0 ? '<p class="card-text">'. substr(ucfirst($result->userProfile->bio), 0, 150)  .'...</p>' : '<p class="card-text">'. substr('', 0, 150) .' ...</p>').
+                        '</div>
+                    </div>
+                ';
+            }
+            }
+            return $grid;
+        }
+
+        return view('people', [
+            'people' => $people,
+        ]); //returns the view with posts
     }
 
     /**
