@@ -27,8 +27,6 @@
         "sass": "^1.56.1",
         "save": "^2.9.0",
         "scss": "^0.2.4",
-        "textangular": "^1.5.16",
-        "vue-quill-editor": "^3.0.6",
-        "vue2-editor": "^2.10.3"
+        "textangular": "^1.5.16"
     }
 }

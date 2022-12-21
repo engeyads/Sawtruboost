@@ -6,7 +6,7 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
-import Vue2Editor from "vue2-editor";
+
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
  * registering components with the application instance so they are ready
@@ -14,11 +14,8 @@ import Vue2Editor from "vue2-editor";
  */
 
 const app = createApp({});
-app.use(Vue2Editor);
 import ExampleComponent from './components/ExampleComponent.vue';
-import QuillComponent from './components/QuillComponent.vue';
 app.component('example-component', ExampleComponent);
-app.component('quill-component', QuillComponent);
 
 /**
  * The following block of code may be used to automatically register your

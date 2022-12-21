@@ -3,8 +3,24 @@
     'elementActive' => 'blog',
 ])
 
+
+
+
+
+
+body
+
+bodyar
+seo_keywords
+seo_description
+seo_keywordsar
+seo_descriptionar
+
+
+
+
 @section('content')
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<link rel="stylesheet" href="/richtexteditor/rte_theme_default.css" />
     <div class="content">
         <div class="row">
             <div class="col-md-12">
@@ -47,16 +63,14 @@
                                         <input type="text" id="title" class="form-control" name="title"
                                             placeholder="Enter Post Title for English" required>
                                     </div>
-                                    <textarea name="body" id="" cols="30" rows="10" class='editor'>
 
-
-                                    </textarea>
+                                        <textarea name="body" id="inp_editor1"></textarea>
                                 </div>
 
                                 <div class="row">
                                     <div class="control-group col-12">
                                         <label for="titlear">Post Title for Arabic</label>
-                                        <input type="text" id="titlear" class="form-control" name="title"
+                                        <input type="text" id="titlear" class="form-control" name="titlear"
                                             placeholder="Enter Post Title for Arabic" required>
                                     </div>
 
@@ -72,12 +86,8 @@
                                     </div>
 
 
+                                    <textarea name="bodyar" id="inp_editor2"></textarea>
 
-
-                                    <textarea name="bodyar" id="" cols="30" rows="10" class='editor'>
-
-
-                                    </textarea>
 
                                 </div>
                                 <div class="row mt-2">
@@ -98,36 +108,18 @@
 
         </div>
     </div>
+
     @push('scripts')
-        <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+        <script type="text/javascript" src="/richtexteditor/rte.js"></script>
+        <script type="text/javascript" src='/richtexteditor/plugins/all_plugins.js'></script>
 
         <!-- Initialize Quill editor -->
         <script>
+        var editor1 = new RichTextEditor("#inp_editor1");
+        var editor2 = new RichTextEditor("#inp_editor2");
 
 
-            $('.editor').each(function(i, el) {
-                var el = $(this),
-                    id = 'quilleditor-' + i,
-                    val = el.val(),
-                    editor_height = 200;
-                var div = $('<div/>').attr('id', id).css('height', editor_height + 'px').html(val);
-                el.addClass('d-none');
-                el.parent().append(div);
-
-                var quill = new Quill('#' + id, {
-                    modules: {
-    toolbar: [
-      ['bold', 'italic'],
-      ['link', 'blockquote', 'code-block', 'image'],
-      [{ list: 'ordered' }, { list: 'bullet' }]
-    ]
-  },
-                    theme: 'snow'
-                });
-                quill.on('text-change', function() {
-                    el.html(quill.getContents());
-                });
-            });
         </script>
 
     @endpush
