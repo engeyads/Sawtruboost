@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('blog_posts', function (Blueprint $table) {
             $table->id();
             $table->text('title');  // Title of our blog post
-            $table->text('body');   // Body of our blog post
+            $table->longText('body');   // Body of our blog post
             $table->text('titlear');  // Title of our blog post
-            $table->text('bodyar');   // Body of our blog post
+            $table->longText('bodyar');   // Body of our blog post
             $table->unsignedBigInteger('uid')->nullable(); // user_id of our blog post author
             $table->text('featured_image')->nullable(); // featured_image of our blog post author
             $table->text('seo_keywords')->nullable(); // seo_keywords of our blog post author

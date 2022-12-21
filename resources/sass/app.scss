@@ -5616,11 +5616,27 @@ $c-03: #44d8a4;
 
 @import url(//fonts.googleapis.com/css?family=Montserrat:300,400,500);
 
+.blogspage {
+    padding:10%;
+    box-sizing: initial !important;
+}
+
+.blogs{
+    margin: 0 auto;
+    max-width: 65rem;
+}
+[dir=ltr] .blogs{
+    transform: translate(-10%,0);
+}
+
+[dir=rtl] .blogs{
+    transform: translate(10%,0);
+}
+
 .blog-home5 {
     font-family: "Montserrat", sans-serif;
     color: #8d97ad;
     font-weight: 300;
-
 }
 
 .blog-home5 h1,

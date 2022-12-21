@@ -1,4 +1,10 @@
 @extends('layouts.app')
+
+@section('SEO')
+<meta name="description" content="@if(session()->get('locale') == 'en' || session()->get('locale') == null) {{$post->seo_description}} @elseif(session()->get('locale') == 'ar') {{$post->seo_descriptionar}} @endif"/>
+<meta name="keywords" content="@if(session()->get('locale') == 'en' || session()->get('locale') == null) {{$post->seo_keywords}} @elseif(session()->get('locale') == 'ar') {{$post->seo_keywordsar}} @endif">
+@endsection
+
 @section('content')
 <section class='w-full second'>
     <style>
@@ -27,11 +33,11 @@
                         src="{{ $post->featured_image == '' ? URL::asset('postimages/default-blog.jpg') : URL::asset('postimages').'/'.$post->featured_image }}"
                         alt="post image" />
                 </div>
-                <h1 class="display-one fontBlont text-xl">{{ ucfirst($post->title) }}</h1>
+                <h1 class="display-one fontBlont text-xl">@if(session()->get('locale') == 'en' || session()->get('locale') == null) {!! ucfirst($post->title) !!} @elseif(session()->get('locale') == 'ar') {!! ucfirst($post->titlear) !!} @endif</h1>
 
                 <div class='pt-12'>
 
-                    {!! $post->body !!}
+                    @if(session()->get('locale') == 'en' || session()->get('locale') == null) {!! $post->body !!} @elseif(session()->get('locale') == 'ar') {!! $post->bodyar !!} @endif
                 </div>
                 <hr>
                 @can('edit-blogs')

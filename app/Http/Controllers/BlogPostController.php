@@ -43,7 +43,7 @@ class BlogPostController extends Controller
         if ($request->ajax()) {
             foreach ($posts as $result) {
                 $artilces.='
-                <div class="col-md-6 pb-8">
+                <div class="col-md-5 pb-8">
                     <div class="card b-h-box position-relative font-14 border-0 mb-4">
                         <a href="./blog/'. $result->id .'" class="a card-meta-tagList-item">
                             <img class="card-img"

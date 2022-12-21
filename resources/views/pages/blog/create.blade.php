@@ -3,22 +3,6 @@
     'elementActive' => 'blog',
 ])
 
-
-
-
-
-
-body
-
-bodyar
-seo_keywords
-seo_description
-seo_keywordsar
-seo_descriptionar
-
-
-
-
 @section('content')
 <link rel="stylesheet" href="/richtexteditor/rte_theme_default.css" />
     <div class="content">
