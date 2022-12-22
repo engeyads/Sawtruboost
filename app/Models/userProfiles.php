@@ -41,6 +41,7 @@ class userProfiles extends Model
         'passport',
         'work_permit',
         'visa',
+        'team',
     ];
 
     /**
@@ -55,10 +56,14 @@ class userProfiles extends Model
     ];
 
     function user(){
-        return $this->belongsTo(User::class, 'id', 'uid');
+        return $this->belongsTo(User::class, 'uid', 'id');
     }
 
     function lead(){
-        return $this->belongsTo(Lealds::class, 'id', 'uid');
+        return $this->belongsTo(Lealds::class, 'id', 'lid');
+    }
+
+    function teams(){
+        return $this->belongsTo(Teams::class, 'team', 'id');
     }
 }

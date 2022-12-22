@@ -38,7 +38,10 @@ class BlogPostController extends Controller
      */
     public function endindex(Request $request)
     {
-        $posts = BlogPost::with('post_images')->orderby('created_at','desc')->paginate(4); //fetch all blog posts from DB
+        $posts = BlogPost::with('post_images')->where([
+            ['publish_date' ,'>=',Date('Y-m-d')],
+            ['privacy','=','1']
+            ])->orderby('created_at','desc')->paginate(4); //fetch all blog posts from DB
         $artilces = '';
         if ($request->ajax()) {
             foreach ($posts as $result) {
@@ -103,6 +106,8 @@ class BlogPostController extends Controller
         $seo_description = $request->seo_description;
         $seo_keywordsar = $request->seo_keywordsar;
         $seo_descriptionar = $request->seo_descriptionar;
+        $publish_date = $request->publish_date;
+        $privacy = $request->privacy;
 
         $newPost = BlogPost::create([
             'title' => $title,
@@ -113,6 +118,8 @@ class BlogPostController extends Controller
             'seo_description' => $seo_description,
             'seo_keywordsar' => $seo_keywordsar,
             'seo_descriptionar' => $seo_descriptionar,
+            'publish_date' => $publish_date,
+            'privacy' => $privacy,
             'uid' => $user_id
         ]);
 
@@ -161,16 +168,32 @@ class BlogPostController extends Controller
     {
         $next = $blogPost->id;
 		$prev = $blogPost->id;
-        if(BlogPost::where('id', '>', $blogPost->id)->min('id')){
+        if(BlogPost::where([
+            ['id', '>', $blogPost->id],
+            ['publish_date' ,'>=',Date('Y-m-d')],
+            ['privacy','=','1']
+            ])->min('id')){
             $next = BlogPost::where('id', '>', $blogPost->id)->min('id');
-        }elseif(BlogPost::where('id', '<', $blogPost->id)->min('id')){
+        }elseif(BlogPost::where([
+            ['id', '<', $blogPost->id],
+            ['publish_date' ,'>=',Date('Y-m-d')],
+            ['privacy','=','1']
+            ])->min('id')){
             $next = BlogPost::where('id', '<', $blogPost->id)->min('id');
         }
 
         if(BlogPost::where('id', '<', $blogPost->id)->max('id')){
-            $prev = BlogPost::where('id', '<', $blogPost->id)->max('id');
+            $prev = BlogPost::where([
+                ['id', '<', $blogPost->id],
+                ['publish_date' ,'>=',Date('Y-m-d')],
+                ['privacy','=','1']
+                ])->max('id');
         }elseif(BlogPost::where('id', '>', $blogPost->id)->max('id')){
-            $prev = BlogPost::where('id', '>', $blogPost->id)->max('id');
+            $prev = BlogPost::where([
+                ['id', '>', $blogPost->id],
+                ['publish_date' ,'>=',Date('Y-m-d')],
+                ['privacy','=','1']
+                ])->max('id');
         }
 
         return view('blog.show', [
@@ -237,5 +260,35 @@ class BlogPostController extends Controller
         $blogPost->update(['featured_image' => $filename]);
 
         return Response::json( $filename );
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\BlogPost  $blogPost
+     * @return \Illuminate\Http\Response
+     */
+    public function editprivacy(Request $request, BlogPost $blogPost)
+    {
+
+        $blogPost->update(['privacy' => $request->privacy]);
+
+        return Response::json( $request->privacy );
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\BlogPost  $blogPost
+     * @return \Illuminate\Http\Response
+     */
+    public function editpublishdate(Request $request, BlogPost $blogPost)
+    {
+
+        $blogPost->update(['publish_date' => $request->publish_date]);
+
+        return Response::json( $request->publish_date );
     }
 }

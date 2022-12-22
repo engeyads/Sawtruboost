@@ -8,7 +8,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PasswordRequest;
 use Illuminate\Support\Facades\Hash;
 use Storage;
-        use Image;
+use Image;
+use App\Models\userProfiles;
+use App\Models\User;
+use App\Models\Teams;
+
 class ProfileController extends Controller
 {
     /**
@@ -29,9 +33,31 @@ class ProfileController extends Controller
      */
     public function update(ProfileRequest $request)
     {
-        auth()->user()->update($request->all());
-
+        auth()->user()->update($request->except(['name']));
+        auth()->user()->userProfile()->update([
+            'full_name' => $request->name,
+        ]);
         return back()->withStatus(__('Profile successfully updated.'));
+    }
+
+    /**
+     * Update the profile
+     *
+     * @param  \App\Http\Requests\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function otherupdate(Request $request,$id)
+    {
+        $user->userProfile()->update([
+            'full_name' => $request->name,
+        ]);
+
+        $user = User::find($id);
+        if($request->email != $user->email){
+            $user->update($request->except(['name']));
+        }
+
+        return back()->withStatus(__('User Profile successfully updated.'));
     }
 
     /**

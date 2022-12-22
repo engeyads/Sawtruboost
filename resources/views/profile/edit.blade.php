@@ -36,20 +36,20 @@
                                 </div>
                             </div>
                             <a href="#">
-                                <h5 class="title">{{ __(auth()->user()->name) }}</h5>
+                                <h5 class="title">
+                                    {{ auth()->user()->userProfile->full_name == '' ? auth()->user()->name : auth()->user()->userProfile->full_name }}
+                                </h5>
                             </a>
                             <p class="description">
                                 @ {{ __(auth()->user()->name) }}
                             </p>
                         </div>
                         <p class="description text-center">
-                            {{ __('I like the way you work it') }}
-                            <br> {{ __('No diggity') }}
-                            <br> {{ __('I wanna bag it up') }}
+                            {{ auth()->user()->userProfile->bio }}
                         </p>
                     </div>
                     <div class="card-footer">
-                        <hr>
+                        {{-- <hr>
                         <div class="button-container">
                             <div class="row">
                                 <div class="col-lg-3 col-md-6 col-6 ml-auto">
@@ -71,7 +71,7 @@
                                     </h5>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="card">
@@ -80,69 +80,38 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-unstyled team-members">
-                            <li>
-                                <div class="row">
-                                    <div class="col-md-2 col-2">
-                                        <div class="avatar">
-                                            <img src="{{ asset('paper/img/faces/ayo-ogunseinde-2.jpg') }}"
-                                                alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-7 col-7">
-                                        {{ __('DJ Khaled') }}
-                                        <br />
-                                        <span class="text-muted">
-                                            <small>{{ __('Offline') }}</small>
-                                        </span>
-                                    </div>
-                                    <div class="col-md-3 col-3 text-right">
-                                        <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i
-                                                class="fa fa-envelope"></i></button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-md-2 col-2">
-                                        <div class="avatar">
-                                            <img src="{{ asset('paper/img/faces/joe-gardner-2.jpg') }}" alt="Circle Image"
-                                                class="img-circle img-no-padding img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-7 col-7">
-                                        {{ __('Creative Tim') }}
-                                        <br />
-                                        <span class="text-success">
-                                            <small>{{ __('Available') }}</small>
-                                        </span>
-                                    </div>
-                                    <div class="col-md-3 col-3 text-right">
-                                        <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i
-                                                class="fa fa-envelope"></i></button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-md-2 col-2">
-                                        <div class="avatar">
-                                            <img src="{{ asset('paper/img/faces/clem-onojeghuo-2.jpg') }}"
-                                                alt="Circle Image" class="img-circle img-no-padding img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="col-ms-7 col-7">
-                                        {{ __('Flume') }}
-                                        <br />
-                                        <span class="text-danger">
-                                            <small>{{ __('Busy') }}</small>
-                                        </span>
-                                    </div>
-                                    <div class="col-md-3 col-3 text-right">
-                                        <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i
-                                                class="fa fa-envelope"></i></button>
-                                    </div>
-                                </div>
-                            </li>
+                            @if (auth()->user()->userProfile->teams)
+                                @forelse(auth()->user()->userProfile->teams->profile as $member)
+                                    @if ($member->uid != auth()->user()->id)
+                                        <li>
+                                            <div class="row">
+                                                <div class="col-md-2 col-2">
+                                                    <div class="avatar">
+                                                        <img src="{{ $member->photo == '' ? URL::asset('profiles/default-avatar.png') : URL::asset('profiles') . '/' . $member->photo }}"
+                                                            alt="Circle Image"
+                                                            class="img-circle img-no-padding img-responsive">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-7 col-7">
+                                                    {{ $member->full_name == '' ? $member->user->name : $member->full_name }}
+                                                    <br />
+                                                    <span class="text-muted">
+                                                        <small>{{ __('Offline') }}</small>
+                                                    </span>
+                                                </div>
+                                                <div class="col-md-3 col-3 text-right">
+                                                    <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i
+                                                            class="fa fa-envelope"></i></button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    @endif
+                                @empty
+                                    <div>no team members !</div>
+                                @endforelse
+                            @else
+                                <div>no team members !</div>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -162,7 +131,8 @@
                                 <div class="col-md-9">
                                     <div class="form-group">
                                         <input type="text" name="name" class="form-control" placeholder="Name"
-                                            value="{{ auth()->user()->name }}" required>
+                                            value="{{ auth()->user()->userProfile->full_name == '' ? auth()->user()->name : auth()->user()->userProfile->full_name }}"
+                                            required>
                                     </div>
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
@@ -189,8 +159,7 @@
                         <div class="card-footer ">
                             <div class="row">
                                 <div class="col-md-12 text-center">
-                                    <button type="submit"
-                                        class="btn btn-info btn-round">{{ __('Save Changes') }}</button>
+                                    <button type="submit" class="btn btn-info btn-round">{{ __('Save Changes') }}</button>
                                 </div>
                             </div>
                         </div>

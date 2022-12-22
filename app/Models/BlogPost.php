@@ -19,7 +19,9 @@ class BlogPost extends Model
         'seo_keywords',
         'seo_description',
         'seo_keywordsar',
-        'seo_descriptionar'
+        'seo_descriptionar',
+        'publish_date',
+        'privacy'
     ];
 
     function author(){

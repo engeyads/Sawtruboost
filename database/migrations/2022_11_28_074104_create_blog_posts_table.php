@@ -25,6 +25,8 @@ return new class extends Migration
             $table->text('seo_description')->nullable(); // seo_description of our blog post author
             $table->text('seo_keywordsar')->nullable(); // seo_keywords of our blog post author
             $table->text('seo_descriptionar')->nullable(); // seo_description of our blog post author
+            $table->timestamp('publish_date')->nullable()->useCurrent(); // seo_description of our blog post author
+            $table->integer('privacy')->nullable()->default('1'); // seo_description of our blog post author
             $table->timestamps();
 
             $table->foreign('uid')->references('id')->on('users')->onDelete('SET NULL')->onUpdate('cascade');

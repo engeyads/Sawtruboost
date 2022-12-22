@@ -13,13 +13,10 @@
                             {{ __('messages.Our') }}<br />
                             {{ __('messages.Magical') }}<br />
                             {{ __('messages.Boosts') }}
-
-
                         </h1>
 
                         <h2 class='secondHeading'>
                             {{ __('messages.servicesSecondHeading') }}
-
                         </h2>
                     </td>
                 </tr>

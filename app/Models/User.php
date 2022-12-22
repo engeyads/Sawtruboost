@@ -64,4 +64,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(BlogPost::class,'uid','id');
     }
+
+    public function teams()
+    {
+        return $this->hasMany(Teams::class,'manager','id');
+    }
 }

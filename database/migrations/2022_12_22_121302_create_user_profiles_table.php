@@ -41,8 +41,10 @@ return new class extends Migration
             $table->string('passport')->nullable();
             $table->string('work_permit')->nullable();
             $table->string('visa')->nullable();
+            $table->unsignedBigInteger('team')->nullable();
             $table->timestamps();
 
+            $table->foreign('team')->references('id')->on('teams')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('uid')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('lid')->references('id')->on('leads')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('country')->references('code')->on('areas')->onDelete('no action')->onUpdate('cascade');

@@ -19,6 +19,7 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'list-users']);
         Permission::create(['name' => 'create-users']);
         Permission::create(['name' => 'edit-users']);
+        Permission::create(['name' => 'edit-profiles']);
         Permission::create(['name' => 'delete-users']);
 
         Permission::create(['name' => 'list-boosts']);
@@ -71,6 +72,7 @@ class RoleAndPermissionSeeder extends Seeder
             'list-users',
             'create-users',
             'edit-users',
+            'edit-profiles',
             'delete-users',
             'list-boosts',
             'list-self-boosts',

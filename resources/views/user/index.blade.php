@@ -42,6 +42,7 @@
                                 </thead>
                                 <tbody>
                                     @forelse($users as $user)
+                                    @if($user->id != auth()->user()->id)
                                         <tr>
                                             <td>
                                                 <a href="{{ route('user.show', $user->id) }}">{{ ucfirst($user->email) }}</a>
@@ -66,6 +67,7 @@
                                                 @endcan
                                             </td>
                                         </tr>
+                                        @endif
                                     @empty
                                         <p class="text-warning">No Users available</p>
                                     @endforelse
