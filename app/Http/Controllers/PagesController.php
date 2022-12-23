@@ -31,7 +31,7 @@ class PagesController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the Contacts Page.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -40,8 +40,57 @@ class PagesController extends Controller
         return view('contact');
     }
 
+    /**
+     * Show the Careers Page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function careers()
+    {
+        return view('careers');
+    }
+
+    /**
+     * Show the Partners Page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function partners()
+    {
+        return view('partners');
+    }
+
+    /**
+     * Show the Terms Page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function terms()
+    {
+        return view('terms');
+    }
+
+    /**
+     * Show the Privacy Page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function privacy()
+    {
+        return view('privacy');
+    }
+
+    /**
+     * Show the Cookies Page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function cookies()
+    {
+        return view('cookies');
+    }
      /**
-     * Show the application dashboard.
+     * Show the Boostnow Landing Page.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -51,7 +100,7 @@ class PagesController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Show the People Page.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response

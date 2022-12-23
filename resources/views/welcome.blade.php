@@ -1,5 +1,14 @@
 @extends('layouts.app')
 
+@section('SEO')
+<meta name="description" content=@if(session()->get('locale') == 'en' || session()->get('locale') == null) "Sawtru Boost is a business development and marketing solutions agency. We tend to incarnate our identity in our visual story narrative, from our logo, which shines with yellow as gold, to iconography inspired by the digital world and the letter S from Sawtru, the mother corporation. Our creative director created the vectors in the first section of our homepage specifically for Sawtru Boost to conceptualize growth and development while also reflecting the diversity of our team of experts. The menu displays our company profile as a marketing agency, showcasing our set of services, which is also accessible via the services button in the upper right corner. Our set of services includes digital marketing-related services, such as social media administration, website development, seo and all sorts of digital marketing.
+
+A section of our partners as service providers, such as Microsoft, Wordpress, Meta, Wix, Google, and Shopify, can be found by scrolling down the homepage. Since we are a trusted partner for them. Then there's a section with more descriptive information about our main four service categories. Furthermore, as you scroll down, there is a section that shows our partners, our precious clients who have trusted us and worked with us for years. We provided our latest insights about the business field and digital marketing in the lower right corner of our homepage, and finally in our website footer, which includes our terms and conditions, privacy policy, cookies, contacts, partners, careers, and locations.
+
+The website is entirely designed and developed by Sawtru Boost" @elseif(session()->get('locale') == 'ar')  @endif/>
+<meta name="keywords" content="@if(session()->get('locale') == 'en' || session()->get('locale') == null)  @elseif(session()->get('locale') == 'ar')  @endif">
+@endsection
+
 @section('content')
 <section class='w-full first customYellowbg' style="direction:ltr">
     <div class='bground'>

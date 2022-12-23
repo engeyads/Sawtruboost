@@ -56,20 +56,43 @@
                                             </td>
                                             <td>
                                                 <div class='flex'>
-                                                    <table >
-                                                        <tr >
+                                                    <table>
+                                                        <tr>
                                                             <td style='border:0'>
                                                                 <span>Public</span>
                                                             </td>
                                                             <td style='margin:0;padding:0;border:0'>
-                                                                <div class="switch" >
-                                                                    <input  name='privacy' type="checkbox" id="privacy"
+                                                                <div class="switch">
+                                                                    <input name='privacy' type="checkbox" class='privacy'
+                                                                        data-id="{{ $post->id }}"
+                                                                        id='privacy{{ $post->id }}'
                                                                         @if ($post->privacy == 1) checked @endif />
-                                                                    <label for="privacy"></label>
+                                                                    <label for="privacy{{ $post->id }}"></label>
                                                                 </div>
                                                             </td>
                                                         </tr>
                                                     </table>
+                                                    <div>
+                                                        <table>
+                                                            <tr>
+                                                                <td>
+                                                                    Publish Date
+                                                                </td>
+                                                                <td>
+                                                                    <input type="date"
+                                                                        value="{{ date('Y-m-d', strtotime($post->publish_date)) }}"
+                                                                        min='{{ date('Y-m-d') }}'
+                                                                        data-id="{{ $post->id }}"
+                                                                        data-current='{{ date('Y-m-d', strtotime($post->publish_date)) }}'
+                                                                        name='publish_date' class='form-control pubdate'
+                                                                        id='pubdate{{ $post->id }}'>
+                                                                    <button class='pubconfirm'
+                                                                        data-id="{{ $post->id }}" style='display:none'
+                                                                        id='pubdatebutton{{ $post->id }}'>confirm</button>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
                                                     <form id="delete-frm" class=""
                                                         action="{{ route('blog.destroy', $post->id) }}" method="POST">
                                                         @method('DELETE')
@@ -97,37 +120,67 @@
 
     @push('scripts')
         <script>
-            $('#privacy').on('change', function() {
+            $('.privacy').on('change', function() {
                 let chkd = 0;
-                if($(this).prop('checked')){
+                if ($(this).prop('checked')) {
                     chkd = 1;
                 }
 
                 let fd = new FormData();
-                    fd.append('privacy', chkd);
+                fd.append('privacy', chkd);
 
-                    $.ajax({
-                        url: "{{ route('blog.editprivacy', $post) }}",
-                        headers: {
-                            'X-CSRF-Token': '{{ csrf_token() }}',
-                        },
-                        data: fd,
-                        processData: false,
-                        contentType: false,
-                        type: 'POST',
-                        dataType: 'json',
-                        success: function(result) {
-                            console.log(result);
-                            //$('#featuredimg').attr('src','{{ asset('postimages') . '/' }}'+result);
-                        },
-                        error: function(result) {
-                            console.log(result);
-                        }
-                    });
+                $.ajax({
+                    url: "/blog/editprivacy/" + $(this).data('id'),
+                    headers: {
+                        'X-CSRF-Token': '{{ csrf_token() }}',
+                    },
+                    data: fd,
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function(result) {
+
+                        //$('#featuredimg').attr('src','{{ asset('postimages') . '/' }}'+result);
+                    },
+                    error: function(result) {
+                        console.log(result);
+                    }
+                });
 
             });
 
+            $('.pubconfirm').on('click', function() {
+                let fd = new FormData();
+                fd.append('publish_date', $(this).prev().val());
+
+                $.ajax({
+                    url: "/blog/editdate/" + $(this).data('id'),
+                    headers: {
+                        'X-CSRF-Token': '{{ csrf_token() }}',
+                    },
+                    data: fd,
+                    processData: false,
+                    contentType: false,
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function(result) {
+                        $(this).css('display', 'none');
+                        //$('#featuredimg').attr('src','{{ asset('postimages') . '/' }}'+result);
+                    },
+                    error: function(result) {
+                        console.log(result);
+                    }
+                });
+            });
+            $('.pubdate').on('change', function() {
+                if ($(this).val() != $(this).data('current')) {
+                    $(this).next().css('display', 'block');
+
+                } else {
+                    $(this).next().css('display', 'none');
+                }
+            });
         </script>
     @endpush
-
 @endsection

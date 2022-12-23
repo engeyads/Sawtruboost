@@ -21,13 +21,9 @@
             <div class="card-container">
 
                     <div class="blog-home5 py-5 w-full">
-
-
-
                             <div id='data-wrapper' class="row mt-4 blogs">
-
+                                {{-- blogs will be loaded here --}}
                             </div>
-
                         <div class="auto-load text-center">
                             <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 x="0px" y="0px" height="60" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">

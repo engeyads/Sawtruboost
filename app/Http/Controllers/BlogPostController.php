@@ -39,11 +39,14 @@ class BlogPostController extends Controller
     public function endindex(Request $request)
     {
         $posts = BlogPost::with('post_images')->where([
-            ['publish_date' ,'>=',Date('Y-m-d')],
+            ['publish_date' ,'<=',Date('Y-m-d')],
             ['privacy','=','1']
             ])->orderby('created_at','desc')->paginate(4); //fetch all blog posts from DB
         $artilces = '';
         if ($request->ajax()) {
+            if((session()->get('locale') == 'en' || session()->get('locale') == '')){
+
+
             foreach ($posts as $result) {
                 $artilces.='
                 <div class="col-md-5 pb-8">
@@ -69,6 +72,34 @@ class BlogPostController extends Controller
                 </div>
                 ';
             }
+
+        }elseif(session()->get('locale') == 'ar'){
+            foreach ($posts as $result) {
+            $artilces.='
+            <div class="col-md-5 pb-8">
+                <div class="card b-h-box position-relative font-14 border-0 mb-4">
+                    <a href="./blog/'. $result->id .'" class="a card-meta-tagList-item">
+                        <img class="card-img"
+                            src="'. ($result->featured_image == "" ? '/postimages/default-blog.jpg' : '/postimages/' . $result->featured_image ).
+                            '" alt="Card image" />
+
+                    </a>
+                </div>
+                <div class=" overflow-hidden">
+                    <div class="d-flex align-items-center">
+                        <span
+                            class="bg-danger-gradiant badge overflow-hidden text-white px-3 py-1 font-weight-normal">'. $result->author->name .'</span>
+                        <div class="ml-2">
+                            <span class="ml-2">'. date('d-m-Y', strtotime($result->created_at)) .'</span>
+                        </div>
+                    </div>
+                    <h5 class="card-title my-3 font-weight-normal">'. ucfirst($result->titlear) .'</h5>'.
+                    (strlen($result->bodyar) > 30 ? '<p class="card-text">'. substr(ucfirst($result->bodyar), 0, 30)  .'...</p>' : '<p class="card-text">'. substr('', 0, 10) .' ...</p>').
+                '</div>
+            </div>
+            ';
+            }
+        }
             return $artilces;
         }
 
@@ -170,28 +201,36 @@ class BlogPostController extends Controller
 		$prev = $blogPost->id;
         if(BlogPost::where([
             ['id', '>', $blogPost->id],
-            ['publish_date' ,'>=',Date('Y-m-d')],
-            ['privacy','=','1']
+            ['publish_date' ,'<=',Date('Y-m-d')],
+            ['privacy','=','1'],
             ])->min('id')){
             $next = BlogPost::where('id', '>', $blogPost->id)->min('id');
         }elseif(BlogPost::where([
             ['id', '<', $blogPost->id],
-            ['publish_date' ,'>=',Date('Y-m-d')],
-            ['privacy','=','1']
+            ['publish_date' ,'<=',Date('Y-m-d')],
+            ['privacy','=','1'],
             ])->min('id')){
             $next = BlogPost::where('id', '<', $blogPost->id)->min('id');
         }
 
-        if(BlogPost::where('id', '<', $blogPost->id)->max('id')){
+        if(BlogPost::where([
+            ['id', '<', $blogPost->id],
+            ['publish_date' ,'<=',Date('Y-m-d')],
+            ['privacy','=','1']
+            ])->max('id')){
             $prev = BlogPost::where([
                 ['id', '<', $blogPost->id],
-                ['publish_date' ,'>=',Date('Y-m-d')],
+                ['publish_date' ,'<=',Date('Y-m-d')],
                 ['privacy','=','1']
                 ])->max('id');
-        }elseif(BlogPost::where('id', '>', $blogPost->id)->max('id')){
+        }elseif(BlogPost::where([
+            ['id', '>', $blogPost->id],
+            ['publish_date' ,'<=',Date('Y-m-d')],
+            ['privacy','=','1']
+            ])->max('id')){
             $prev = BlogPost::where([
                 ['id', '>', $blogPost->id],
-                ['publish_date' ,'>=',Date('Y-m-d')],
+                ['publish_date' ,'<=',Date('Y-m-d')],
                 ['privacy','=','1']
                 ])->max('id');
         }
@@ -269,9 +308,9 @@ class BlogPostController extends Controller
      * @param  \App\Models\BlogPost  $blogPost
      * @return \Illuminate\Http\Response
      */
-    public function editprivacy(Request $request, BlogPost $blogPost)
+    public function editprivacy(Request $request, $id)
     {
-
+        $blogPost = BlogPost::find($id);
         $blogPost->update(['privacy' => $request->privacy]);
 
         return Response::json( $request->privacy );
@@ -284,9 +323,9 @@ class BlogPostController extends Controller
      * @param  \App\Models\BlogPost  $blogPost
      * @return \Illuminate\Http\Response
      */
-    public function editpublishdate(Request $request, BlogPost $blogPost)
+    public function editdate(Request $request, $id)
     {
-
+        $blogPost = BlogPost::find($id);
         $blogPost->update(['publish_date' => $request->publish_date]);
 
         return Response::json( $request->publish_date );

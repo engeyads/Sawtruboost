@@ -2,10 +2,7 @@
 
 @section('content')
 <section class='w-full gradgraybg pt-14'>
-
-
     <div class="w-full people">
-
         <div class="pageHeading">
             <h1 class='font-bold fontBlont text-xl'>
                 {{ __('messages.PEPOLE') }}

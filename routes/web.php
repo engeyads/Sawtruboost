@@ -29,6 +29,11 @@ Route::get('/services', [PagesController::class, 'services'])->name('services');
 Route::get('/about', [PagesController::class, 'about'])->name('about');
 Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
 Route::get('/people', [PagesController::class, 'people'])->name('people');
+Route::get('/careers', [PagesController::class, 'careers'])->name('careers');
+Route::get('/partners', [PagesController::class, 'partners'])->name('partners');
+Route::get('/terms', [PagesController::class, 'terms'])->name('terms');
+Route::get('/privacy', [PagesController::class, 'privacy'])->name('privacy');
+Route::get('/cookies', [PagesController::class, 'cookies'])->name('cookies');
 
 //landing pages
 Route::get('/boostnow', [PagesController::class, 'boostnow'])->name('boostnow');
@@ -54,7 +59,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
     Route::post('profile/photo', ['as' => 'profile.photo', 'uses' => 'App\Http\Controllers\ProfileController@profile']);
     Route::post('blog/featured/{blogPost}', ['as' => 'blog.featured', 'uses' => 'App\Http\Controllers\BlogPostController@updatepostimage']);
-    Route::post('blog/editprivacy/{blogPost}', ['as' => 'blog.editprivacy', 'uses' => 'App\Http\Controllers\BlogPostController@editprivacy']);
+    Route::post('blog/editprivacy/{id}', ['as' => 'blog.editprivacy', 'uses' => 'App\Http\Controllers\BlogPostController@editprivacy']);
+    Route::post('blog/editdate/{id}', ['as' => 'blog.editdate', 'uses' => 'App\Http\Controllers\BlogPostController@editdate']);
 
     Route::get('users/create', ['as' => 'user.create', 'uses' => 'App\Http\Controllers\UserController@create']);
     Route::resource('/dashboard/blog', BlogPostController::class )->parameters([

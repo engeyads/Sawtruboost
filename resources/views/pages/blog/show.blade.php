@@ -19,7 +19,7 @@
                 {!! $post->body !!}
                 <hr>
                 @can('edit-blogs')
-                    <a href="/blog/{{ $post->id }}/edit" class="btn btn-outline-primary">Edit Post</a>
+                    <a href="{{ route('blog.edit',$post->id) }}" class="btn btn-outline-primary">Edit Post</a>
                 @endcan
                 @can('delete-blogs')
                     <br><br>

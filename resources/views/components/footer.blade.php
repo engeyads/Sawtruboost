@@ -76,10 +76,10 @@
                         </h4>
                         <ul class='align-items-center'>
                             <li>
-                                <a>{{ __('messages.Careers') }}</a>
+                                <a href='{{ route('careers') }}'>{{ __('messages.Careers') }}</a>
                             </li>
                             <li>
-                                <a>{{ __('messages.Partners') }}</a>
+                                <a href='{{ route('partners') }}'>{{ __('messages.Partners') }}</a>
                             </li>
                             <li>
                                 <a href="{{ route('contact') }}">{{ __('messages.Contactus') }}</a>
@@ -92,13 +92,13 @@
                         </h4>
                         <ul>
                             <li>
-                                <a>{{ __('messages.Terms') }}</a>
+                                <a href='{{ route('terms') }}'>{{ __('messages.Terms') }}</a>
                             </li>
                             <li>
-                                <a>{{ __('messages.Privacy') }}</a>
+                                <a href='{{ route('privacy') }}'>{{ __('messages.Privacy') }}</a>
                             </li>
                             <li>
-                                <a>{{ __('messages.Cookies') }}</a>
+                                <a href='{{ route('cookies') }}'>{{ __('messages.Cookies') }}</a>
                             </li>
                         </ul>
                     </div>
