@@ -64,8 +64,8 @@
 
 
     @include('../components/social')
-
     {{ \TawkTo::widgetCode() }}
+
 
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N4MVMMS" height="0" width="0"
@@ -141,6 +141,7 @@
     /></noscript>
      End Meta Pixel Code -->
     @stack('custom-scripts')
+    @include('cookie-consent::index')
 </body>
 
 </html>

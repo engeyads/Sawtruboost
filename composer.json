@@ -15,6 +15,7 @@
         "laravel/ui": "^4.1",
         "laravelcollective/html": "^6.3",
         "phpoffice/phpspreadsheet": "^1.25",
+        "spatie/laravel-cookie-consent": "^3.2",
         "spatie/laravel-permission": "^5.7",
         "verschuur/laravel-robotstxt": "^4.0"
     },

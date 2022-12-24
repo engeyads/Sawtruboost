@@ -2934,6 +2934,10 @@ fieldset[disabled] .btn-link.active {
     top: 0px
 }
 
+.bottom-0{
+    bottom: 0px
+}
+
 .right-0 {
     right: 0px
 }
@@ -3202,6 +3206,10 @@ fieldset[disabled] .btn-link.active {
 }
 
 .shrink-0 {
+    flex-shrink: 0
+}
+
+.flex-shrink-0{
     flex-shrink: 0
 }
 
@@ -3581,7 +3589,9 @@ fieldset[disabled] .btn-link.active {
     padding-bottom: 4rem
 }
 
-
+.text-black{
+    color: black;
+}
 
 .text-left {
     text-align: left
@@ -7161,6 +7171,13 @@ button.tablinks .celebration-svg {
     }
 }
 
+.js-cookie-consent{
+    z-index: 1000;
+}
+
+.inset-x-0{
+    left: 0px; right: 0px;
+}
 /**
    * Make it plain/simple below 45em (stack everything)
    */
@@ -7458,6 +7475,10 @@ button.tablinks .celebration-svg {
         margin-bottom: -1px
     }
 
+    .sm\:mt-0{
+        margin-top: 0
+    }
+
     .sm\:ml-0 {
         margin-left: 0
     }
@@ -7530,6 +7551,9 @@ button.tablinks .celebration-svg {
     .sm\:text-right {
         text-align: right
     }
+    .sm\:w-auto{
+        width: auto
+    }
 }
 
 @media (min-width: 768px) {
@@ -7543,6 +7567,9 @@ button.tablinks .celebration-svg {
 
     .md\:border-l {
         border-left-width: 1px
+    }
+    .md\:inline{
+        display:inline
     }
 }
 
