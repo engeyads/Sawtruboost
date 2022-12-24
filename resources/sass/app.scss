@@ -2751,6 +2751,10 @@ fieldset[disabled] .btn-link.active {
     border-color: #343a40
 }
 
+.border-burlywood{
+    border-color: burlywood
+}
+
 .border-white {
     border-color: #fff
 }
@@ -7172,6 +7176,11 @@ button.tablinks .celebration-svg {
 }
 
 .js-cookie-consent{
+    .content{
+        border-color: lightgray;
+        box-shadow: 0 4px 10px rgb(0 0 0 / 0.4);
+    }
+
     padding: 0 4rem 0 4rem;
     z-index: 6;
 }
