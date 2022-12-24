@@ -1,16 +1,19 @@
 @extends('layouts.app')
 
+@section('SEO')
+<meta name="description" content=@if(session()->get('locale') == 'en' || session()->get('locale') == null) "A page shows a list of people behind sawtru Boost starting from our leadership and executives to the creative minds that are doing all magic. Also we show our board and our contacts and address details." @elseif(session()->get('locale') == 'ar')  @endif/>
+<meta name="keywords" content="@if(session()->get('locale') == 'en' || session()->get('locale') == null)  @elseif(session()->get('locale') == 'ar')  @endif">
+@endsection
+
 @section('content')
 <section class='w-full gradgraybg pt-14'>
     <div class="w-full people">
         <div class="pageHeading">
-            <h1 class='font-bold fontBlont text-xl'>
-                {{ __('messages.PEPOLE') }}
+            <h1 class='font-bold fontBlont text-xxl'>
+                {{ __('messages.Crew') }}
             </h1>
-            <h2 class='font-bold fontBlont text-xxl'>
-                {{ __('messages.We are listeners,') }} <br>
-                {{ __('messages.advisors and') }} <br>
-                {{ __('messages.changemakers.') }}
+            <h2 class='font-bold fontBlont pt-12 text-xl'>
+                {{ __('messages.Crew2') }}
             </h2>
         </div>
         <div class="boost-container boost-container--one">
@@ -31,9 +34,12 @@
     </div>
 
     <div class="section w-full peopleContent">
-        <h1 class='font-bold fontBlont '>
-            {{ __('messages.PEPOLE') }}
+        <h1 class='font-bold text-white fontBlont '>
+            {{ __('messages.Meet_Our_Executives') }}
         </h1>
+        <p class='text-white fontBlont'>
+            {{ __('messages.Meet_Our_Executives2') }}
+        </p>
         <center>
             <div class="card-container">
                 <div class="blog-home5 py-5">

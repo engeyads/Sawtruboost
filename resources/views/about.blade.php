@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('SEO')
+<meta name="description" content=@if(session()->get('locale') == 'en' || session()->get('locale') == null) "A subpage contains our profile as a business development and marketing solutions agency based in Istanbul - Turkey - Turkiye and operating in different countries like Saudi Arabia, the United Arab Emirates and other locations. Introducing the business and the team of creatives, experts and executives." @elseif(session()->get('locale') == 'ar')  @endif/>
+<meta name="keywords" content="@if(session()->get('locale') == 'en' || session()->get('locale') == null)  @elseif(session()->get('locale') == 'ar')  @endif">
+@endsection
+
 @section('content')
     <section class="about w-full yellowbg">
         <div>

@@ -191,4 +191,10 @@ return [
     'Dashboard' => 'Dashboard',
     'Sawtru Boost' => 'Sawtru Boost',
     'Users Behavior' => 'Users Behavior',
+
+    // Team Page
+    'Crew' => 'Crew',
+    'Crew2' => 'Exceptional people create great work. Punctilious, no detail is too small or too fine to be overlooked.',
+    'Meet_Our_Executives' => 'Meet Our Executives',
+    'Meet_Our_Executives2' => 'Determined, influential executives who lead the BOOST brilliance.',
 ];

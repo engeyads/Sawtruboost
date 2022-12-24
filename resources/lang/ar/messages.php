@@ -163,4 +163,11 @@ return [
     'Dashboard' => 'Dashboard',
     'Sawtru Boost' => 'Sawtru Boost',
     'Users Behavior' => 'Users Behavior',
+
+    // Team Page
+    'Crew' => 'الفريق',
+    'Crew2' => 'لأن الأشخاص الاستثنائيون دائماً ما يخلقون عملاً رائعًا! نتخذُ الدقة شعارً، بحيثُ لا توجد تفاصيل صغيرة أو دقيقة جدًا نتغاضى عنها.',
+    'Meet_Our_Executives' => 'تعرّفوا على فريقُنا التنفِيذي',
+    'Meet_Our_Executives2' => 'أعضاء تنفيذيين ذوو إرادة وهِمّة يقودون كل هذا التألق',
+
 ];

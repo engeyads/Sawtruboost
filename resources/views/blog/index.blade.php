@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
-
+@section('SEO')
+<meta name="description" content=@if(session()->get('locale') == 'en' || session()->get('locale') == null) "A subpage in Sawtru Boost website, where we share variable content in form of articles as insights and blogs in the field of marketing and business development, our blogpost has been written by experts in the field of business administration, marketing and digital marketing." @elseif(session()->get('locale') == 'ar')  @endif/>
+<meta name="keywords" content="@if(session()->get('locale') == 'en' || session()->get('locale') == null)  @elseif(session()->get('locale') == 'ar')  @endif">
+@endsection
 
 @section('content')
     <section class='w-full blogspage'>

@@ -130,7 +130,7 @@ class PagesController extends Controller
                                 </div>
                             </div>
                             <h5 class="card-title my-3 font-weight-normal">'. ucfirst($result->userProfile->full_name) .'</h5>'.
-                            (strlen($result->userProfile->bio) > 0 ? '<p class="card-text">'. substr(ucfirst($result->userProfile->bio), 0, 150)  .'...</p>' : '<p class="card-text">'. substr('', 0, 150) .' ...</p>').
+                            (strlen($result->userProfile->career) > 150 ? '<p class="text-black">'. substr(ucfirst($result->userProfile->career), 0, 150)  .'...</p>' : '<p class="text-black">'. ucfirst($result->userProfile->career).'</p>').
                         '</div>
                     </div>
                 ';
