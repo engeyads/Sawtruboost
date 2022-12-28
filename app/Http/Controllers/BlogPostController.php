@@ -46,7 +46,6 @@ class BlogPostController extends Controller
         if ($request->ajax()) {
             if((session()->get('locale') == 'en' || session()->get('locale') == '')){
 
-
             foreach ($posts as $result) {
                 $artilces.='
                 <div class="col-md-5 pb-8">
@@ -55,7 +54,6 @@ class BlogPostController extends Controller
                             <img class="card-img"
                                 src="'. ($result->featured_image == "" ? '/postimages/default-blog.jpg' : '/postimages/' . $result->featured_image ).
                                 '" alt="Card image" />
-
                         </a>
                     </div>
                     <div class=" overflow-hidden">
@@ -105,7 +103,8 @@ class BlogPostController extends Controller
 
         return view('blog.index', [
             'posts' => $posts,
-        ]); //returns the view with posts
+        ]);
+        //returns the view with posts
     }
 
     /**
