@@ -151,20 +151,39 @@ class PagesController extends Controller
      */
     public function storelead(Request $request)
     {
+        $email='';
+        $tag = '';
+        $phone = '000';
+        $area = '90';
+        if($request->email == ''){
+            $email='no email';
+            $tag = 'no tag';
+        }else{
+            $email = $request->email;
+            $tag = substr($request->email, 0,strpos($request->email,"@"));
+        }
+
+        if($request->phone == ''){
+            $phone = '000';
+            $area = '90';
+        }else{
+            $phone = $request->phone;
+            $area = $request->area;
+        }
         $newLead = Leads::create([
             'name' => $request->name,
             'company' => $request->company,
-            'area' => $request->area,
-            'phone' => $request->phone,
-            'email' => $request->email,
+            'area' => $area,
+            'phone' => $phone,
+            'email' => $email,
             'service' => $request->service,
             'website' => $request->website,
             'msg' => $request->msg,
         ])->userProfile()->create([
-            'tag' => substr($request->email, 0,strpos($request->email,"@")),
+            'tag' => $tag,
             'full_name' => $request->name,
-            'mobile' => $request->phone,
-            'country' => $request->area
+            'mobile' => $phone,
+            'country' => $area
         ]);
 
         return back()->withStatus(__('Suceessfuly stored!'));

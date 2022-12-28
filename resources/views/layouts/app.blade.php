@@ -16,6 +16,8 @@
 
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-XSWQYV6GBT"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        type="text/javascript"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
 
@@ -90,7 +92,7 @@
             s0.parentNode.insertBefore(s1, s0);
         })();
     </script>
-    <!--End of Tawk.to Script
+    <!--End of Tawk.to Script-->
     <script>
         jQuery(function() {
             var tl1 = new TimelineMax(),
@@ -123,7 +125,7 @@
 
     </script>
 
-    <!-- Meta Pixel Code
+    <!-- Meta Pixel Code-->
 <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -136,10 +138,9 @@
     fbq('init', '1638312446679714');
     fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1638312446679714&ev=PageView&noscript=1"
-    /></noscript>
-     End Meta Pixel Code -->
+    <noscript>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1638312446679714&ev=PageView&noscript=1" /></noscript>
+    <!--End Meta Pixel Code-->
     @stack('custom-scripts')
     @include('cookie-consent::index')
 </body>

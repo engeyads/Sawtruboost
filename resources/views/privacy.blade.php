@@ -122,13 +122,9 @@
             <p dir="ltr" style="line-height:1.2"><span style="font-size:7.5pt;font-family:Arial;color:#000000;background-color:transparent;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap">● </span><span style="font-size:10pt;font-family:Arial;color:#000000;background-color:transparent;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap">Via Email: info@sawtruboost.com&nbsp;</span></p>
             <p dir="ltr" style="line-height:1.2"><span style="font-size:7.5pt;font-family:Arial;color:#000000;background-color:transparent;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap">● </span><span style="font-size:10pt;font-family:Arial;color:#000000;background-color:transparent;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap">Via Phone Number: +90 506 467 79 87&nbsp;</span></p>
             <p dir="ltr" style="line-height:1.2"><span style="font-size:7.5pt;font-family:Arial;color:#000000;background-color:transparent;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap">● </span><span style="font-size:10pt;font-family:Arial;color:#000000;background-color:transparent;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap">Via this Link: https://sawtruboost.com/boostnow&nbsp;</span></p>
-            <p dir="ltr" style="line-height:78.38311157226562"><span style="font-size:7.5pt;font-family:Arial;color:#000000;background-color:transparent;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap">● </span><span style="font-size:10pt;font-family:Arial;color:#000000;background-color:transparent;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap">Via this Address: Akevler, VENUS RES?DANCE, 1066. Sk. NO:2 D:KAT:4 DA?RE:30, 34513</span></p>
+            <p dir="ltr" style=""><span style="font-size:7.5pt;font-family:Arial;color:#000000;background-color:transparent;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap">● </span><span style="font-size:10pt;font-family:Arial;color:#000000;background-color:transparent;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap">Via this Address: Akevler, VENUS RES?DANCE, 1066. Sk. NO:2 D:KAT:4 DA?RE:30, 34513</span></p>
             <br class="Apple-interchange-newline" />
             <br />
-
-
-
-
     </section>
 
 

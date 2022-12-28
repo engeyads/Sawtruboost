@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('SEO')
-<meta name="description" content=@if(session()->get('locale') == 'en' || session()->get('locale') == null) "A subpage in Sawtru Boost website enables our clients to contact us directly and commence their business development journey with us, this page allows potential clients to fill out the application form and book their appointment to have an individualized consultation with one of our team of experts." @elseif(session()->get('locale') == 'ar')  @endif/>
-<meta name="keywords" content="@if(session()->get('locale') == 'en' || session()->get('locale') == null)  @elseif(session()->get('locale') == 'ar')  @endif">
+    <meta name="description" content=@if(session()->get('locale') == 'en' || session()->get('locale') == null) "A subpage in Sawtru Boost website enables our clients to contact us directly and commence their business development journey with us, this page allows potential clients to fill out the application form and book their appointment to have an individualized consultation with one of our team of experts." @elseif(session()->get('locale') == 'ar')  @endif/>
+    <meta name="keywords" content="@if(session()->get('locale') == 'en' || session()->get('locale') == null)  @elseif(session()->get('locale') == 'ar')  @endif">
 @endsection
 
 @section('content')
     <section class="w-full yellowbg boostnow">
-
+        <
         <svg class="wave" preserveAspectRatio="none" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 3620.25 1491.42">
             <defs>
@@ -60,7 +60,7 @@
                     <tr align="center">
                         <td>
                             <div class='flex'>
-                                <input name='area' type="number" list="area" max="99999" min='0' placeholder="{{ __('messages.area') }}" required>
+                                <input id="area1" name='area' type="number" list="area" max="99999" min='0' placeholder="{{ __('messages.area') }}" required>
                                 <datalist id="area">
                                     <option disabled selected value="default">Country</option>
                                     <option data-countryCode="DZ" value="213">Algeria (+213)</option>
@@ -285,7 +285,7 @@
                         </div>
                         </td>
                         <td>
-                            <input name='email' type="email" placeholder="{{ __('messages.email') }}" required>
+                            <input id="email" name='email' type="email" placeholder="{{ __('messages.email') }}" required>
                         </td>
                     </tr>
                     <tr align="center">
@@ -382,5 +382,42 @@
     @push('custom-scripts')
 
         <script type="module" src="{{ URL::asset('js/home.js') }}"></script>
+        <script>
+            $('#area1').on('change',function(){
+                let area = $('#area1'),
+                phone = $('#seller_phone1'),
+                email = $('#email');
+
+                if($(this).val() != ''){
+                    email.removeAttr('required');
+                }else{
+                    email.attr('required','');
+                }
+            });
+            $('#seller_phone1').on('change',function(){
+                let area = $('#area1'),
+                phone = $('#seller_phone1'),
+                email = $('#email');
+
+                if($(this).val() != ''){
+                    email.removeAttr('required');
+                }else{
+                    email.attr('required','');
+                }
+            });
+            $('#email').on('change',function(){
+                let area = $('#area1'),
+                phone = $('#seller_phone1'),
+                email = $('#email');
+
+                if($(this).val() != ''){
+                    area.removeAttr('required');
+                    phone.removeAttr('required');
+                }else{
+                    area.attr('required','');
+                    phone.attr('required','');
+                }
+            });
+        </script>
     @endpush
 @endsection

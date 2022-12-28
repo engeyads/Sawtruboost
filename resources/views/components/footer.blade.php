@@ -136,7 +136,7 @@
                                             {{ __('messages.Turkiye') }}:
                                         </td>
                                         <td style='direction:ltr' class='{{ __('messages.direction') === 'ltr' ? 'text-left' : 'text-right'  }}'>
-                                            <a>+90 506 467 79 87</a>
+                                            <a href='tel:+905064677987'>+90 506 467 79 87</a>
                                         </td>
                                     </tr>
                                 </tbody>

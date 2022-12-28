@@ -186,6 +186,10 @@ return [
     'msg' => 'YOUR MESSAGE',
     'submit' => 'SEND',
 
+    // contact us page
+    'Get in Touch' => 'Get in Touch',
+    'contact us' => 'Contact Us',
+
     // dashboard translations
     'Dashboard by Sawtru Boost' => 'Dashboard by Sawtru Boost',
     'Dashboard' => 'Dashboard',

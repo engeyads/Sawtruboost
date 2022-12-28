@@ -158,6 +158,10 @@ return [
     'msg' => 'رسالتك',
     'submit' => 'ارسال',
 
+    // contact us page
+    'Get in Touch' => 'تواصل معنا',
+    'contact us' => 'املأ النموذج',
+
     // dashboard translations
     'Dashboard by Sawtru Boost' => 'Dashboard by Sawtru Boost',
     'Dashboard' => 'Dashboard',

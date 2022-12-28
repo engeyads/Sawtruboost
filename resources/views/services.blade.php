@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('SEO')
-<meta name="description" content=@if(session()->get('locale') == 'en' || session()->get('locale') == null) "The services page can be accessed through the (Services) button at the upper left corner, which will take the website visitors to the services page, where we display our four main services; digital, consultations, creativity and growth studies. Each service has a detailed description of how we consider and perform the services and list of the services in more detail." @elseif(session()->get('locale') == 'ar')  @endif/>
-<meta name="keywords" content="@if(session()->get('locale') == 'en' || session()->get('locale') == null)  @elseif(session()->get('locale') == 'ar')  @endif">
+    <meta name="description" content=@if(session()->get('locale') == 'en' || session()->get('locale') == null) "The services page can be accessed through the (Services) button at the upper left corner, which will take the website visitors to the services page, where we display our four main services; digital, consultations, creativity and growth studies. Each service has a detailed description of how we consider and perform the services and list of the services in more detail." @elseif(session()->get('locale') == 'ar')  @endif/>
+    <meta name="keywords" content="@if(session()->get('locale') == 'en' || session()->get('locale') == null)  @elseif(session()->get('locale') == 'ar')  @endif">
 @endsection
 
 @section('content')
