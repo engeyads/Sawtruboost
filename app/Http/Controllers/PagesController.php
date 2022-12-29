@@ -7,6 +7,8 @@ use App\Models\Leads;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\userProfiles;
+use App\Notifications\newlead;
+use Notification;
 class PagesController extends Controller
 {
 
@@ -107,7 +109,7 @@ class PagesController extends Controller
      */
     public function people(Request $request)
     {
-        $people = User::with('userProfile')->paginate(6); //fetch all blog posts from DB
+        $people = User::with('userProfile')->paginate(7); //fetch all People  from DB
         $grid = '';
         if ($request->ajax()) {
             foreach ($people as $result) {
@@ -185,6 +187,8 @@ class PagesController extends Controller
             'mobile' => $phone,
             'country' => $area
         ]);
+
+        newlead::send('iyad@sawtruboost.com', 'new lead has been registered'.$newLead->name);
 
         return back()->withStatus(__('Suceessfuly stored!'));
     }
