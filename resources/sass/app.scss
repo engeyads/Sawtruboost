@@ -3987,6 +3987,103 @@ fieldset[disabled] .btn-link.active {
 }
 
 /*
+ **  alert style
+ */
+
+ .alert {
+    border: 0;
+    border-radius: 3px;
+    color: #FFFFFF;
+    padding-top: .9rem;
+    padding-bottom: .9rem;
+    position: relative;
+  }
+
+  .alert.alert-success {
+    background-color: #7ed6a5;
+  }
+
+  .alert.alert-danger {
+    background-color: #f1926e;
+  }
+
+  .alert.alert-warning {
+    background-color: #fccf71;
+  }
+
+  .alert.alert-info {
+    background-color: #66c4de;
+  }
+
+  .alert.alert-primary {
+    background-color: #65d1d4;
+  }
+
+  .alert .close {
+    color: #FFFFFF;
+    opacity: .9;
+    text-shadow: none;
+    line-height: 0;
+    outline: 0;
+  }
+
+  .alert .close i.fa,
+  .alert .close i.nc-icon {
+    font-size: 14px !important;
+  }
+
+  .alert .close:hover,
+  .alert .close:focus {
+    opacity: 1;
+  }
+
+  .alert span[data-notify="icon"] {
+    font-size: 27px;
+    display: block;
+    left: 19px;
+    position: absolute;
+    top: 50%;
+    margin-top: -11px;
+  }
+
+  .alert button.close {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -13px;
+    width: 25px;
+    height: 25px;
+    padding: 3px;
+  }
+
+  .alert .close~span {
+    display: block;
+    max-width: 89%;
+  }
+
+  .alert.alert-with-icon {
+    padding-left: 65px;
+  }
+
+  .fontbigyello{
+    p{
+
+        font-family: $font-ltr;
+              text-decoration: underline wavy $mainLightColor 3px;
+
+              [dir=rtl] & {
+                  font-family: $font-rtl;
+              }
+
+              color: $mainLightColor;
+              font-size: clamp(20px, 2vw, 40px);
+              letter-spacing: 2px;
+              text-align: center;
+              transform: scale(.95, 1);
+              filter: drop-shadow(2px 4px 4px #2225)
+    }
+  }
+/*
  **  Main Menu
  */
 
@@ -7752,7 +7849,6 @@ button.tablinks .celebration-svg {
 
         img {
             width: 40vw;
-
         }
     }
 
@@ -7874,7 +7970,14 @@ button.tablinks .celebration-svg {
             display: block;
 
         }
+        a{
+            min-height: 48px !important;
+            min-width: 48px !important;
+            font-size: x-large;
+            padding: 5px;
+        }
     }
+
 
 }
 

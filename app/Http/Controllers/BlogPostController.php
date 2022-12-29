@@ -38,13 +38,15 @@ class BlogPostController extends Controller
      */
     public function endindex(Request $request)
     {
+        $locale = (session()->get('locale') == 'en' || session()->get('locale') == '') ? 'en' : session()->get('locale');
         $posts = BlogPost::with('post_images')->where([
             ['publish_date' ,'<=',Date('Y-m-d')],
-            ['privacy','=','1']
+            ['privacy','=','1'],
+            ['title'.$locale, '<>','']
             ])->orderby('created_at','desc')->paginate(4); //fetch all blog posts from DB
         $artilces = '';
+
         if ($request->ajax()) {
-            if((session()->get('locale') == 'en' || session()->get('locale') == '')){
 
             foreach ($posts as $result) {
                 $artilces.='
@@ -64,40 +66,12 @@ class BlogPostController extends Controller
                                 <span class="ml-2">'. date('d-m-Y', strtotime($result->created_at)) .'</span>
                             </div>
                         </div>
-                        <h5 class="card-title my-3 font-weight-normal">'. ucfirst($result->title) .'</h5>'.
-                        (strlen($result->body) > 30 ? '<p class="card-text">'. substr(ucfirst($result->body), 0, 30)  .'...</p>' : '<p class="card-text">'. substr('', 0, 10) .' ...</p>').
+                        <h5 class="card-title my-3 font-weight-normal">'. ucfirst($result['title'.$locale]) .'</h5>'.
+                        (strlen($result['body'.$locale]) > 30 ? '<p class="card-text">'. substr(ucfirst($result['body'.$locale]), 0, 30)  .'...</p>' : '<p class="card-text">'. substr('', 0, 10) .' ...</p>').
                     '</div>
                 </div>
                 ';
             }
-
-        }elseif(session()->get('locale') == 'ar'){
-            foreach ($posts as $result) {
-            $artilces.='
-            <div class="col-md-5 pb-8">
-                <div class="card b-h-box position-relative font-14 border-0 mb-4">
-                    <a href="./blog/'. $result->id .'" class="a card-meta-tagList-item">
-                        <img class="card-img"
-                            src="'. ($result->featured_image == "" ? '/postimages/default-blog.jpg' : '/postimages/' . $result->featured_image ).
-                            '" alt="Card image" />
-
-                    </a>
-                </div>
-                <div class=" overflow-hidden">
-                    <div class="d-flex align-items-center">
-                        <span
-                            class="bg-danger-gradiant badge overflow-hidden text-white px-3 py-1 font-weight-normal">'. $result->author->name .'</span>
-                        <div class="ml-2">
-                            <span class="ml-2">'. date('d-m-Y', strtotime($result->created_at)) .'</span>
-                        </div>
-                    </div>
-                    <h5 class="card-title my-3 font-weight-normal">'. ucfirst($result->titlear) .'</h5>'.
-                    (strlen($result->bodyar) > 30 ? '<p class="card-text">'. substr(ucfirst($result->bodyar), 0, 30)  .'...</p>' : '<p class="card-text">'. substr('', 0, 10) .' ...</p>').
-                '</div>
-            </div>
-            ';
-            }
-        }
             return $artilces;
         }
 
@@ -128,26 +102,34 @@ class BlogPostController extends Controller
         $user_id = auth()->user()->id;
 
         $image = $request->featured;
-        $title = $request->title;
-        $body = $request->body;
+        $title = $request->titleen;
+        $body = $request->bodyen;
         $titlear = $request->titlear;
         $bodyar = $request->bodyar;
-        $seo_keywords = $request->seo_keywords;
-        $seo_description = $request->seo_description;
+        $titletr = $request->titletr;
+        $bodytr = $request->bodytr;
+        $seo_keywords = $request->seo_keywordsen;
+        $seo_description = $request->seo_descriptionen;
         $seo_keywordsar = $request->seo_keywordsar;
         $seo_descriptionar = $request->seo_descriptionar;
+        $seo_keywordstr = $request->seo_keywordstr;
+        $seo_descriptiontr = $request->seo_descriptiontr;
         $publish_date = $request->publish_date;
         $privacy = $request->privacy;
 
         $newPost = BlogPost::create([
-            'title' => $title,
-            'body' => $body,
+            'titleen' => $title,
+            'bodyen' => $body,
             'titlear' => $titlear,
             'bodyar' => $bodyar,
+            'titletr' => $titletr,
+            'bodytr' => $bodytr,
             'seo_keywords' => $seo_keywords,
             'seo_description' => $seo_description,
             'seo_keywordsar' => $seo_keywordsar,
             'seo_descriptionar' => $seo_descriptionar,
+            'seo_keywordstr' => $seo_keywordstr,
+            'seo_descriptiontr' => $seo_descriptiontr,
             'publish_date' => $publish_date,
             'privacy' => $privacy,
             'uid' => $user_id
@@ -155,7 +137,15 @@ class BlogPostController extends Controller
 
         // rename the uploaded file
         $filename = date('dmYHis') .'-post'. $newPost->id . '.' . $image->getClientOriginalExtension();
-        Image::make($image->getRealPath())->save('postimages/' . $filename);
+
+        $width = 600; // your max width
+        $height = 600; // your max height
+        $image = Image::make($image->getRealPath());
+        $image->height() > $image->width() ? $width=null : $height=null;
+        $image->resize($width, $height, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+        $image->save('postimages/' . $filename);
 
         $newPost->update([
             'featured_image' => $filename
@@ -196,18 +186,25 @@ class BlogPostController extends Controller
      */
     public function endshow(BlogPost $blogPost)
     {
+
+        $locale = (session()->get('locale') == 'en' || session()->get('locale') == '') ? 'en' : session()->get('locale');
+        if($blogPost['title'.$locale] == ''){
+            return view('blog.index')->withStatus(__('Blog not found !'));
+        }
         $next = $blogPost->id;
 		$prev = $blogPost->id;
         if(BlogPost::where([
             ['id', '>', $blogPost->id],
             ['publish_date' ,'<=',Date('Y-m-d')],
             ['privacy','=','1'],
+            ['title'.$locale,'<>',''],
             ])->min('id')){
             $next = BlogPost::where('id', '>', $blogPost->id)->min('id');
         }elseif(BlogPost::where([
             ['id', '<', $blogPost->id],
             ['publish_date' ,'<=',Date('Y-m-d')],
             ['privacy','=','1'],
+            ['title'.$locale,'<>',''],
             ])->min('id')){
             $next = BlogPost::where('id', '<', $blogPost->id)->min('id');
         }
@@ -215,23 +212,27 @@ class BlogPostController extends Controller
         if(BlogPost::where([
             ['id', '<', $blogPost->id],
             ['publish_date' ,'<=',Date('Y-m-d')],
-            ['privacy','=','1']
+            ['privacy','=','1'],
+            ['title'.$locale,'<>',''],
             ])->max('id')){
             $prev = BlogPost::where([
                 ['id', '<', $blogPost->id],
                 ['publish_date' ,'<=',Date('Y-m-d')],
-                ['privacy','=','1']
-                ])->max('id');
+                ['privacy','=','1'],
+            ['title'.$locale,'<>',''],
+            ])->max('id');
         }elseif(BlogPost::where([
             ['id', '>', $blogPost->id],
             ['publish_date' ,'<=',Date('Y-m-d')],
-            ['privacy','=','1']
+            ['privacy','=','1'],
+            ['title'.$locale,'<>',''],
             ])->max('id')){
             $prev = BlogPost::where([
                 ['id', '>', $blogPost->id],
                 ['publish_date' ,'<=',Date('Y-m-d')],
-                ['privacy','=','1']
-                ])->max('id');
+                ['privacy','=','1'],
+                ['title'.$locale,'<>',''],
+            ])->max('id');
         }
 
         return view('blog.show', [
@@ -293,7 +294,18 @@ class BlogPostController extends Controller
         $image = $request->file('featured');
 
         $filename = date('dmYHis') .'-post'. $blogPost->id . '.' . $image->getClientOriginalExtension();
-        Image::make($image->getRealPath())->save('postimages/' . $filename);
+
+        $width = 600; // your max width
+        $height = 600; // your max height
+
+        $image = Image::make($image->getRealPath());
+
+        $image->height() > $image->width() ? $width=null : $height=null;
+
+        $image->resize($width, $height, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+        $image->save('postimages/' . $filename);
 
         $blogPost->update(['featured_image' => $filename]);
 

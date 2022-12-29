@@ -7,7 +7,13 @@
 
 @section('content')
     <section class="w-full yellowbg boostnow">
-        <
+        @if (session('status'))
+        <center>
+            <div class="" role="alert fontbigyello">
+                <p class='fontBlont'>{{ session('status') }}</p>
+            </div>
+        </center>
+        @endif
         <svg class="wave" preserveAspectRatio="none" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 3620.25 1491.42">
             <defs>

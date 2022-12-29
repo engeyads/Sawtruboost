@@ -18,6 +18,7 @@
         "phpoffice/phpspreadsheet": "^1.25",
         "spatie/laravel-cookie-consent": "^3.2",
         "spatie/laravel-permission": "^5.7",
+        "spatie/laravel-sitemap": "^6.2",
         "verschuur/laravel-robotstxt": "^4.0"
     },
     "require-dev": {

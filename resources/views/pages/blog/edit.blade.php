@@ -88,27 +88,27 @@
                                 <div class="row">
 
                                     <div class="control-group col-12">
-                                        <label for="seo_description">SEO discription</label>
+                                        <label for="seo_descriptionen">SEO discription</label>
                                         <input type="text" id="seo_description" class="form-control"
-                                            name="seo_description" placeholder="Enter SEO Description for english page"
-                                            value="{{ $post->seo_description }}" required>
+                                            name="seo_descriptionen" placeholder="Enter SEO Description for english page"
+                                            value="{{ $post->seo_descriptionen }}" required>
                                     </div>
                                     <div class="control-group col-12">
-                                        <label for="seo_keywords">SEO Keywords (key1, key2, ...)</label>
-                                        <input type="text" id="seo_keywords" class="form-control" name="seo_keywords"
-                                            value="{{ $post->seo_keywords }}"
+                                        <label for="seo_keywordsen">SEO Keywords (key1, key2, ...)</label>
+                                        <input type="text" id="seo_keywords" class="form-control" name="seo_keywordsen"
+                                            value="{{ $post->seo_keywordsen }}"
                                             placeholder="Enter SEO Keywords for english page" required>
                                     </div>
 
                                     <div class="control-group col-12">
                                         <label for="title">Post Title for English</label>
-                                        <input type="text" id="title" class="form-control" name="title"
-                                            value="{{ $post->title }}" placeholder="Enter Post Title for English"
+                                        <input type="text" id="title" class="form-control" name="titleen"
+                                            value="{{ $post->titleen }}" placeholder="Enter Post Title for English"
                                             required>
                                     </div>
 
-                                    <textarea name="body" id="inp_editor1">
-                                        {{ $post->body }}
+                                    <textarea name="bodyen" id="inp_editor1">
+                                        {{ $post->bodyen }}
 
                                     </textarea>
                                 </div>
@@ -137,6 +137,34 @@
 
                                     <textarea name="bodyar" id="inp_editor2">
                                         {!! $post->bodyar !!}
+                                    </textarea>
+
+                                </div>
+                                <br><br>
+                                <div class="row">
+                                    <div class="control-group col-12">
+                                        <label for="titletr">Post Title for Turkish</label>
+                                        <input type="text" id="titlear" class="form-control" name="titletr"
+                                            value="{!! $post->titletr !!}" value="{{ $post->titletr }}"
+                                            placeholder="Enter Post Title for Turkish" required>
+                                    </div>
+
+                                    <div class="control-group col-12">
+                                        <label for="seo_descriptiontr">SEO discription Turkish</label>
+                                        <input type="text" id="seo_descriptiontr" class="form-control"
+                                            name="seo_descriptiontr" value="{{ $post->seo_descriptiontr }}"
+                                            placeholder="Enter SEO Description for Turkish page" required>
+                                    </div>
+                                    <div class="control-group col-12">
+                                        <label for="seo_keywordstr">SEO Keywords Turkish (anahtar1, anahtar2, ...)</label>
+                                        <input type="text" id="seo_keywordstr" class="form-control"
+                                            value="{{ $post->seo_keywordstr }}" name="seo_keywordstr"
+                                            placeholder="Enter SEO Keywords for Turkish page" required>
+                                    </div>
+
+
+                                    <textarea name="bodytr" id="inp_editor3">
+                                        {!! $post->bodytr !!}
                                     </textarea>
 
 
@@ -168,6 +196,7 @@
         <script>
             var editor1 = new RichTextEditor("#inp_editor1");
             var editor2 = new RichTextEditor("#inp_editor2");
+            var editor3 = new RichTextEditor("#inp_editor3");
 
             // immediate change privacy of post
             $('.privacy').on('change', function() {

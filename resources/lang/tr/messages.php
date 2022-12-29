@@ -23,8 +23,8 @@ return [
     'People' => 'Bizim takım ',
 
     //head words and button
-    'CompanyWord' => 'Pazarlama Çözümlerinin Öncüleri',
-    'CompanyWord2' => 'Pazarlama Çözümlerinin Öncüleri',
+    'CompanyWord' => 'Pazarlama ',
+    'CompanyWord2' => 'Çözümlerinin Öncüleri',
     'boostnow' => 'İşinizi şimdi artırın!',
 
     //second section word

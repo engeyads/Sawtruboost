@@ -10,16 +10,20 @@ class BlogPost extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title',
+        'titleen',
         'titlear',
+        'titletr',
         'featured_image',
-        'body',
+        'bodyen',
         'bodyar',
+        'bodytr',
         'uid',
-        'seo_keywords',
-        'seo_description',
+        'seo_keywordsen',
+        'seo_descriptionen',
         'seo_keywordsar',
         'seo_descriptionar',
+        'seo_keywordstr',
+        'seo_descriptiontr',
         'publish_date',
         'privacy'
     ];

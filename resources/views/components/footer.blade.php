@@ -163,10 +163,10 @@
                                             width='22px' src={{ URL::asset('images/palestine.svg') }}
                                             alt="Arabic Language Flag" /> Ar</a>
                                 </td>
-                                {{--<td><a href="{{ route('changeLang') }}?lang=tr"><img class='inline-flex'
+                                <td><a href="{{ route('changeLang') }}?lang=tr"><img class='inline-flex'
                                             width='22px' src={{ URL::asset('images/turkish.svg') }}
                                             alt="Turkish Language Flag" /> Tr</a>
-                                </td>--}}
+                                </td>
                             </tr>
                         </tbody>
                     </table>

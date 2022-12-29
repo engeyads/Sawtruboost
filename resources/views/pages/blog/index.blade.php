@@ -46,7 +46,7 @@
                                         <tr>
                                             <td>
                                                 <a
-                                                    href="{{ route('blog.edit', $post->id) }}">{{ ucfirst($post->title) }}</a>
+                                                    href="{{ route('blog.edit', $post->id) }}">{{ ucfirst($post->titleen) == '' ? (ucfirst($post->titlear) == '' ? ucfirst($post->titletr) : ucfirst($post->titlear) ) : ucfirst($post->titleen) }}</a>
                                             </td>
                                             <td>
                                                 {{ ucfirst($post->author->name) }}

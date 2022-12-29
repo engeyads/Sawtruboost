@@ -14,6 +14,13 @@
                 <h2 id="blogPost-header">Recent Blog Posts</h2>
                 <input type="text" id="blogSearch" placeholder="What sounds yummy today?">
             </section>
+            @if (session('status'))
+        <center>
+            <div class="" role="alert fontbigyello">
+                <p class='fontBlont'>{{ session('status') }}</p>
+            </div>
+        </center>
+        @endif
             @can('create-blogs')
                 <div class="col-4">
                     <p>Create new Post</p>

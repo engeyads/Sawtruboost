@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('SEO')
-<meta name="description" content="@if(session()->get('locale') == 'en' || session()->get('locale') == null) {{$post->seo_description}} @elseif(session()->get('locale') == 'ar') {{$post->seo_descriptionar}} @endif"/>
-<meta name="keywords" content="@if(session()->get('locale') == 'en' || session()->get('locale') == null) {{$post->seo_keywords}} @elseif(session()->get('locale') == 'ar') {{$post->seo_keywordsar}} @endif">
+    <meta name="description" content="{{ $post['seo_description'.(session()->get('locale') == '' ? 'en' : session()->get('locale'))] }}" />
+    <meta name="keywords" content="{{ $post['seo_keywords'.(session()->get('locale') == '' ? 'en' : session()->get('locale'))] }}" />
 @endsection
 
 @section('content')
@@ -33,11 +33,11 @@
                         src="{{ $post->featured_image == '' ? URL::asset('postimages/default-blog.jpg') : URL::asset('postimages').'/'.$post->featured_image }}"
                         alt="post image" />
                 </div>
-                <h1 class="display-one fontBlont text-xl">@if(session()->get('locale') == 'en' || session()->get('locale') == null) {!! ucfirst($post->title) !!} @elseif(session()->get('locale') == 'ar') {!! ucfirst($post->titlear) !!} @endif</h1>
+                <h1 class="display-one fontBlont text-xl">{!! ucfirst($post['title'.(session()->get('locale') == '' ? 'en' : session()->get('locale'))]) !!}</h1>
 
                 <div class='pt-12'>
 
-                    @if(session()->get('locale') == 'en' || session()->get('locale') == null) {!! $post->body !!} @elseif(session()->get('locale') == 'ar') {!! $post->bodyar !!} @endif
+                    {!! $post['body'.(session()->get('locale') == '' ? 'en' : session()->get('locale'))] !!}
                 </div>
                 <hr>
                 @can('edit-blogs')
@@ -69,7 +69,6 @@
                   navigator.clipboard.writeText(this.value);
 
                 }
-
 
                 $( "<button class='copycode btn btn-warning absolute right-0 mt-4 mr-8'>copy</button>" ).insertBefore($( "code" ));
                 if($('.copycode')[0]){

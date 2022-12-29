@@ -10,6 +10,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\FileUpload;
 use App\Http\Controllers\LeadsController;
 use App\Http\Controllers\DealsController;
+use App\Http\Controllers\SitemapController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +26,9 @@ use App\Http\Controllers\DealsController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap.index');
 
 Route::get('/services', [PagesController::class, 'services'])->name('services');
 Route::get('/about', [PagesController::class, 'about'])->name('about');
