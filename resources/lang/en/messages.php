@@ -51,28 +51,30 @@ return [
     'INNOVATION3' => 'We are committed to supporting our partners in creating a creative and innovative workplace environment. With the assistance of our team of analysts and consultants, our partners may compare their innovation processes to those of their industry peers in more insight. They can however filter all innovation prospects based on their commercial feasibility and strategic alignment with the company.',
 
     //Partners
-    'Partners' => 'Partners',
+    'Partners' => 'Our Partners',
     'TrustedPartners' => 'Trusted Partners With',
+    'Comming Soon' => 'Forthcoming',
 
     //Blog
-    'LATESTINSIGHTS' => 'LATEST INSIGHTS',
+    'LATESTINSIGHTS' => 'OUR LATEST INSIGHTS',
 
     //footer
     'footerword' => 'Ready To Boost Now?',
-    'footerword2' => 'Explore your growth opportunities by contacting one of our ofces whichever way you prefer.',
-    'Contact' => 'Contact',
+    'footerword2' => 'Explore your growth opportunities by contacting one of our offices whichever way you prefer.',
+    'Contact' => 'Useful Links',
     'Careers' => 'Careers',
     'Partners' => 'Partners',
     'Contactus' => 'Contact us',
     'Condetions' => 'Condetions',
     'Terms' => 'Terms',
-    'Privacy' => 'Privacy',
-    'Cookies' => 'Cookies',
+    'Privacy' => 'Privacy Policy',
+    'Cookies' => 'Cookies Policy',
     'Belgium' => 'Belgium',
     'SaudiArabia' => 'Saudi Arabia',
     'UAE' => 'UAE',
     'Turkiye' => 'Turkiye',
     'rightsreserved' => 'All Rights Reserved',
+    'locations' => 'Locations',
 
     //services page
     'Our' => 'Our',
@@ -177,14 +179,14 @@ return [
 
     //form
     'name' => 'NAME',
-    'company' => 'COMPANY NAME',
-    'area' => 'AREA CODE',
+    'company' => 'BUSINESS NAME',
+    'area' => 'COUNTRY CODE',
     'phone' => 'PHONE NUMBER',
     'email' => 'EMAIL',
     'website' => 'BUSINESS WEBSITE',
     'services' => 'SERVICES YOU\'RE INTERESTED IN',
     'msg' => 'YOUR MESSAGE',
-    'submit' => 'SEND',
+    'submit' => 'SUBMIT',
 
     // contact us page
     'Get in Touch' => 'Get in Touch',

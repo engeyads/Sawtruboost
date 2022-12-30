@@ -17,7 +17,7 @@
     </section>
 <div class="contactusform">
 
-    <h2>contact us</h2>
+
 </div>
     <div id="contact">
         <div class="contact-box">
@@ -26,13 +26,13 @@
                         <div class="links2">
                             <div class="link">
 
-                                <i class='fa fa-map-marker'></i> Akevler, 1066. Sk. No:34513 ,2 Beylikdüzü Osb/Esenyurt/İstanbul
+                                For more enquiries and faster response please email us directly
                             </div>
                             <div class="link">
                                 <a href='mialto:info@sawtruboost.com'><i class="fa fa-envelope"></i> info@sawtruboost.com</a>
                             </div>
-                            <div class='map'>
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1505.1087560449484!2d28.679727!3d41.020497!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfbfb76c18c52f067!2sVenus%20Residence!5e0!3m2!1sen!2sus!4v1672131061042!5m2!1sen!2sus"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <div class='link'>
+                                {{ __('messages.Turkiye') }}:<a href='tel:+905064677987'>+90 506 467 79 87</a>
                             </div>
                         </div>
                     </div>

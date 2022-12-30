@@ -102,11 +102,30 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__item">
+                    <div class="grid__item text-center">
+                        <h4 class='fontBlont text-l font-bold pb-3'>
+                            {{ __('messages.locations') }}
+                        </h4>
+                        <ul>
+                            <li>
+                                {{ __('messages.Belgium') }}
+                            </li>
+                            <li>
+                                {{ __('messages.SaudiArabia') }}
+                            </li>
+                            <li>
+                                {{ __('messages.UAE') }}
+                            </li>
+                            <li>
+                                {{ __('messages.Turkiye') }}
+                            </li>
+                        </ul>
+                    </div>
+                    {{-- <div class="grid__item">
                         <center>
                             <table>
                                 <tbody>
-                                    {{-- <tr>
+                                     <tr>
                                         <td class='{{ __('messages.direction') === 'ltr' ? 'text-right' : 'text-left'  }} font-weight-bold'>
                                             {{ __('messages.Belgium') }}:
                                         </td>
@@ -130,7 +149,7 @@
                                         <td style='direction:ltr' class='{{ __('messages.direction') === 'ltr' ? 'text-left' : 'text-right'  }}'>
                                             <a>+971 537 913 04 51</a>
                                         </td>
-                                    </tr> --}}
+                                    </tr>
                                     <tr>
                                         <td class='fontBlont {{ __('messages.direction') === 'ltr' ? 'text-right' : 'text-left'  }} font-weight-bold'>
                                             {{ __('messages.Turkiye') }}:
@@ -142,7 +161,7 @@
                                 </tbody>
                             </table>
                         </center>
-                    </div>
+                    </div> --}}
                 </div>
 
             </section>
@@ -156,16 +175,15 @@
 
                                 <td><a href="{{ route('changeLang') }}?lang=en"><img class='inline-flex'
                                             width='22px' src={{ URL::asset('images/united-kingdom.svg') }}
-                                            alt="English Language Flag" />
-                                        En</a>
+                                            alt="English Language Flag" /> EN</a>
                                 </td>
                                 <td><a href="{{ route('changeLang') }}?lang=ar"><img class='inline-flex'
                                             width='22px' src={{ URL::asset('images/palestine.svg') }}
-                                            alt="Arabic Language Flag" /> Ar</a>
+                                            alt="Arabic Language Flag" /> AR</a>
                                 </td>
                                 <td><a href="{{ route('changeLang') }}?lang=tr"><img class='inline-flex'
                                             width='22px' src={{ URL::asset('images/turkish.svg') }}
-                                            alt="Turkish Language Flag" /> Tr</a>
+                                            alt="Turkish Language Flag" /> TR</a>
                                 </td>
                             </tr>
                         </tbody>

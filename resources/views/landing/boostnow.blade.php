@@ -47,7 +47,7 @@
                 <tr>
                     <td align="center">
                         <h3 class="text-xl fontBlont">
-                            {{ __('messages.boostmsg') }}
+
                         </h3>
                     </td>
                 </tr>

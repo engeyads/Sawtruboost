@@ -55,12 +55,13 @@ return [
     //Partners
     'Partners' => 'ortaklarımız',
     'TrustedPartners' => 'Biz iş ortağı ve hizmet sağlayıcı',
+    'Comming Soon' => 'Yakında',
 
     //Blog
     'LATESTINSIGHTS' => 'makalelerimiz',
 
     //footer
-    'footerword' => 'işinizi büyütmek için bir adım atmaya hazır olun؟',
+    'footerword' => 'işinizi büyütmek için bir adım atmaya hazır olun?',
     'footerword2' => 'Bizimle tercih ettiğiniz şekilde iletişim kurarak işinizin gelişimi için yeni fırsatları ve ufukları keşfetme fırsatını kullanın',
     'Contact' => 'iletişim',
     'Careers' => 'Çalışma ekibimize katılın',
@@ -75,6 +76,7 @@ return [
     'UAE' => 'Birleşik Arap Emirlikleri',
     'Turkiye' => 'Türkiye',
     'rightsreserved' => 'Tüm hakları muhafaza edilmiştir',
+    'locations' => 'Bizim Kunumlarınız',
 
     'Our' => 'Our',
     'Magical' => 'Magical',

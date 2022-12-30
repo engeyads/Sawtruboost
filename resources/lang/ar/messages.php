@@ -53,6 +53,7 @@ return [
     //Partners
     'Partners' => 'شركاؤنا',
     'TrustedPartners' => 'نحن شُركاء و مُقدمي خدمات معترف بنا مع',
+    'Comming Soon' => 'قريباً',
 
     //Blog
     'LATESTINSIGHTS' => 'مقالاتنا',
@@ -73,6 +74,7 @@ return [
     'UAE' => 'الإمارات العربية المتحدة',
     'Turkiye' => 'تركيا',
     'rightsreserved' => 'جميع الحقوق محفوظة',
+    'locations' => 'مواقعنا',
 
     'Our' => 'Our',
     'Magical' => 'Magical',
