@@ -163,12 +163,12 @@ return [
     'website' => 'İşletme web siteniz',
     'services' => 'Bilgi almak istediğiniz hizmetler',
     'msg' => 'Mesajın',
-    'submit' => 'Göndermek',
+    'submit' => 'Gönder',
 
     // contact us page
-    'Get in Touch' => 'Get in Touch',
-    'contact us' => 'Contact Us',
-    'contactus1' => 'For more enquiries and faster response please email us directly',
+    'Get in Touch' => 'İletişim',
+    'contact us' => 'İletişim',
+    'contactus1' => 'Daha fazla soru ve daha hızlı yanıt için lütfen doğrudan bize e-posta gönderin',
 
     // dashboard translations
     'Dashboard by Sawtru Boost' => 'Dashboard by Sawtru Boost',

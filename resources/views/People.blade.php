@@ -11,14 +11,13 @@
         <div class=" people">
             <div class="pageHeading  ">
                 <center>
-
                     <h1 class='font-bold fontBlont text-xxl'>
                         {{ __('messages.Crew') }}
                     </h1>
+                    <h2 class='font-bold fontBlont pt-12 text-xl'>
+                        {{ __('messages.Crew2') }}
+                    </h2>
                 </center>
-                <h2 class='font-bold fontBlont pt-12 text-xl'>
-                    {{ __('messages.Crew2') }}
-                </h2>
             </div>
             <div class="boost-container boost-container--one">
                 <div class="boost boost--one"></div>

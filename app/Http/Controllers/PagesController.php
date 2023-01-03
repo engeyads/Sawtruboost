@@ -117,7 +117,7 @@ class PagesController extends Controller
                     $grid.='
                     <div class="col-md-4 pb-8">
                         <div class="card b-h-box position-relative font-14 border-0 mb-4">
-                            <a href="./people/'. $result->id .'" class="a card-meta-tagList-item">
+                            <a  class="a card-meta-tagList-item">
                                 <img class="card-img"
                                     src="'. ($result->userProfile->photo == "" ? '/profiles/default-avatar.png' : '/profiles/' . $result->userProfile->photo ).
                                     '" alt="Card image" />

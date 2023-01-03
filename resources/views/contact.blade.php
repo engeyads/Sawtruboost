@@ -26,7 +26,6 @@
                         <div class="links2">
                             <div class="link">
                                 {{ __('messages.contactus1') }}
-                                For more enquiries and faster response please email us directly
                             </div>
                             <div class="link">
                                 <a href='mialto:info@sawtruboost.com'><i class="fa fa-envelope"></i> info@sawtruboost.com</a>

@@ -111,10 +111,6 @@ The website is entirely designed and developed by Sawtru Boost" @elseif(session(
                 </div>
             </div>
         </center>
-        <br />
-        <br />
-        <br />
-        <br />
     </section>
     <hr>
     <section id='third' class=" third" style='direction:{{ __('messages.direction') }}'>
@@ -844,41 +840,6 @@ The website is entirely designed and developed by Sawtru Boost" @elseif(session(
                     });
                 }
             }
-        </script>
-        <script>
-            $('#slider').slick({
-                draggable: false,
-                slidesToShow: 5,
-                infinite: true,
-                slidesToScroll: 5,
-                autoplay: true,
-                autoplaySpeed: 100,
-                arrows: false,
-                speed: 6000,
-                cssEase: 'ease-in-out',
-                variableWidth: false,
-                initialSlide: 1,
-                pauseOnHover: false,
-                respondTo: window,
-                rtl: false,
-                responsive: [{
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 5,
-                            slidesToScroll: 5,
-                            speed: 4000,
-                        }
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 5,
-                            slidesToScroll: 5,
-                            speed: 4000,
-                        }
-                    }
-                ],
-            });
         </script>
         <script type="module" src="{{ URL::asset('js/home.js') }}"></script>
     @endpush
