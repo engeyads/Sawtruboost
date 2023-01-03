@@ -3822,6 +3822,17 @@ fieldset[disabled] .btn-link.active {
     --tw-ring-opacity: .05
 }
 
+.back-20{
+    margin-top: -5rem;
+}
+
+.gr1{
+    top: 0;
+    width: 100%;
+    height: 70vw;
+    max-height: 40rem;
+}
+
 .transition {
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -6096,36 +6107,30 @@ a.badge-dark:focus {
  **  our clients slider
  */
 
-$animationSpeed: 20s;
+ $animationSpeed: 20s;
 
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
+ @keyframes scroll {
+     0% { transform: translateX(0); }
+     100% { transform: translateX(calc(-250px * 6))}
+ }
 
-    100% {
-        transform: translateX(calc(-250px * 7))
-    }
-}
+ .slider {
+     height: 300px;
+     margin: auto;
+     overflow:hidden;
+     position: relative;
+     width: auto;
 
-.slider {
-    height: 300px;
-    margin: auto;
-    overflow: hidden;
-    position: relative;
-    width: auto;
-
-    .slide-track {
-        animation: scroll $animationSpeed linear infinite;
-        display: flex;
-        width: calc(250px * 14);
-    }
-
-    .slide {
-        height: 300px;
-        width: 250px;
-    }
-}
+     .slide-track {
+         animation: scroll $animationSpeed linear infinite;
+         display: flex;
+         width: calc(250px * 12);
+     }
+     .slide {
+         height: 300px;
+         width: 250px;
+     }
+ }
 
 /*
  ** horizontal scroll effect
@@ -6559,16 +6564,8 @@ $animationSpeed: 20s;
 .pageHeading {
     position: relative;
     margin-top: 7.6rem;
-
+    padding:4rem;
     font-size: 4em;
-}
-
-[dir=ltr] .pageHeading {
-    padding-left: 6rem;
-}
-
-[dir=rtl] .pageHeading {
-    padding-right: 6rem;
 }
 
 .circle {

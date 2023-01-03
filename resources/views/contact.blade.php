@@ -25,14 +25,14 @@
 
                         <div class="links2">
                             <div class="link">
-
+                                {{ __('messages.contactus1') }}
                                 For more enquiries and faster response please email us directly
                             </div>
                             <div class="link">
                                 <a href='mialto:info@sawtruboost.com'><i class="fa fa-envelope"></i> info@sawtruboost.com</a>
                             </div>
                             <div class='link'>
-                                {{ __('messages.Turkiye') }}:<a href='tel:+905064677987'>+90 506 467 79 87</a>
+                                {{ __('messages.Turkiye') }}:<a href='tel:+905064677987'>00905064677987</a>
                             </div>
                         </div>
                     </div>
@@ -40,17 +40,17 @@
                         <form>
                             <div class="form-item">
                                 <input type="text" name="sender" required>
-                                <label>Name:</label>
+                                <label>{{ __('messages.name') }}:</label>
                             </div>
                             <div class="form-item">
                                 <input type="text" name="email" required>
-                                <label>Email:</label>
+                                <label>{{ __('messages.email') }}:</label>
                             </div>
                             <div class="form-item">
                                 <textarea class="" name="message" required></textarea>
-                                <label>Message:</label>
+                                <label>{{ __('messages.msg') }}:</label>
                             </div>
-                            <button class="submit-btn">Send</button>
+                            <button class="submit-btn">{{ __('messages.submit') }}</button>
                         </form>
                     </div>
 

@@ -139,8 +139,17 @@ class LeadsController extends Controller
  *This function loads the customer data from the database then converts it
  * into an Array that will be exported to Excel
  */
-function exportData(){
-    $data = Leads::with('userProfile')->orderBy('id', 'DESC')->get();
+function exportData(Request $req){
+    $leads = Leads::first()->get();
+    $from = Date($leads[0]->created_at);
+    $to = Date('Y-m-d h:i:s');
+    if($req->start != ''){
+        $from =  date("Y-m-d h:i:s", strtotime($req->start));
+    }
+    if($req->end != ''){
+        $to =  date("Y-m-d h:i:s", strtotime($req->end));
+    }
+    $data = Leads::with('userProfile')->whereBetween('created_at', [$from, $to])->orderBy('id', 'DESC')->get();
     $data_array [] = array('name','company','area','phone','email','service','website','msg','title','full_name','fname','mname','lname','gender','birthday','bio','marital','country','mobile','iban','career','cv','salary','worktime','started_at','end_at','passport','work_permit','visa');
     foreach($data as $data_item)
     {

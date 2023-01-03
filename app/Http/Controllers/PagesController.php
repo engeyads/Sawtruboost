@@ -121,18 +121,15 @@ class PagesController extends Controller
                                 <img class="card-img"
                                     src="'. ($result->userProfile->photo == "" ? '/profiles/default-avatar.png' : '/profiles/' . $result->userProfile->photo ).
                                     '" alt="Card image" />
-
                             </a>
                         </div>
                         <div class=" overflow-hidden">
                             <div class="d-flex align-items-center">
-
                                 <div class="ml-2">
-
                                 </div>
                             </div>
-                            <h5 class="card-title my-3 font-weight-normal">'. ucfirst($result->userProfile->full_name) .'</h5>'.
-                            (strlen($result->userProfile->career) > 150 ? '<p class="text-black">'. substr(ucfirst($result->userProfile->career), 0, 150)  .'...</p>' : '<p class="text-black">'. ucfirst($result->userProfile->career).'</p>').
+                            <h5 class="card-title my-3 font-weight-normal">'.__('messages.'. ucfirst($result->userProfile->full_name)) .'</h5>'.
+                            (strlen($result->userProfile->career) > 150 ? '<p class="text-black">'. substr(ucfirst($result->userProfile->career), 0, 150)  .'...</p>' : '<p class="text-black">'. __('messages.'. ucfirst($result->userProfile->career)).'</p>').
                         '</div>
                     </div>
                 ';
@@ -188,7 +185,7 @@ class PagesController extends Controller
             'country' => $area
         ]);
 
-        newlead::send('iyad@sawtruboost.com', 'new lead has been registered'.$newLead->name);
+        //newlead::send('iyad@sawtruboost.com', 'new lead has been registered'.$newLead->name);
 
         return back()->withStatus(__('Suceessfuly stored!'));
     }

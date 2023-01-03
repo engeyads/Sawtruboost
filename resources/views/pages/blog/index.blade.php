@@ -38,7 +38,6 @@
                                         Created At
                                     </th>
                                     <th>
-
                                     </th>
                                 </thead>
                                 <tbody>

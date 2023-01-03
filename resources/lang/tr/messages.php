@@ -53,12 +53,14 @@ return [
     'INNOVATION3' => 'Yaratıcı ve yenilikçi bir çalışma ortamı yaratma konusunda ortaklarımızı desteklemeye kararlıyız. Analistlerden ve danışmanlardan oluşan ekibimizin yardımıyla ortaklarımız, kendi inovasyon süreçlerini sektördeki emsallerininkilerle daha fazla içgörü ile karşılaştırabilirler. Bununla birlikte, tüm yenilik olasılıklarını ticari uygulanabilirliklerine ve şirketle stratejik uyumlarına göre filtreleyebilirler. ',
 
     //Partners
-    'Partners' => 'ortaklarımız',
+    'footerPartners' => 'ortaklarımız',
     'TrustedPartners' => 'Biz iş ortağı ve hizmet sağlayıcı',
     'Comming Soon' => 'Yakında',
 
     //Blog
     'LATESTINSIGHTS' => 'makalelerimiz',
+    'Recent Blog Posts' => 'Recent Blog Posts',
+    'blogthanks' => 'Thank you for checking out our blog. Thats it :)',
 
     //footer
     'footerword' => 'işinizi büyütmek için bir adım atmaya hazır olun?',
@@ -163,9 +165,28 @@ return [
     'msg' => 'Mesajın',
     'submit' => 'Göndermek',
 
+    // contact us page
+    'Get in Touch' => 'Get in Touch',
+    'contact us' => 'Contact Us',
+    'contactus1' => 'For more enquiries and faster response please email us directly',
+
     // dashboard translations
     'Dashboard by Sawtru Boost' => 'Dashboard by Sawtru Boost',
     'Dashboard' => 'Dashboard',
     'Sawtru Boost' => 'Sawtru Boost',
     'Users Behavior' => 'Users Behavior',
+
+    'Cansu Aksoy' => 'Cansu Aksoy',
+    'Iyad Sammour' => 'Iyad Sammour',
+    'Mujahid Mohammed' => 'Mujahid Mohammed',
+    'Mahmoud Özgan' => 'Mahmoud Özgan',
+    'Fatima Qwaider' => 'Fatima Qwaider',
+    'Muhammed Ismail Kara' => 'Muhammed Ismail Kara',
+
+    'CEO' => 'CEO',
+    'Web Developer' => 'Web Developer',
+    'Brand Manager' => 'Brand Manager',
+    'Designer' => 'Designer',
+    'Accounts Specialist' => 'Accounts Specialist',
+    'HR Manager' => 'HR Manager',
 ];

@@ -6,7 +6,10 @@
 @endsection
 
 @section('content')
-    <section style='direction:ltr' class='w-full  first graybg fontBlont servicesHeader'>
+<section class='w-full absolute graybg gr1'>
+
+</section>
+    <section style='direction:ltr' class='w-full fontBlont servicesHeader'>
         <table class=''>
             <tbody>
                 <tr>
@@ -29,7 +32,7 @@
                     <td colspan="2" class='headerBottomText pt-8'>
                         <center>
                             <h3>
-                                {{ __('messages.servicesLastHeading') }}
+                                {{-- __('messages.servicesLastHeading') --}}
                             </h3>
                         </center>
                     </td>

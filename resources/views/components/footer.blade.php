@@ -62,11 +62,9 @@
 
     <div class="bgc">
         <div class='w-full footerContent'>
-
             <div class='footerTitle'>
                 <h2 class='text-xxl font-bold pb-8 fontBlont'>{{ __('messages.footerword') }}</h2>
                 <p class='text-xl'>{{ __('messages.footerword2') }}</p>
-
             </div>
             <section class='pt-14'>
                 <div id="grid1" class="grid1">
@@ -79,7 +77,7 @@
                                 <a href='{{ route('careers') }}'>{{ __('messages.Careers') }}</a>
                             </li>
                             <li>
-                                <a href='{{ route('partners') }}'>{{ __('messages.Partners') }}</a>
+                                <a href='{{ route('partners') }}'>{{ __('messages.footerPartners') }}</a>
                             </li>
                             <li>
                                 <a href="{{ route('contact') }}">{{ __('messages.Contactus') }}</a>
@@ -163,32 +161,27 @@
                         </center>
                     </div> --}}
                 </div>
-
             </section>
-
             <div class='copyright'>
                 <div class='languages'>
-
                     <table class="py-4 inline-flex align-right">
                         <tbody>
                             <tr>
-
                                 <td><a href="{{ route('changeLang') }}?lang=en"><img class='inline-flex'
-                                            width='22px' src={{ URL::asset('images/united-kingdom.svg') }}
-                                            alt="English Language Flag" /> EN</a>
+                                    width='22px' src={{ URL::asset('images/united-kingdom.svg') }}
+                                    alt="English Language Flag" /> EN</a>
                                 </td>
                                 <td><a href="{{ route('changeLang') }}?lang=ar"><img class='inline-flex'
-                                            width='22px' src={{ URL::asset('images/palestine.svg') }}
-                                            alt="Arabic Language Flag" /> AR</a>
+                                    width='22px' src={{ URL::asset('images/palestine.svg') }}
+                                    alt="Arabic Language Flag" /> AR</a>
                                 </td>
                                 <td><a href="{{ route('changeLang') }}?lang=tr"><img class='inline-flex'
-                                            width='22px' src={{ URL::asset('images/turkish.svg') }}
-                                            alt="Turkish Language Flag" /> TR</a>
+                                    width='22px' src={{ URL::asset('images/turkish.svg') }}
+                                    alt="Turkish Language Flag" /> TR</a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-
                 </div>
                 <div class=" px-6 py-4 sm:block footerLogo">
                     <a href="/">

@@ -14,6 +14,10 @@
                             <div class="col-lg-12 margin-tb">
                                 <div class="pull-left">
                                     <h2>Leads</h2>
+                                    <form action="{{ route('leads.export') }}" method="GET">
+                                        start:<input type="date" name='start' value=''>end:<input type="date" name='end' value="">
+                                            <button type='submit' class="btn btn-primary">Export Excil</button>
+                                    </form>
                                 </div>
                                 <div class="pull-right">
                                     <a class="btn btn-primary" href="{{ route('leads.create', '') }}"> add new Lead</a>
@@ -49,7 +53,9 @@
                                     <th>
                                         message
                                     </th>
-                                    <th></th>
+                                    <th>
+
+                                    </th>
                                 </thead>
                                 <tbody>
                                     @forelse($leads as $lead)

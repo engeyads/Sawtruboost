@@ -9,11 +9,11 @@
 @section('content')
     <section class='w-full pt-12'>
         <div class="section w-full peopleContent">
-            <!-- SEARCH SECTION -->
+            <h2 id="blogPost-header">{{ __('Recent Blog Posts') }}</h2>
+            <!-- SEARCH SECTION
             <section id="search">
-                <h2 id="blogPost-header">Recent Blog Posts</h2>
                 <input type="text" id="blogSearch" placeholder="What sounds yummy today?">
-            </section>
+            </section>-->
             @if (session('status'))
         <center>
             <div class="" role="alert fontbigyello">
@@ -52,16 +52,16 @@
         <script type="module" src="{{ URL::asset('js/home.js') }}"></script>
         <script>
             // blog search
-            const blogSearch = document.querySelector('#blogSearch');
-            blogSearch.addEventListener("keyup", filterPosts);
+            //const blogSearch = document.querySelector('#blogSearch');
+            //blogSearch.addEventListener("keyup", filterPosts);
 
-            function filterPosts() {
-                let filterValue = blogSearch.value.toLowerCase();
-                const posts = document.querySelectorAll(".articles").forEach(post => {
-                    post.innerText.toLowerCase().indexOf(filterValue) >
-                        -1 ? post.style.display = '' : post.style.display = 'none';
-                })
-            }
+            //function filterPosts() {
+                //let filterValue = blogSearch.value.toLowerCase();
+                //const posts = document.querySelectorAll(".articles").forEach(post => {
+                    //post.innerText.toLowerCase().indexOf(filterValue) >
+                        //-1 ? post.style.display = '' : post.style.display = 'none';
+                //})
+            //}
         </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
@@ -86,7 +86,7 @@
                     })
                     .done(function(response) {
                         if (response.length == 0) {
-                            $('.auto-load').html("<p class='p-12'>Thank you for checking out our blog. Thats it :)</p>");
+                            $('.auto-load').html("<p class='p-12'>{{ __('messages.blogthanks') }}</p>");
                             return;
                         }
                         $('.auto-load').hide();

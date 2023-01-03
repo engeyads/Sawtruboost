@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('SEO')
-<meta name="description" content=@if(session()->get('locale') == 'en' || session()->get('locale') == null) "Sawtru Boost is a business development and marketing solutions agency. We tend to incarnate our identity in our visual story narrative, from our logo, which shines with yellow as gold, to iconography inspired by the digital world and the letter S from Sawtru, the mother corporation. Our creative director created the vectors in the first section of our homepage specifically for Sawtru Boost to conceptualize growth and development while also reflecting the diversity of our team of experts. The menu displays our company profile as a marketing agency, showcasing our set of services, which is also accessible via the services button in the upper right corner. Our set of services includes digital marketing-related services, such as social media administration, website development, seo and all sorts of digital marketing.
+    <meta name="description"
+        content=@if (session()->get('locale') == 'en' || session()->get('locale') == null) "Sawtru Boost is a business development and marketing solutions agency. We tend to incarnate our identity in our visual story narrative, from our logo, which shines with yellow as gold, to iconography inspired by the digital world and the letter S from Sawtru, the mother corporation. Our creative director created the vectors in the first section of our homepage specifically for Sawtru Boost to conceptualize growth and development while also reflecting the diversity of our team of experts. The menu displays our company profile as a marketing agency, showcasing our set of services, which is also accessible via the services button in the upper right corner. Our set of services includes digital marketing-related services, such as social media administration, website development, seo and all sorts of digital marketing.
 
 A section of our partners as service providers, such as Microsoft, Wordpress, Meta, Wix, Google, and Shopify, can be found by scrolling down the homepage. Since we are a trusted partner for them. Then there's a section with more descriptive information about our main four service categories. Furthermore, as you scroll down, there is a section that shows our partners, our precious clients who have trusted us and worked with us for years. We provided our latest insights about the business field and digital marketing in the lower right corner of our homepage, and finally in our website footer, which includes our terms and conditions, privacy policy, cookies, contacts, partners, careers, and locations.
 
@@ -9,76 +10,77 @@ The website is entirely designed and developed by Sawtru Boost" @elseif(session(
 
 يمكن العثور على قسم من شركائنا كمقدمي خدمات ، مثل مايكروسوفت و ووردبريس و ميتا و ويكس و جوجل و شوبيفاي عن طريق التمرير لأسفل الصفحة الرئيسية. لأننا شريك موثوق لهم. ثم هناك قسم يحتوي على مزيد من المعلومات الوصفية حول فئات الخدمة الأربع الرئيسية لدينا. علاوة على ذلك ، أثناء التمرير لأسفل ، يوجد قسم يعرض شركائنا وعملائنا الثمين الذين وثقوا بنا وعملوا معنا لسنوات. قدمنا ​​أحدث رؤيتنا حول مجال الأعمال والتسويق الرقمي في الركن الأيمن السفلي من صفحتنا الرئيسية ، وأخيرًا في تذييل موقعنا الإلكتروني ، والذي يتضمن الشروط والأحكام وسياسة الخصوصية وملفات تعريف الارتباط وجهات الاتصال والشركاء والوظائف والمواقع.
 
-تم تصميم الموقع وتطويره بالكامل بواسطة ساوترو بوست" @endif/>
-<meta name="keywords" content=@if(session()->get('locale') == 'en' || session()->get('locale') == null) "marketing, Seo, target ad, digital marketing, affiliate marketing, social media marketing, marketing strategy, email marketing, marketing plan 6, advertising agency, internet marketing, digital marketing course 4, e marketing , seo services, direct marketing, digital marketing agency, seo company, what is digital marketing, b2b marketing, marketing online, marketing agency, social marketing, marketing research, web marketing, online advertising, imc, pr, market, Advertisement, brand, marketing mix, Dma, content marketing, what is marketing, marketing plan, market research, advertising agency, marketing jobs, marketing management, Advertise, marketing definition, internet marketing" @elseif(session()->get('locale') == 'ar') "التسويق ، SEO ، الإعلان المستهدف ، التسويق الرقمي ، التسويق بالعمولة ، التسويق عبر وسائل التواصل الاجتماعي ، استراتيجية التسويق ، التسويق عبر البريد الإلكتروني ، خطة التسويق 6 ، وكالة الإعلان ، التسويق عبر الإنترنت ، دورة التسويق الرقمي 4 ، التسويق الإلكتروني ، خدمات تحسين محركات البحث ، التسويق المباشر ، وكالة التسويق الرقمي ، شركة SEO ، ما هو التسويق الرقمي ، تسويق b2b ، التسويق عبر الإنترنت ، وكالة التسويق ، التسويق الاجتماعي ، أبحاث التسويق ، التسويق عبر الإنترنت ، الإعلان عبر الإنترنت ، IMC ، العلاقات العامة ، السوق ، الإعلان ، العلامة التجارية ، المزيج التسويقي ، Dma ، تسويق المحتوى ، ما هو التسويق ، خطة التسويق ، أبحاث السوق ، وكالة الإعلان ، وظائف التسويق ، إدارة التسويق ، الإعلان ، تعريف التسويق ، التسويق عبر الإنترنت" @endif>
+تم تصميم الموقع وتطويره بالكامل بواسطة ساوترو بوست" @endif />
+    <meta name="keywords"
+        content=@if (session()->get('locale') == 'en' || session()->get('locale') == null) "marketing, Seo, target ad, digital marketing, affiliate marketing, social media marketing, marketing strategy, email marketing, marketing plan 6, advertising agency, internet marketing, digital marketing course 4, e marketing , seo services, direct marketing, digital marketing agency, seo company, what is digital marketing, b2b marketing, marketing online, marketing agency, social marketing, marketing research, web marketing, online advertising, imc, pr, market, Advertisement, brand, marketing mix, Dma, content marketing, what is marketing, marketing plan, market research, advertising agency, marketing jobs, marketing management, Advertise, marketing definition, internet marketing" @elseif(session()->get('locale') == 'ar') "التسويق ، SEO ، الإعلان المستهدف ، التسويق الرقمي ، التسويق بالعمولة ، التسويق عبر وسائل التواصل الاجتماعي ، استراتيجية التسويق ، التسويق عبر البريد الإلكتروني ، خطة التسويق 6 ، وكالة الإعلان ، التسويق عبر الإنترنت ، دورة التسويق الرقمي 4 ، التسويق الإلكتروني ، خدمات تحسين محركات البحث ، التسويق المباشر ، وكالة التسويق الرقمي ، شركة SEO ، ما هو التسويق الرقمي ، تسويق b2b ، التسويق عبر الإنترنت ، وكالة التسويق ، التسويق الاجتماعي ، أبحاث التسويق ، التسويق عبر الإنترنت ، الإعلان عبر الإنترنت ، IMC ، العلاقات العامة ، السوق ، الإعلان ، العلامة التجارية ، المزيج التسويقي ، Dma ، تسويق المحتوى ، ما هو التسويق ، خطة التسويق ، أبحاث السوق ، وكالة الإعلان ، وظائف التسويق ، إدارة التسويق ، الإعلان ، تعريف التسويق ، التسويق عبر الإنترنت" @endif>
 @endsection
 
 @section('content')
-<section class='w-full first customYellowbg' style="direction:ltr">
-    <div class='bground'>
-        <table>
-            <tr>
-                <td>
-                    <h1 class="heading">
+    <section class='w-full first customYellowbg' style="direction:ltr">
+        <div class='bground'>
+            <table>
+                <tr>
+                    <td>
+                        <h1 class="heading">
 
-                        {{ __('messages.CompanyWord') }}<br />
-                        {{ __('messages.CompanyWord2') }}
+                            {{ __('messages.CompanyWord') }}<br />
+                            {{ __('messages.CompanyWord2') }}
 
-                    </h1>
-
-                </td>
-
-            </tr>
-            <tr>
-                <td>
-                    <button onclick="window.location.href = '{{ URL::to('boostnow') }}'" class='btn' style="direction:{{ __('messages.direction') }}">
-
-                        <h1>
-                            {{ __('messages.boostnow') }}
                         </h1>
 
-                    </button>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="bird-container bird-container--one">
-        <div class="bird bird--one"></div>
-    </div>
+                    </td>
 
-    <div class="bird-container bird-container--two">
-        <div class="bird bird--two"></div>
-    </div>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="window.location.href = '{{ URL::to('boostnow') }}'" class='btn'
+                            style="direction:{{ __('messages.direction') }}">
 
-    <div class="bird-container bird-container--three">
-        <div class="bird bird--three"></div>
-    </div>
+                            <h1>
+                                {{ __('messages.boostnow') }}
+                            </h1>
 
-    <div class="bird-container bird-container--four">
-        <div class="bird bird--four"></div>
-    </div>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="bird-container bird-container--one">
+            <div class="bird bird--one"></div>
+        </div>
 
-    {{-- boosts --}}
-    <div class="boost-container boost-container--one">
-        <div class="boost boost--one"></div>
-    </div>
+        <div class="bird-container bird-container--two">
+            <div class="bird bird--two"></div>
+        </div>
 
-    <div class="boost-container boost-container--two">
-        <div class="boost boost--two"></div>
-    </div>
+        <div class="bird-container bird-container--three">
+            <div class="bird bird--three"></div>
+        </div>
 
-    <div class="boost-container boost-container--three">
-        <div class="boost boost--three"></div>
-    </div>
+        <div class="bird-container bird-container--four">
+            <div class="bird bird--four"></div>
+        </div>
 
-    <div class="boost-container boost-container--four">
-        <div class="boost boost--four"></div>
-    </div>
-</section>
+        {{-- boosts --}}
+        <div class="boost-container boost-container--one">
+            <div class="boost boost--one"></div>
+        </div>
 
+        <div class="boost-container boost-container--two">
+            <div class="boost boost--two"></div>
+        </div>
 
-<section id='second' class='w-full second'>
-    <div>
+        <div class="boost-container boost-container--three">
+            <div class="boost boost--three"></div>
+        </div>
+
+        <div class="boost-container boost-container--four">
+            <div class="boost boost--four"></div>
+        </div>
+    </section>
+
+    <section id='second' class='w-full second'>
+        <div>
             <center>
                 <h2 class='socilaword text-xl font-bold'>{{ __('messages.socialword') }}</h2>
             </center>
@@ -86,29 +88,33 @@ The website is entirely designed and developed by Sawtru Boost" @elseif(session(
     </section>
     <hr>
     <section class='TrustSection'>
-        <div class="px-14">
-
-            <center>
+        <center>
+            <div class="px-14">
                 <div class="">
+                    <h1 class='fontBlont font-bold text-custom-gray'>{{ __('messages.TrustedPartners') }}
+                    </h1>
                     <table>
                         <tr class="py-4 ">
-                            <td>
-                                <center>
-                                    <h1 class='fontBlont font-bold text-custom-gray'>{{ __('messages.TrustedPartners') }}</h1>
-                                </center>
-                            </td>
                             <td><img src={{ URL::asset('images/google.webp') }} width="160px" alt="google logo" /></td>
                             <td><img src={{ URL::asset('images/meta.webp') }} width="160px" alt="meta logo" /></td>
-                            <td><img src={{ URL::asset('images/microsoft.webp') }} width="160px" alt="microsoft logo" /></td>
+                            <td><img src={{ URL::asset('images/microsoft.webp') }} width="160px" alt="microsoft logo" />
+                            </td>
                             <td><img src={{ URL::asset('images/wix.webp') }} width="160px" alt="wix logo" /></td>
-                            <td><img src={{ URL::asset('images/wordpress.webp') }} width="160px" alt="wordpress logo" /></td>
+                            <td><img src={{ URL::asset('images/wordpress.webp') }} width="160px" alt="wordpress logo" />
+                            </td>
                             <td><img src={{ URL::asset('images/shopify.webp') }} width="160px" alt="shopify logo" /></td>
-                            <td><img src={{ URL::asset('images/sortlist-silver.webp') }} width="160px" alt="sortlist logo" /></td>
+                            <td><img src={{ URL::asset('images/sortlist-silver.webp') }} width="160px"
+                                    alt="sortlist logo" />
+                            </td>
                         </tr>
                     </table>
                 </div>
-            </center>
-        </div>
+            </div>
+        </center>
+        <br />
+        <br />
+        <br />
+        <br />
     </section>
     <hr>
     <section id='third' class=" third" style='direction:{{ __('messages.direction') }}'>
@@ -440,9 +446,9 @@ The website is entirely designed and developed by Sawtru Boost" @elseif(session(
 
         </div>
         <!--
-                                    <section id="panelsMobile">
-                                        <h2 class="text-xl mt-32 w-full font-bold fontBlont text-custom-gray ">
-                                            {{-- __('messages.OURMAGICALBOOSTS2') }}
+                                        <section id="panelsMobile">
+                                            <h2 class="text-xl mt-32 w-full font-bold fontBlont text-custom-gray ">
+                                                {{-- __('messages.OURMAGICALBOOSTS2') }}
             </h2>
             <table>
                 <tbody>
@@ -520,17 +526,17 @@ The website is entirely designed and developed by Sawtru Boost" @elseif(session(
                         <td class="">
                             <div class="">
                                 <img class="" src={{ URL::asset('images/innovation_&_creativity.webp') --}}
-                                                                alt="" />
+                                                                    alt="" />
 
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
 
 
-                                    </section>
-                                -->
+                                        </section>
+                                    -->
     </section>
 
     <section id='fourth' class='w-full py-20 fourth'>
@@ -539,14 +545,33 @@ The website is entirely designed and developed by Sawtru Boost" @elseif(session(
                 <h1 class='fontBlont text-xxl font-bold text-custom-gray stickToHeader'>{{ __('messages.Partners') }}</h1>
             </center>
             <center>
-                <div class="py-20">
-
-                    <table>
+                <div class=" slider">
+                    <table class="slide-track">
                         <tr class="py-4 partners">
-                            <td><img src={{ URL::asset('images/client1.webp') }} width="160px" alt="" /></td>
-                            <td><img src={{ URL::asset('images/client3.webp') }} width="160px" alt="" /></td>
-                            <td><img src={{ URL::asset('images/client2.webp') }} width="160px" alt="" /></td>
-                            <td><img src={{ URL::asset('images/cybersky.webp') }} width="160px" alt="" /></td>
+                            <td class="slide"><img src={{ URL::asset('images/client1.webp') }} width="160px"
+                                    alt="" /></td>
+                            <td class="slide"><img src={{ URL::asset('images/client3.webp') }} width="160px"
+                                    alt="" /></td>
+                            <td class="slide"><img src={{ URL::asset('images/client2.webp') }} width="160px"
+                                    alt="" /></td>
+                            <td class="slide"><img src={{ URL::asset('images/cybersky.webp') }} width="160px"
+                                    alt="" /></td>
+                            <td class="slide"><img src={{ URL::asset('images/eledaay.webp') }} width="160px"
+                                    alt="" /></td>
+                            <td class="slide"><img src={{ URL::asset('images/danamardini.webp') }} width="160px"
+                                    alt="" /></td>
+                            <td class="slide"><img src={{ URL::asset('images/client1.webp') }} width="160px"
+                                    alt="" /></td>
+                            <td class="slide"><img src={{ URL::asset('images/client3.webp') }} width="160px"
+                                    alt="" /></td>
+                            <td class="slide"><img src={{ URL::asset('images/client2.webp') }} width="160px"
+                                    alt="" /></td>
+                            <td class="slide"><img src={{ URL::asset('images/cybersky.webp') }} width="160px"
+                                    alt="" /></td>
+                            <td class="slide"><img src={{ URL::asset('images/eledaay.webp') }} width="160px"
+                                    alt="" /></td>
+                            <td class="slide"><img src={{ URL::asset('images/danamardini.webp') }} width="160px"
+                                    alt="" /></td>
                         </tr>
                     </table>
                 </div>
@@ -558,7 +583,8 @@ The website is entirely designed and developed by Sawtru Boost" @elseif(session(
 
     <section id='fifth' class='w-full yellowbg fifth'>
         <center>
-            <h1 class='fontBlont text-xxl font-bold text-custom-gray stickToHeader'>{{ __('messages.LATESTINSIGHTS') }}</h1>
+            <h1 class='fontBlont text-xxl font-bold text-custom-gray stickToHeader'>{{ __('messages.LATESTINSIGHTS') }}
+            </h1>
         </center>
         <div class="blog-home5 py-5">
             <div class="row mt-4">
@@ -615,8 +641,11 @@ The website is entirely designed and developed by Sawtru Boost" @elseif(session(
                                     <span class="ml-2">Oct 18, 2022</span>
                                 </div>
                             </div>
-                            <h5 class="card-title my-3 font-weight-normal">Benefits and Drawbacks: In-House vs. Outsourcing.</h5>
-                            <p class="card-text">Despite the fact that businesses have traditionally outsourced creative minds, there is a significant shift taking place: businesses are increasingly outsourcing out marketing operations and analytics...</p>
+                            <h5 class="card-title my-3 font-weight-normal">Benefits and Drawbacks: In-House vs.
+                                Outsourcing.</h5>
+                            <p class="card-text">Despite the fact that businesses have traditionally outsourced creative
+                                minds, there is a significant shift taking place: businesses are increasingly outsourcing
+                                out marketing operations and analytics...</p>
                         </div>
                     </div>
                 </div>
@@ -816,7 +845,41 @@ The website is entirely designed and developed by Sawtru Boost" @elseif(session(
                 }
             }
         </script>
+        <script>
+            $('#slider').slick({
+                draggable: false,
+                slidesToShow: 5,
+                infinite: true,
+                slidesToScroll: 5,
+                autoplay: true,
+                autoplaySpeed: 100,
+                arrows: false,
+                speed: 6000,
+                cssEase: 'ease-in-out',
+                variableWidth: false,
+                initialSlide: 1,
+                pauseOnHover: false,
+                respondTo: window,
+                rtl: false,
+                responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 5,
+                            slidesToScroll: 5,
+                            speed: 4000,
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 5,
+                            slidesToScroll: 5,
+                            speed: 4000,
+                        }
+                    }
+                ],
+            });
+        </script>
         <script type="module" src="{{ URL::asset('js/home.js') }}"></script>
-
     @endpush
 @endsection

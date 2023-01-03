@@ -62,7 +62,7 @@
                     <select class="form-control changeLang">
                         <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>
                         <option value="ar" {{ session()->get('locale') == 'ar' ? 'selected' : '' }}>Arabic</option>
-                        <!--<option value="tr" {{-- session()->get('locale') == 'tr' ? 'selected' : '' --}}>Turkish</option> -->
+                        <option value="tr" {{ session()->get('locale') == 'tr' ? 'selected' : '' }}>Turkish</option>
                     </select>
 
                 </div>

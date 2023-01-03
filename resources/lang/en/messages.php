@@ -57,13 +57,15 @@ return [
 
     //Blog
     'LATESTINSIGHTS' => 'OUR LATEST INSIGHTS',
+    'Recent Blog Posts' => 'Recent Blog Posts',
+    'blogthanks' => 'Thank you for checking out our blog. Thats it :)',
 
     //footer
     'footerword' => 'Ready To Boost Now?',
     'footerword2' => 'Explore your growth opportunities by contacting one of our offices whichever way you prefer.',
     'Contact' => 'Useful Links',
     'Careers' => 'Careers',
-    'Partners' => 'Partners',
+    'footerPartners' => 'Partners',
     'Contactus' => 'Contact us',
     'Condetions' => 'Condetions',
     'Terms' => 'Terms',
@@ -81,8 +83,8 @@ return [
     'Magical' => 'Magical',
     'Boosts' => 'Boosts',
     'ourmagicalboosts3' => 'Our Magical Boosts',
-    'servicesSecondHeading' => 'We produce digitally accelerated solutions.',
-    'servicesLastHeading' => 'Focused on the digital connection of your business we can advice, research and identify new opportunities. From your leadership throughto the marketing team our knowledge and craft into all levels of your business to transform and deliver against your company\'s growth objectives.',
+    'servicesSecondHeading' => 'We foresee needs of businesses and tailor our boosts accordingly.',
+    'servicesLastHeading' => '',
 
     'DigitalIdentity' => 'Digital Identity',
     'Digitalmarketingstrategy' => 'Digital marketing strategy',
@@ -191,6 +193,7 @@ return [
     // contact us page
     'Get in Touch' => 'Get in Touch',
     'contact us' => 'Contact Us',
+    'contactus1' => 'For more enquiries and faster response please email us directly',
 
     // dashboard translations
     'Dashboard by Sawtru Boost' => 'Dashboard by Sawtru Boost',
@@ -203,4 +206,19 @@ return [
     'Crew2' => 'Exceptional people create great work. Punctilious, no detail is too small or too fine to be overlooked.',
     'Meet_Our_Executives' => 'Meet Our Executives',
     'Meet_Our_Executives2' => 'Determined, influential executives who lead the BOOST brilliance.',
+
+    'Cansu Aksoy' => 'Cansu Aksoy',
+    'Iyad Sammour' => 'Iyad Sammour',
+    'Mujahid Mohammed' => 'Mujahid Mohammed',
+    'Mahmoud Özgan' => 'Mahmoud Özgan',
+    'Fatima Qwaider' => 'Fatima Qwaider',
+    'Muhammed Ismail Kara' => 'Muhammed Ismail Kara',
+
+    'CEO' => 'CEO',
+    'Web Developer' => 'Web Developer',
+    'Brand Manager' => 'Brand Manager',
+    'Designer' => 'Designer',
+    'Accounts Specialist' => 'Accounts Specialist',
+    'HR Manager' => 'HR Manager',
+
 ];
