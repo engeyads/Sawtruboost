@@ -36,6 +36,26 @@ class ProfileController extends Controller
         auth()->user()->update($request->except(['name']));
         auth()->user()->userProfile()->update([
             'full_name' => $request->name,
+            'full_namear' => $request->namear,
+            'full_nametr' => $request->nametr,
+        ]);
+        return back()->withStatus(__('Profile successfully updated.'));
+    }
+
+    /**
+     * Update the profile info
+     *
+     * @param  \App\Http\Requests\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function infoupdate(Request $request)
+    {
+        auth()->user()->userProfile()->update([
+            'career' => $request->career,
+            'careerar' => $request->careerar,
+            'careertr' => $request->careertr,
+            'country' => $request->country,
+            'mobile' => $request->mobile,
         ]);
         return back()->withStatus(__('Profile successfully updated.'));
     }
@@ -48,14 +68,36 @@ class ProfileController extends Controller
      */
     public function otherupdate(Request $request,$id)
     {
-        $user->userProfile()->update([
-            'full_name' => $request->name,
-        ]);
 
         $user = User::find($id);
+        $user->userProfile()->update([
+            'full_name' => $request->name,
+            'full_namear' => $request->namear,
+            'full_nametr' => $request->nametr,
+        ]);
         if($request->email != $user->email){
             $user->update($request->except(['name']));
         }
+
+        return back()->withStatus(__('User Profile successfully updated.'));
+    }
+
+    /**
+     * Update the profile information
+     *
+     * @param  \App\Http\Requests\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function otherinfoupdate(Request $request,$id)
+    {
+        $user = User::find($id);
+        $user->userProfile()->update([
+            'career' => $request->career,
+            'careerar' => $request->careerar,
+            'careertr' => $request->careertr,
+            'country' => $request->country,
+            'mobile' => $request->mobile,
+        ]);
 
         return back()->withStatus(__('User Profile successfully updated.'));
     }

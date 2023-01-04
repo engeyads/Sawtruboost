@@ -109,6 +109,7 @@ class PagesController extends Controller
      */
     public function people(Request $request)
     {
+        $locale = (session()->get('locale') == 'en' || session()->get('locale') == '') ? '' : session()->get('locale');
         $people = User::with('userProfile')->paginate(7); //fetch all People  from DB
         $grid = '';
         if ($request->ajax()) {
@@ -128,8 +129,8 @@ class PagesController extends Controller
                                 <div class="ml-2">
                                 </div>
                             </div>
-                            <h5 class="card-title my-3 font-weight-normal">'.__('messages.'. ucfirst($result->userProfile->full_name)) .'</h5>'.
-                            (strlen($result->userProfile->career) > 150 ? '<p class="text-black">'. substr(ucfirst($result->userProfile->career), 0, 150)  .'...</p>' : '<p class="text-black">'. __('messages.'. ucfirst($result->userProfile->career)).'</p>').
+                            <h5 class="card-title my-3 font-weight-normal">'. ucfirst($result->userProfile['full_name'.$locale]) .'</h5>'.
+                            (strlen($result->userProfile['career'.$locale]) > 150 ? '<p class="text-black">'. substr(ucfirst($result->userProfile['career'.$locale]), 0, 150)  .'...</p>' : '<p class="text-black">'.  ucfirst($result->userProfile['career'.$locale]).'</p>').
                         '</div>
                     </div>
                 ';

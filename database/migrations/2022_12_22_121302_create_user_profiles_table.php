@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('tag')->nullable();
             $table->string('title')->nullable();
             $table->string('full_name')->nullable();
+            $table->string('full_namear')->nullable();
+            $table->string('full_nameen')->nullable();
             $table->string('fname')->nullable();
             $table->string('mname')->nullable();
             $table->string('lname')->nullable();
@@ -33,6 +35,8 @@ return new class extends Migration
             $table->string('mobile')->nullable();
             $table->string('iban')->nullable();
             $table->string('career')->nullable();
+            $table->string('careerar')->nullable();
+            $table->string('careeren')->nullable();
             $table->string('cv')->nullable();
             $table->double('salary')->nullable();
             $table->string('worktime')->nullable();

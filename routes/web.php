@@ -60,7 +60,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', UserController::class, ['except' => ['show','index','destroy']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
+	Route::put('profileinfo', ['as' => 'profile.infoupdate', 'uses' => 'App\Http\Controllers\ProfileController@infoupdate']);
 	Route::put('profile/{id}', ['as' => 'profile.otherupdate', 'uses' => 'App\Http\Controllers\ProfileController@otherupdate']);
+	Route::put('profileinfo/{id}', ['as' => 'profile.otherinfoupdate', 'uses' => 'App\Http\Controllers\ProfileController@otherinfoupdate']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
     Route::post('profile/photo', ['as' => 'profile.photo', 'uses' => 'App\Http\Controllers\ProfileController@profile']);
     Route::post('blog/featured/{blogPost}', ['as' => 'blog.featured', 'uses' => 'App\Http\Controllers\BlogPostController@updatepostimage']);
