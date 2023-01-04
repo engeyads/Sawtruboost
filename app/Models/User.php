@@ -69,4 +69,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Teams::class,'manager','id');
     }
+
+    public function comment()
+    {
+        return $this->hasMany(Comments::class,'uid','id');
+    }
 }

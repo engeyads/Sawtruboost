@@ -68,6 +68,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('blog/featured/{blogPost}', ['as' => 'blog.featured', 'uses' => 'App\Http\Controllers\BlogPostController@updatepostimage']);
     Route::post('blog/editprivacy/{id}', ['as' => 'blog.editprivacy', 'uses' => 'App\Http\Controllers\BlogPostController@editprivacy']);
     Route::post('blog/editdate/{id}', ['as' => 'blog.editdate', 'uses' => 'App\Http\Controllers\BlogPostController@editdate']);
+    Route::post('blog/comment', ['as' => 'blog.comment', 'uses' => 'App\Http\Controllers\PagesController@addCommenttoPost']);
 
     Route::get('users/create', ['as' => 'user.create', 'uses' => 'App\Http\Controllers\UserController@create']);
     Route::resource('/dashboard/blog', BlogPostController::class )->parameters([

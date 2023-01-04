@@ -39,4 +39,9 @@ class Leads extends Model
     function country(){
         return $this->belongsTo(Areas::class, 'code', 'area');
     }
+
+    public function comment()
+    {
+        return $this->hasMany(Comments::class,'lid','id');
+    }
 }

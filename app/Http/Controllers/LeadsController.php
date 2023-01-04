@@ -187,5 +187,28 @@ function exportData(Request $req){
     }
     $this->ExportExcel($data_array);
 }
+
+    /**Eyad
+     * Sammour
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function addCommenttolead(Request $request)
+    {
+        $id = auth()->user()->id;
+
+        $input = Comments::create([
+            'uid' => $request->uid,
+            'lid' => $lid,
+            'content' => $request->content,
+        ]);
+
+        return response()->json([
+            "status" => true,
+            "data" => $input
+        ]);
+    }
 }
 

@@ -191,7 +191,8 @@ class PagesController extends Controller
         return back()->withStatus(__('Suceessfuly stored!'));
     }
 
-    /**
+    /**Eyad
+     * Sammour
      * Display all the static pages when authenticated
      *
      * @param string $page
@@ -216,6 +217,29 @@ class PagesController extends Controller
         $posts = BlogPost::orderby('created_at','desc')->paginate(5); //fetch all blog posts from DB
         return view('pages.blog.index',[
             'posts' => $posts,
+        ]);
+    }
+
+    /**Eyad
+     * Sammour
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function addCommenttoPost(Request $request)
+    {
+        $id = auth()->user()->id;
+
+        $input = Comments::create([
+            'uid' => $request->uid,
+            'pid' => $pid,
+            'content' => $request->content,
+        ]);
+
+        return response()->json([
+            "status" => true,
+            "data" => $input
         ]);
     }
 }

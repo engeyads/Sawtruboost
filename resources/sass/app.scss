@@ -22,6 +22,11 @@ $headings: #8b8b8b;
 $solidSilverBGColor: #f8f8f8;
 $mainLightColor : #ffc107;
 
+$comments-background: #f1efec;
+$comments-text-color: #2c303a;
+$comment-button-position: 50px;
+$editing-icons: GoldenRod;
+
 //backgrounds and photos'
 $Logo: url('../images/SVG/Logo.svg');
 $logoText: url('../images/SVG/logo-text.svg');
@@ -5120,6 +5125,76 @@ pre:hover>.copycode {
         }
     }
 }
+
+.comment .btn {
+    position: relative;
+    margin-top: -55px;
+    margin-right: 15px;
+    z-index: 1;
+}
+
+.comments-container {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.comments {
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+    background-color: $comments-background;
+    color: $comments-text-color;
+    padding: 10px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-top: -35px;
+}
+
+.comments-timestamp {
+    text-align: right;
+    color: $comments-text-color;
+    padding: 10px;
+    margin-top: -35px;
+}
+
+.comments-username {
+    vertical-align: top;
+    color: $editing-icons;
+    padding: 10px;
+}
+
+.comments-remove {
+    float: right;
+    margin-top: -35px;
+    margin-right: 5px;
+}
+
+.comments-remove::after {
+    content: "\274c";
+    /* use the hex value here... */
+}
+
+.comment textarea {
+    border-radius: 10px;
+    background-color: $comments-background;
+    color: $comments-text-color;
+    padding: 10px;
+    padding-top: 25px;
+    height: $comment-button-position;
+    padding-bottom: 25px;
+    z-index: 0;
+}
+
+.comment textarea:focus {
+    background-color: $comments-background !important;
+    color: $comments-text-color !important;
+}
+
+#comment:focus{
+    background-color: $comments-background !important;
+    color: $comments-text-color !important;
+}
+
 
 .secondline {
     position: relative;
