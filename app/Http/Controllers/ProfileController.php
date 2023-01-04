@@ -68,7 +68,6 @@ class ProfileController extends Controller
      */
     public function otherupdate(Request $request,$id)
     {
-
         $user = User::find($id);
         $user->userProfile()->update([
             'full_name' => $request->name,
