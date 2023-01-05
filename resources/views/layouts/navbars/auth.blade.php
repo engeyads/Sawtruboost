@@ -13,7 +13,7 @@
                     <p>{{ __('messages.Dashboard') }}</p>
                 </a>
             </li>
-            <li class="{{ $elementActive == 'user' || $elementActive == 'profile' ? 'active' : '' }}">
+            <li class="{{ $elementActive == 'role' || $elementActive == 'user' || $elementActive == 'profile' ? 'active' : '' }}">
                 <a data-toggle="collapse" aria-expanded="true" href="#Settings">
                     <i class="nc-icon nc-settings-gear-65"></i>
                     <p>
@@ -36,18 +36,37 @@
                                 <p class="">{{ __(' User Management ') }}</p>
                             </a>
                         </li>
-
-
+                        @endcan
+                        @can('list-role')
+                        <li class="{{ $elementActive == 'role' ? 'active' : '' }}">
+                            <a href="{{ route('roles.index') }}">
+                                <i class='nc-icon nc-single-02'></i>
+                                <p class="">{{ __(' Role Management ') }}</p>
+                            </a>
+                        </li>
                         @endcan
                     </ul>
                 </div>
             </li>
+
+
+            @can('list-blogs')
             <li class="{{ $elementActive == 'blog' ? 'active' : '' }}">
                 <a href="{{ route('blog.index', '') }}">
                     <i class="nc-icon nc-button-play"></i>
                     <p>{{ __('Blogs') }}</p>
                 </a>
             </li>
+            @elsecan('list-self-blogs')
+            <li class="{{ $elementActive == 'blog' ? 'active' : '' }}">
+                <a href="{{ route('blog.index', '') }}">
+                    <i class="nc-icon nc-button-play"></i>
+                    <p>{{ __('Blogs') }}</p>
+                </a>
+            </li>
+            @endcan
+
+
             @can('crm')
             <li class="{{ $elementActive == 'leads' || $elementActive == 'deals' ? 'active' : '' }}">
                 <a data-toggle="collapse" aria-expanded="true" href="#CRM">

@@ -51,6 +51,9 @@
                                         website
                                     </th>
                                     <th>
+                                        date
+                                    </th>
+                                    <th>
                                         message
                                     </th>
                                     <th>
@@ -77,6 +80,9 @@
                                             </td>
                                             <td>
                                                 {{ ucfirst($lead->website) }}
+                                            </td>
+                                            <td>
+                                                {{ ucfirst($lead->created_at) }}
                                             </td>
                                             <td>
                                                 {{ ucfirst($lead->message) }}

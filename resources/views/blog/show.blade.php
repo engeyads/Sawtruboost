@@ -56,7 +56,7 @@
                 @endcan
 
                 <div class="row">
-                    @if(auth()->check())
+
                     <table>
                         <tr>
                             <td>
@@ -64,19 +64,21 @@
                                     <label for="managercomment">Comment:</label>
                                     <textarea placeholder="Comment" name="managercomment" id="comment" cols="10" rows="3"></textarea>
                                     <span class="btn btn-info pull-right"
-                                        onclick="submitComment(  {{ auth()->user()->id }},{{ $post->id }})">Send</span>
+                                        onclick="submitComment()">Send</span>
                                 </div>
                             </td>
                         </tr>
                     </table>
-                    @endif
+
+
+
                         <table class="w-full">
                             @forelse ($post->comments as $comment)
                                 @if ($comment->available == 1)
                                     <tr id="cmnt{{ $comment->id }}" >
                                         <td class="py-2">
                                             <div id="cmntuser{{ $comment->id }}" class="comments-username">
-                                                <b>{{ $comment->user->name }}</b><br>
+                                                <b>{{ $comment->user->userProfile->full_name == '' ? $comment->user->name : $comment->user->userProfile->full_name }}</b><br>
 
                                             </div>
                                             @if(auth()->check())
@@ -137,11 +139,12 @@
                     });
                 }
 
-                function submitComment(uid, pid) {
+                function submitComment() {
+                    let uid = @if(auth()->check()) {{ auth()->user()->id }} @else 0 @endif, pid = {{ $post->id }};
                         if ($('#comment').val() != '') {
                             $.ajax({
                                 type: 'put',
-                                url: {{ route('blog.comment') }},
+                                url: '{{ route('blog.comment') }}',
                                 data: {
                                     '_token': $("meta[name='csrf-token']").attr("content"),
                                     'uid': uid,

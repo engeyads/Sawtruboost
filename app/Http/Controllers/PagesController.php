@@ -110,7 +110,7 @@ class PagesController extends Controller
     public function people(Request $request)
     {
         $locale = (session()->get('locale') == 'en' || session()->get('locale') == '') ? '' : session()->get('locale');
-        $people = User::with('userProfile')->paginate(7); //fetch all People  from DB
+        $people = User::with('userProfile')->where('public','=','1')->paginate(7); //fetch all People  from DB
         $grid = '';
         if ($request->ajax()) {
             foreach ($people as $result) {

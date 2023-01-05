@@ -9,7 +9,7 @@ use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
-
+use DB;
 class UserController extends Controller
 {
     /**
@@ -20,7 +20,8 @@ class UserController extends Controller
      */
     public function index(User $model)
     {
-        return view('user.index', ['users' => $model->paginate(15)]);
+        $roles = Role::pluck('name','name')->all();
+        return view('user.index', compact('roles'),['users' => $model->paginate(15)]);
     }
 
     /**
@@ -146,4 +147,35 @@ class UserController extends Controller
                         ->with('success','User updated successfully');
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function changerole(Request $request, $id)
+    {
+        $user = User::find($id);
+        DB::table('model_has_roles')->where('model_id',$id)->delete();
+
+        $user->assignRole($request->input('role'));
+        return Response::json( $request->input('role') );
+
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\User  $User
+     * @return \Illuminate\Http\Response
+     */
+    public function editprivacy(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->update(['public' => $request->privacy]);
+
+        return Response::json( $request->privacy );
+    }
 }

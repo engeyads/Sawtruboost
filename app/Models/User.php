@@ -48,12 +48,9 @@ class User extends Authenticatable
         return $this->getRoleNames()[0] == 'Admin';
     }
 
-    /*
-    public function comments()
-    {
-        $this->hasMany(Comments::class);
+    public function role() {
+        return $this->getRoleNames();
     }
-    */
 
     public function userProfile()
     {

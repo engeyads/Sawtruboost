@@ -46,6 +46,7 @@ class userProfiles extends Model
         'work_permit',
         'visa',
         'team',
+        'public',
     ];
 
     /**

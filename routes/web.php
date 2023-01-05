@@ -55,9 +55,10 @@ Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
-
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', UserController::class, ['except' => ['show','index','destroy']]);
+    Route::post('user/editprivacy/{id}', ['as' => 'user.editprivacy', 'uses' => 'App\Http\Controllers\UserController@editprivacy']);
+    Route::post('user/changerole/{id}', ['as' => 'user.changerole', 'uses' => 'App\Http\Controllers\UserController@changerole']);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profileinfo', ['as' => 'profile.infoupdate', 'uses' => 'App\Http\Controllers\ProfileController@infoupdate']);
@@ -68,7 +69,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('blog/featured/{blogPost}', ['as' => 'blog.featured', 'uses' => 'App\Http\Controllers\BlogPostController@updatepostimage']);
     Route::post('blog/editprivacy/{id}', ['as' => 'blog.editprivacy', 'uses' => 'App\Http\Controllers\BlogPostController@editprivacy']);
     Route::post('blog/editdate/{id}', ['as' => 'blog.editdate', 'uses' => 'App\Http\Controllers\BlogPostController@editdate']);
-    Route::post('blog/comment', ['as' => 'blog.comment', 'uses' => 'App\Http\Controllers\PagesController@addCommenttoPost']);
+    Route::put('blog/comment', ['as' => 'blog.comment', 'uses' => 'App\Http\Controllers\PagesController@addCommenttoPost']);
 
     Route::get('users/create', ['as' => 'user.create', 'uses' => 'App\Http\Controllers\UserController@create']);
     Route::resource('/dashboard/blog', BlogPostController::class )->parameters([

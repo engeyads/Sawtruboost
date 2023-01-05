@@ -138,8 +138,8 @@ return [
     'exploremore' => 'Sihirli güçlendiricilerimiz keşfedin',
 
     // boostnow landing page
-    'needa' => 'NEED',
-    'boost' => 'A BOOST ?\', İşlerniz bir desteğe ihtiyacı var mı ?',
+    'needa' => 'İşlerniz bir desteğe',
+    'boost' => 'ihtiyacı var mı ?',
     'boost1' => 'Şimdi bize ulaşın ve işletmenizin büyümesini ve gelişmesini izleyin',
 
     'boostmsg' => 'Sawtru genel merkezini ziyaret ederek veya doğrudan ofislerimizle iletişime geçerek iş geliştirmede sihir yaratmanın gücünü keşfedin.',

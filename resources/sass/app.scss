@@ -4497,6 +4497,67 @@ a {
  }
  */
 
+ /*
+ ** change language landing page
+ */
+
+ .demo {
+
+    text-align: center;
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+
+  }
+
+ .lang {
+    margin: 0 auto;
+    a{
+        color: $mainLightColor;
+    }
+  }
+
+  .button_lang {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.25em 0em;
+    border-radius: 10px;
+    width: 5em;
+    transition: 0.25s ease;
+  }
+
+  .lang a:hover,.button_lang:hover {
+    background: $mainLightColor;
+    transition: 0.25s ease;
+    color: white;
+  }
+
+  a.current_lang {
+    color: white;
+    background: $mainLightColor;
+
+  }
+
+  .translation {
+    text-align: center;
+    margin: 0.5em;
+  }
+
+  .english {
+    font-family: "Asap", sans-serif;
+  }
+
+  .Arabic {
+    font-family: "Noto Sans SC", sans-serif;
+    font-size: 1.5em;
+  }
+
+  .turkish {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 2em;
+  }
+
 
 /*
  * Social Media Items
@@ -7898,6 +7959,10 @@ button.tablinks .celebration-svg {
     .card {
         width: 80vw;
     }
+
+    .demo {
+        display: flex;
+    }
 }
 
 @media (min-width: 600px) {
@@ -7919,7 +7984,7 @@ button.tablinks .celebration-svg {
         .pageHeading {
             padding-left: 0px;
             margin-left: 4rem;
-            margin-top: 25px;
+            margin-top: 0px;
             font-size: 7vw;
         }
 
@@ -8214,4 +8279,5 @@ button.tablinks .celebration-svg {
             width: 30vw;
         }
     }
+
 }
