@@ -11,10 +11,10 @@ use Image;
 
 class BlogPostController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth')->except(['endindex','endshow']);
+        $this->middleware('permission:list-blogs|list-self-blogs', ['only' => ['index','show']]);
     }
 
     /**

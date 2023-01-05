@@ -43,6 +43,19 @@
 
     <section class="section w-full boostnowform">
         <center>
+            <div>
+                <div class="demo">
+                <table class="lang">
+                  <tr>
+                    <td class="tdlang">
+                      <a href="{{ route('changeLang') }}?lang=en" id="en" class="button_lang @if(session()->get('locale') == 'en' || session()->get('locale') == null) current_lang @endif">EN</a>
+                    </td>
+                    <td class="tdlang"><a href="{{ route('changeLang') }}?lang=ar" id="ar" class="button_lang @if(session()->get('locale') == 'ar') current_lang @endif">AR</a></td>
+                    <td class="tdlang"><a href="{{ route('changeLang') }}?lang=tr" id="tr" class="button_lang @if(session()->get('locale') == 'tr') current_lang @endif">TR</a></td>
+                  </tr>
+                </table>
+                </div>
+              </div>
             <table class='formTable'>
                 <tr>
                     <td align="center">
