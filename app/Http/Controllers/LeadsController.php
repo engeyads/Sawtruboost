@@ -20,10 +20,10 @@ class LeadsController extends Controller
      */
     public function index(){
 
-        $leads = Leads::orderby('created_at','desc')->paginate(9); //fetch all blog posts from DB
+        $leads = Leads::orderby('created_at','desc')->paginate(9); //fetch all leads from DB
 	    return view('pages.crm.leads.index', [
             'leads' => $leads,
-        ]); //returns the view with posts
+        ]); //returns the view with leads
     }
 
     /** Created with ❤️ by Iyad Sammour

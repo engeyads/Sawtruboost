@@ -49,8 +49,10 @@
                                             @if ($user->id != auth()->user()->id)
                                                 <tr>
                                                     <td>
-                                                        <a
-                                                            href="{{ route('user.show', $user->id) }}">{{ ucfirst($user->userProfile->full_name) }}</a>
+                                                        <a href="{{ route('user.show', $user->id) }}">
+                                                            <img class="avatar border-gray" src="{{ $user->userProfile->photo == '' ? asset('profiles/default-avatar.png') : asset('profiles') . '/' . $user->userProfile->photo }}" alt="...">
+                                                            {{ ucfirst($user->userProfile->full_name) }}
+                                                        </a>
                                                     </td>
                                                     <td>
                                                         {{ ucfirst($user->userProfile->tag) }}

@@ -23,7 +23,7 @@ class UserController extends Controller
     public function index(User $model)
     {
         $roles = Role::pluck('name','name')->all();
-        return view('user.index', compact('roles'),['users' => $model->paginate(15)]);
+        return view('user.index', compact('roles'),['users' => $model->paginate(7)]);
     }
 
     /** Created with ❤️ by Iyad Sammour

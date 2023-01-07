@@ -18,21 +18,30 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="card card-user">
-                    <div class="avatar-upload">
-                        <div class="avatar-edit">
-                            <input type='file' id="imageUpload" name='profile' accept=".png, .jpg, .jpeg" />
-                            <label for="imageUpload"></label>
-                        </div>
-                        <div class="avatar-preview">
-                            <div id="imagePreview"
-                                style="background-image: url('{{ __(auth()->user()->userProfile->photo) == '' ? URL::asset('profiles/default-avatar.png') : URL::asset('profiles') . '/' . $lead->userProfile->photo }}');">
+                    <div class="image">
+                        <div class="avatar-upload1">
+                            <div class="avatar-edit">
+                                <input type='file' id="bgimageUpload" name='profile' accept=".png, .jpg, .jpeg" />
+                                <label for="bgimageUpload"></label>
                             </div>
+                            <img src="{{ $lead->userProfile->bgphoto == '' ? asset('profiles/bgphoto/default-bgphoto.jpg') : asset('profiles/bgphoto') . '/' . $lead->userProfile->bgphoto }}"
+                                alt="...">
                         </div>
                     </div>
                     <div class="card-body">
                         <div class="author">
                             <a href="#">
-                                <img class="avatar border-gray" src="{{ $lead->userProfile->photo == '' ? asset('profiles/default-avatar.png') : asset('profiles').'/'.$lead->userProfile->photo }}" alt="...">
+                                <div class="avatar-upload">
+                                    <div class="avatar-edit">
+                                        <input type='file' id="imageUpload" name='profile' accept=".png, .jpg, .jpeg" />
+                                        <label for="imageUpload"></label>
+                                    </div>
+                                    <div class="avatar-preview">
+                                        <div id="imagePreview"
+                                            style="background-image: url('{{ $lead->userProfile->photo == '' ? URL::asset('profiles/default-avatar.png') : URL::asset('crm/profiles') . '/' . $lead->userProfile->photo }}');">
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <h5 class="title">{{ __($lead->name)}}</h5>
                             </a>
@@ -84,7 +93,7 @@
                 </div>
             </div>
             <div class="col-md-8 text-center">
-                <form class="col-md-12" action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
+                <form class="col-md-12" action="{{ route('profile.leadupdate') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="card">
@@ -188,4 +197,37 @@
             </div>
         </div>
     </div>
+    @push('scripts')
+        <script>
+            $('#imageUpload').on('change', function() {
+                if ($(this).val() != '') {
+
+                    let fd = new FormData();
+                    fd.append('profile', $(this).get(0).files[0]);
+
+                    console.log(fd.values());
+                    $.ajax({
+                        url: "{{ route('profile.leadphoto', $lead->id) }}",
+                        headers: {
+                            'X-CSRF-Token': '{{ csrf_token() }}',
+                        },
+                        data: fd,
+                        processData: false,
+                        contentType: false,
+                        type: 'POST',
+                        dataType: 'json',
+                        success: (response) => {
+                            if (response) {
+                                this.reset();
+                                alert('File has been uploaded successfully');
+                            }
+                        },
+                        error: function(response) {
+                            console.log(response.responseJSON.message);
+                        }
+                    });
+                }
+            });
+        </script>
+    @endpush
 @endsection

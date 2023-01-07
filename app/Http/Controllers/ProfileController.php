@@ -12,6 +12,7 @@ use Image;
 use App\Models\userProfiles;
 use App\Models\User;
 use App\Models\Teams;
+use App\Models\Leads;
 
 class ProfileController extends Controller
 {
@@ -128,6 +129,25 @@ class ProfileController extends Controller
         Image::make($image->getRealPath())->save('profiles/' . $filename);
 
         auth()->user()->userProfile()->update(['photo' => $filename]);
+
+        return back()->withStatus(__('photo successfully updated.'));
+    }
+
+    /** Created with ❤️ by Iyad Sammour
+        * Change the profile image for crm lead
+        *
+        * @param  Illuminate\Http\Request $request
+        * @return \Illuminate\Http\RedirectResponse
+    */
+    public function leadphoto(Request $request,$id)
+    {
+        $lead = Leads::find($id);
+        $image = $request->file('profile');
+
+        $filename = $image->getClientOriginalName();
+        Image::make($image->getRealPath())->save('crm/profiles/' . $filename);
+
+        $lead->userProfile()->update(['photo' => $filename]);
 
         return back()->withStatus(__('photo successfully updated.'));
     }

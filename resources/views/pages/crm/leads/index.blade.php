@@ -15,8 +15,9 @@
                                 <div class="pull-left">
                                     <h2>Leads</h2>
                                     <form action="{{ route('leads.export') }}" method="GET">
-                                        start:<input type="date" name='start' value=''>end:<input type="date" name='end' value="">
-                                            <button type='submit' class="btn btn-primary">Export Excil</button>
+                                        start:<input type="date" name='start' value=''>end:<input type="date"
+                                            name='end' value="">
+                                        <button type='submit' class="btn btn-primary">Export Excil</button>
                                     </form>
                                 </div>
                                 <div class="pull-right">
@@ -64,13 +65,16 @@
                                     @forelse($leads as $lead)
                                         <tr>
                                             <td>
-                                                <a href="{{ route('leads.edit', $lead->id) }}">{{ ucfirst($lead->name) }}</a>
+                                                <a href="{{ route('leads.edit', $lead->id) }}"><img class="avatar border-gray"
+                                                    src="{{ $lead->userProfile->photo == '' ? asset('profiles/default-avatar.png') : asset('crm/profiles') . '/' . $lead->userProfile->photo }}"
+                                                    alt="...">
+                                                {{ ucfirst($lead->name) }}</a>
                                             </td>
                                             <td>
                                                 {{ ucfirst($lead->company) }}
                                             </td>
                                             <td>
-                                                {{ '+('.ucfirst($lead->area) . ')' . ucfirst($lead->phone) }}
+                                                {{ '+(' . ucfirst($lead->area) . ')' . ucfirst($lead->phone) }}
                                             </td>
                                             <td>
                                                 {{ ucfirst($lead->email) }}
@@ -98,7 +102,7 @@
                                                 </div>
                                                 <div class='flex'>
                                                     <select name="interested" id="interested">
-                                                        <option >is interested?</option>
+                                                        <option>is interested?</option>
                                                         <option value="1">Interested</option>
                                                         <option value="0">Not Interested</option>
                                                     </select>

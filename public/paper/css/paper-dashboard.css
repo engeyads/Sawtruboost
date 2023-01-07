@@ -25,9 +25,8 @@ Copyright (c) 2015 Daniel Eden
 
 
 .avatar-upload1 {
-    position: relative;
-    max-width: 205px;
-    margin: 50px auto;
+    position: absolute;
+    width: 100%;
   }
   .avatar-upload1 .avatar-edit {
     position: absolute;
@@ -80,6 +79,10 @@ Copyright (c) 2015 Daniel Eden
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+  }
+  .card-user .image img{
+    width: 100%;
+
   }
 
 .avatar-upload {

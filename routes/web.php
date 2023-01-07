@@ -56,12 +56,19 @@ Auth::routes();
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::resource('user', UserController::class, ['except' => ['show','index','destroy']]);
+	// user management
+    Route::resource('user', UserController::class, ['except' => ['show','index','destroy']]);
+    Route::resource('/dashboard/user', UserController::class);
+    Route::get('users/create', ['as' => 'user.create', 'uses' => 'App\Http\Controllers\UserController@create']);
+
     Route::post('user/editprivacy/{id}', ['as' => 'user.editprivacy', 'uses' => 'App\Http\Controllers\UserController@editprivacy']);
     Route::post('user/changerole/{id}', ['as' => 'user.changerole', 'uses' => 'App\Http\Controllers\UserController@changerole']);
-	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
+
+    // Profiles
+    Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
-	Route::put('profileinfo', ['as' => 'profile.infoupdate', 'uses' => 'App\Http\Controllers\ProfileController@infoupdate']);
+
+    Route::put('profileinfo', ['as' => 'profile.infoupdate', 'uses' => 'App\Http\Controllers\ProfileController@infoupdate']);
 	Route::put('profile/{id}', ['as' => 'profile.otherupdate', 'uses' => 'App\Http\Controllers\ProfileController@otherupdate']);
 	Route::put('profileinfo/{id}', ['as' => 'profile.otherinfoupdate', 'uses' => 'App\Http\Controllers\ProfileController@otherinfoupdate']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
@@ -71,25 +78,32 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('profile/bgphoto', ['as' => 'profile.bgphoto', 'uses' => 'App\Http\Controllers\ProfileController@profileBackground']);
     Route::post('profile/bgphoto/{id}', ['as' => 'profile.otherbgphoto', 'uses' => 'App\Http\Controllers\ProfileController@otherphotoBackground']);
 
+    // Blog Posts
+    Route::resource('/dashboard/blog', BlogPostController::class )->parameters([
+        'blog' => 'blogPost'
+    ]);
     Route::post('blog/featured/{blogPost}', ['as' => 'blog.featured', 'uses' => 'App\Http\Controllers\BlogPostController@updatepostimage']);
     Route::post('blog/editprivacy/{id}', ['as' => 'blog.editprivacy', 'uses' => 'App\Http\Controllers\BlogPostController@editprivacy']);
     Route::post('blog/editdate/{id}', ['as' => 'blog.editdate', 'uses' => 'App\Http\Controllers\BlogPostController@editdate']);
     Route::put('blog/comment', ['as' => 'blog.comment', 'uses' => 'App\Http\Controllers\PagesController@addCommenttoPost']);
 
-    Route::get('users/create', ['as' => 'user.create', 'uses' => 'App\Http\Controllers\UserController@create']);
-    Route::resource('/dashboard/blog', BlogPostController::class )->parameters([
-        'blog' => 'blogPost'
-    ]);
+
+    // CRM Leads and deals
     Route::get('/dashboard/crm/leads/export', ['as' => 'leads.export', 'uses' => 'App\Http\Controllers\LeadsController@exportData']);
     Route::resource('/dashboard/crm/leads', LeadsController::class )->parameters([
         'leads' => 'lead'
     ]);
+	Route::put('lead/profile/{id}', ['as' => 'profile.leadupdate', 'uses' => 'App\Http\Controllers\ProfileController@update']);
+    Route::post('lead/photo/{id}', ['as' => 'profile.leadphoto', 'uses' => 'App\Http\Controllers\ProfileController@leadphoto']);
+
     Route::resource('/dashboard/crm/deals', DealsController::class )->parameters([
         'deals' => 'deal'
     ]);
-    Route::resource('/dashboard/roles', RoleController::class);
-    Route::resource('/dashboard/user', UserController::class);
 
+    // and roles and permission
+    Route::resource('/dashboard/roles', RoleController::class);
+
+    // dashboard pages
 	Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PagesController@index']);
 
     Route::post('/upload-file', [FileUpload::class, 'fileUpload'])->name('fileUpload');
