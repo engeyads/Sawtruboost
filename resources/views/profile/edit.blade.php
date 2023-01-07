@@ -116,12 +116,12 @@
                     </div>
                 </div>
             </div>
-            <form class="col-md-12" action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
+            <div class="col-md-8 text-center">
+                <div class="col-md-12">
+            <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                <div class="col-md-8 text-center">
-                    <div class="col-md-8 text-center">
-                        <div class="col-md-12">
+
                             <div class="card">
                                 <div class="card-header">
                                     <h5 class="title">{{ __('Edit Profile') }}</h5>
@@ -187,9 +187,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
             </form>
             <form action="{{ route('profile.infoupdate') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -705,6 +702,8 @@
                     </div>
                 </div>
             </form>
+                </div>
+            </div>
             <form class="col-md-12" action="{{ route('profile.password') }}" method="POST">
                 @csrf
                 @method('PUT')
@@ -779,6 +778,37 @@
                     console.log(fd.values());
                     $.ajax({
                         url: "{{ route('profile.photo') }}",
+                        headers: {
+                            'X-CSRF-Token': '{{ csrf_token() }}',
+                        },
+                        data: fd,
+                        processData: false,
+                        contentType: false,
+                        type: 'POST',
+                        dataType: 'json',
+                        success: (response) => {
+                            if (response) {
+                                this.reset();
+                                alert('File has been uploaded successfully');
+                            }
+                        },
+                        error: function(response) {
+                            console.log(response.responseJSON.message);
+                        }
+                    });
+                }
+            });
+
+
+            $('#bgimageUpload').on('change', function() {
+                if ($(this).val() != '') {
+
+                    let fd = new FormData();
+                    fd.append('bgphoto', $(this).get(0).files[0]);
+
+                    console.log(fd.values());
+                    $.ajax({
+                        url: "{{ route('profile.bgphoto') }}",
                         headers: {
                             'X-CSRF-Token': '{{ csrf_token() }}',
                         },

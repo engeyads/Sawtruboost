@@ -85,7 +85,7 @@
                                                 {{ ucfirst($lead->created_at) }}
                                             </td>
                                             <td>
-                                                {{ ucfirst($lead->message) }}
+                                                {{ ucfirst($lead->msg) }}
                                             </td>
                                             <td>
                                                 <div class='flex'>

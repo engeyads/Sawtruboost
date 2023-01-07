@@ -17,7 +17,7 @@ class BlogPostController extends Controller
         $this->middleware('permission:list-blogs|list-self-blogs', ['only' => ['index','show']]);
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -30,7 +30,7 @@ class BlogPostController extends Controller
         ]); //returns the view with posts
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Display a listing of the resource.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -81,7 +81,7 @@ class BlogPostController extends Controller
         //returns the view with posts
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -91,7 +91,7 @@ class BlogPostController extends Controller
         return view('pages.blog.create');
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -165,7 +165,7 @@ class BlogPostController extends Controller
         return redirect('blog/' . $newPost->id);
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Display the specified resource.
      *
      * @param  \App\Models\BlogPost  $blogPost
@@ -178,7 +178,7 @@ class BlogPostController extends Controller
         ]); //returns the view with the post
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Display the specified resource.
      *
      * @param  \App\Models\BlogPost  $blogPost
@@ -242,7 +242,7 @@ class BlogPostController extends Controller
         ]);
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\BlogPost  $blogPost
@@ -255,7 +255,7 @@ class BlogPostController extends Controller
             ]); //returns the edit view with the post
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -269,7 +269,7 @@ class BlogPostController extends Controller
         return redirect('/dashboard/blog/' . $blogPost->id);
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\BlogPost  $blogPost
@@ -282,7 +282,7 @@ class BlogPostController extends Controller
         return redirect('/dashboard/blog');
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -312,7 +312,7 @@ class BlogPostController extends Controller
         return Response::json( $filename );
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -327,7 +327,7 @@ class BlogPostController extends Controller
         return Response::json( $request->privacy );
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

@@ -18,8 +18,16 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="card card-user">
-                    <div class="image">
-                        <img src="{{ $lead->userProfile->bgphoto == '' ? asset('profiles/bgphoto/default-bgphoto.jpg') : asset('profiles/bgphoto').'/'.$lead->userProfile->bgphoto }}" alt="...">
+                    <div class="avatar-upload">
+                        <div class="avatar-edit">
+                            <input type='file' id="imageUpload" name='profile' accept=".png, .jpg, .jpeg" />
+                            <label for="imageUpload"></label>
+                        </div>
+                        <div class="avatar-preview">
+                            <div id="imagePreview"
+                                style="background-image: url('{{ __(auth()->user()->userProfile->photo) == '' ? URL::asset('profiles/default-avatar.png') : URL::asset('profiles') . '/' . $lead->userProfile->photo }}');">
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="author">
@@ -69,71 +77,9 @@
                         <h4 class="card-title">{{ __('Team Members') }}</h4>
                     </div>
                     <div class="card-body">
-                        <ul class="list-unstyled team-members">
-                            <li>
-                                <div class="row">
-                                    <div class="col-md-2 col-2">
-                                        <div class="avatar">
-                                            <img src="{{ asset('paper/img/faces/ayo-ogunseinde-2.jpg') }}" alt="Circle Image"
-                                                class="img-circle img-no-padding img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-7 col-7">
-                                        {{ __('DJ Khaled') }}
-                                        <br />
-                                        <span class="text-muted">
-                                            <small>{{ __('Offline') }}</small>
-                                        </span>
-                                    </div>
-                                    <div class="col-md-3 col-3 text-right">
-                                        <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i
-                                                class="fa fa-envelope"></i></button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-md-2 col-2">
-                                        <div class="avatar">
-                                            <img src="{{ asset('paper/img/faces/joe-gardner-2.jpg') }}" alt="Circle Image"
-                                                class="img-circle img-no-padding img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-7 col-7">
-                                            {{ __('Creative Tim') }}
-                                        <br />
-                                        <span class="text-success">
-                                            <small>{{ __('Available') }}</small>
-                                        </span>
-                                    </div>
-                                    <div class="col-md-3 col-3 text-right">
-                                        <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i
-                                                class="fa fa-envelope"></i></button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-md-2 col-2">
-                                        <div class="avatar">
-                                            <img src="{{ asset('paper/img/faces/clem-onojeghuo-2.jpg') }}" alt="Circle Image"
-                                                class="img-circle img-no-padding img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="col-ms-7 col-7">
-                                        {{ __('Flume') }}
-                                        <br />
-                                        <span class="text-danger">
-                                            <small>{{ __('Busy') }}</small>
-                                        </span>
-                                    </div>
-                                    <div class="col-md-3 col-3 text-right">
-                                        <button class="btn btn-sm btn-outline-success btn-round btn-icon"><i
-                                                class="fa fa-envelope"></i></button>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        <textarea readonly name="" id="" cols="30" rows="10">
+                            {{ $lead->msg }}
+                        </textarea>
                     </div>
                 </div>
             </div>

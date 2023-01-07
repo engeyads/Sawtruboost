@@ -60,7 +60,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="form-group">
-                                                            {!! Form::select('roles[]', $roles,$user->getRoleNames()[0], array('class' => 'form-control role','data-uid' => '{{ $user->id }}')) !!}
+                                                            {!! Form::select('roles[]', $roles,$user->getRoleNames()[0], array('class' => 'form-control role','data-userid' =>  $user->id )) !!}
                                                         </div>
                                                     </td>
                                                     <td>
@@ -150,12 +150,12 @@
 
             $(".role").on('change', function() {
 
-                console.log($(this).val());
+                console.log($(this).data('userid'));
                 let fd = new FormData();
                 fd.append('role[]', $(this).val());
 
                 $.ajax({
-                    url: "/user/changerole/" + $(this).data('uid'),
+                    url: "/user/changerole/" + $(this).data('userid'),
                     headers: {
                         'X-CSRF-Token': '{{ csrf_token() }}',
                     },

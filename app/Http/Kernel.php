@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
 {
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * The application's global HTTP middleware stack.
      *
      * These middleware are run during every request to your application.
@@ -24,7 +24,7 @@ class Kernel extends HttpKernel
         \Fruitcake\Cors\HandleCors::class,
     ];
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * The application's route middleware groups.
      *
      * @var array<string, array<int, class-string|string>>
@@ -47,7 +47,7 @@ class Kernel extends HttpKernel
         ],
     ];
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * The application's route middleware.
      *
      * These middleware may be assigned to groups or used individually.

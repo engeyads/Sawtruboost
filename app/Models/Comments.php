@@ -9,7 +9,7 @@ class Comments extends Model
 {
     use HasFactory;
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * The attributes that are mass assignable.
      *
      * @var array
@@ -24,7 +24,7 @@ class Comments extends Model
         'removed_by'
     ];
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * The attributes that should be cast.
      *
      * @var array<string, string>

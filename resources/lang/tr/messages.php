@@ -169,6 +169,7 @@ return [
     'Get in Touch' => 'İletişim',
     'contact us' => 'İletişim',
     'contactus1' => 'Daha fazla soru ve daha hızlı yanıt için lütfen doğrudan bize e-posta gönderin',
+    'or' => 'Yada',
 
     // dashboard translations
     'Dashboard by Sawtru Boost' => 'Dashboard by Sawtru Boost',

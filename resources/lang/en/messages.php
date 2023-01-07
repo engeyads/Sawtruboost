@@ -194,6 +194,7 @@ return [
     'Get in Touch' => 'Get in Touch',
     'contact us' => 'Contact Us',
     'contactus1' => 'For more enquiries and faster response please email us directly',
+    'or' => 'Or',
 
     // dashboard translations
     'Dashboard by Sawtru Boost' => 'Dashboard by Sawtru Boost',

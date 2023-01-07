@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class SitemapController extends Controller
 {
+    /** Created with ❤️ by Iyad Sammour
+     * add posts to sitemap
+     *
+     * @param  \App\Models\User  $model
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $post = BlogPost::where([

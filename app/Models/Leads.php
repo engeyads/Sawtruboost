@@ -10,7 +10,7 @@ class Leads extends Model
 {
     use HasFactory, Notifiable;
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * The attributes that are mass assignable.
      *
      * @var array<int, string>

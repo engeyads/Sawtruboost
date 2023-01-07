@@ -33,6 +33,9 @@
                             <div class='link'>
                                 {{ __('messages.Turkiye') }}:<a href='tel:+905064677987'>00905064677987</a>
                             </div>
+                            <div class='link'>
+                                {{ __('messages.or') }}:<a href='tel:+905063407987'>00905063407987</a>
+                            </div>
                         </div>
                     </div>
                     <div class="contact-form-wrapper">

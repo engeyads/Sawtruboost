@@ -7,7 +7,7 @@ use App\Models\Deals;
 
 class DealsController extends Controller
 {
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Display a listing of the leads
      *
      *
@@ -21,7 +21,7 @@ class DealsController extends Controller
         ]); //returns the view with posts
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -31,7 +31,7 @@ class DealsController extends Controller
         return '';
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Show the form for creating a new resource.
      *
      *
@@ -41,7 +41,7 @@ class DealsController extends Controller
         return '';
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Display the specified resource.
      *
      * @param  int  $id
@@ -51,7 +51,7 @@ class DealsController extends Controller
         return '';
     }
 
-   /**
+   /** Created with ❤️ by Iyad Sammour
      * Update the lead
      *
      * @param  \Illuminate\Http\Request  $request
@@ -61,7 +61,7 @@ class DealsController extends Controller
         return '';
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Remove the specified resource from storage.
      *
      * @param  int  $id
@@ -71,7 +71,7 @@ class DealsController extends Controller
         return '';
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Show the form for editing the profile.
      *
      * @return \Illuminate\View\View

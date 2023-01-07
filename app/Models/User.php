@@ -13,7 +13,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
@@ -23,9 +23,10 @@ class User extends Authenticatable
         'email',
         'password',
         'active',
+        'public',
     ];
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
@@ -35,7 +36,7 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * The attributes that should be cast.
      *
      * @var array<string, string>

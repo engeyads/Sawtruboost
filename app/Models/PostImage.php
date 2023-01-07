@@ -9,7 +9,16 @@ class PostImage extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['post_id','post_image_path','post_image_caption'];
+    /** Created with ❤️ by Iyad Sammour
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'post_id',
+        'post_image_path',
+        'post_image_caption'
+    ];
 
     function post(){
         return $this->belongsTo(BlogPost::class, 'id', 'post_id');

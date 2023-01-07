@@ -166,6 +166,7 @@ return [
     'Get in Touch' => 'تواصلوا معنا',
     'contact us' => 'املأ النموذج',
     'contactus1' => 'للحصول على معلومات أكثر عن خدماتنا والردود السريعة يمكنكم مراسلتنا عبر البريد الإلكتروني أو رقم الاتصال المباشر كالتالي:',
+    'or' => 'أو',
 
     // dashboard translations
     'Dashboard by Sawtru Boost' => 'Dashboard by Sawtru Boost',

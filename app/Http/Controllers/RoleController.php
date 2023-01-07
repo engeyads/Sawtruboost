@@ -11,7 +11,7 @@ use DB;
 
 class RoleController extends Controller
 {
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -26,7 +26,7 @@ class RoleController extends Controller
         $this->middleware('permission:delete-role', ['only' => ['destroy']]);
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -38,7 +38,7 @@ class RoleController extends Controller
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -49,7 +49,7 @@ class RoleController extends Controller
         return view('auth.roles.create',compact('permission'));
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -68,7 +68,7 @@ class RoleController extends Controller
         return redirect()->route('auth.roles.index')
                         ->with('success','Role created successfully');
     }
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Display the specified resource.
      *
      * @param  int  $id
@@ -84,7 +84,7 @@ class RoleController extends Controller
         return view('auth.roles.show',compact('role','rolePermissions'));
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -101,7 +101,7 @@ class RoleController extends Controller
         return view('auth.roles.edit',compact('role','permission','rolePermissions'));
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -124,7 +124,7 @@ class RoleController extends Controller
         return redirect()->route('roles.index')
                         ->with('success','Role updated successfully');
     }
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Remove the specified resource from storage.
      *
      * @param  int  $id

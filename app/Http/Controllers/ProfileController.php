@@ -15,22 +15,22 @@ use App\Models\Teams;
 
 class ProfileController extends Controller
 {
-    /**
-     * Show the form for editing the profile.
-     *
-     * @return \Illuminate\View\View
-     */
+    /** Created with ❤️ by Iyad Sammour
+        * Show the form for editing the profile.
+        *
+        * @return \Illuminate\View\View
+    */
     public function edit()
     {
         return view('profile.edit');
     }
 
-    /**
-     * Update the profile
-     *
-     * @param  \App\Http\Requests\ProfileRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
+    /** Created with ❤️ by Iyad Sammour
+        * Update the profile
+        *
+        * @param  \App\Http\Requests\ProfileRequest  $request
+        * @return \Illuminate\Http\RedirectResponse
+    */
     public function update(ProfileRequest $request)
     {
         auth()->user()->update($request->except(['name']));
@@ -42,12 +42,12 @@ class ProfileController extends Controller
         return back()->withStatus(__('Profile successfully updated.'));
     }
 
-    /**
-     * Update the profile info
-     *
-     * @param  \App\Http\Requests\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
+    /** Created with ❤️ by Iyad Sammour
+        * Update the profile info
+        *
+        * @param  \App\Http\Requests\Request  $request
+        * @return \Illuminate\Http\RedirectResponse
+    */
     public function infoupdate(Request $request)
     {
         auth()->user()->userProfile()->update([
@@ -60,12 +60,12 @@ class ProfileController extends Controller
         return back()->withStatus(__('Profile successfully updated.'));
     }
 
-    /**
-     * Update the profile
-     *
-     * @param  \App\Http\Requests\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
+    /** Created with ❤️ by Iyad Sammour
+        * Update the profile
+        *
+        * @param  \App\Http\Requests\Request  $request
+        * @return \Illuminate\Http\RedirectResponse
+    */
     public function otherupdate(Request $request,$id)
     {
         $user = User::find($id);
@@ -81,12 +81,12 @@ class ProfileController extends Controller
         return back()->withStatus(__('User Profile successfully updated.'));
     }
 
-    /**
-     * Update the profile information
-     *
-     * @param  \App\Http\Requests\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
+    /** Created with ❤️ by Iyad Sammour
+        * Update the profile information
+        *
+        * @param  \App\Http\Requests\Request  $request
+        * @return \Illuminate\Http\RedirectResponse
+    */
     public function otherinfoupdate(Request $request,$id)
     {
         $user = User::find($id);
@@ -101,12 +101,12 @@ class ProfileController extends Controller
         return back()->withStatus(__('User Profile successfully updated.'));
     }
 
-    /**
-     * Change the password
-     *
-     * @param  \App\Http\Requests\PasswordRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
+    /** Created with ❤️ by Iyad Sammour
+        * Change the password
+        *
+        * @param  \App\Http\Requests\PasswordRequest  $request
+        * @return \Illuminate\Http\RedirectResponse
+    */
     public function password(PasswordRequest $request)
     {
         auth()->user()->update(['password' => Hash::make($request->get('password'))]);
@@ -114,12 +114,12 @@ class ProfileController extends Controller
         return back()->withPasswordStatus(__('Password successfully updated.'));
     }
 
-    /**
-     * Change the profile image
-     *
-     * @param  Illuminate\Http\Request $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
+    /** Created with ❤️ by Iyad Sammour
+        * Change the profile image
+        *
+        * @param  Illuminate\Http\Request $request
+        * @return \Illuminate\Http\RedirectResponse
+    */
     public function profile(Request $request)
     {
         $image = $request->file('profile');
@@ -130,5 +130,77 @@ class ProfileController extends Controller
         auth()->user()->userProfile()->update(['photo' => $filename]);
 
         return back()->withStatus(__('photo successfully updated.'));
+    }
+
+    /** Created with ❤️ by Iyad Sammour
+        * Change the profile image
+        *
+        * @param  Illuminate\Http\Request $request
+        * @return \Illuminate\Http\RedirectResponse
+    */
+    public function otherphoto(Request $request,$id)
+    {
+        $user = User::find($id);
+        $image = $request->file('profile');
+
+        $filename = $image->getClientOriginalName();
+        Image::make($image->getRealPath())->save('profiles/' . $filename);
+
+        $user->userProfile()->update(['photo' => $filename]);
+
+        return back()->withStatus(__('photo successfully updated.'));
+    }
+
+    /** Created with ❤️ by Iyad Sammour
+        * Change the profile image
+        *
+        * @param  Illuminate\Http\Request $request
+        * @return \Illuminate\Http\RedirectResponse
+    */
+    public function profileBackground(Request $request)
+    {
+        $image = $request->file('bgphoto');
+        $filename = date('dmYHis') .'-usr'. auth()->user()->id . '.' . $image->getClientOriginalExtension();
+
+        $width = 600; // your max width
+        $height = 600; // your max height
+        $image = Image::make($image->getRealPath());
+        $image->height() > $image->width() ? $width=null : $height=null;
+        $image->resize($width, $height, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+
+        $image->save('profiles/bgphoto/' . $filename);
+
+        auth()->user()->userProfile()->update(['bgphoto' => $filename]);
+
+        return back()->withStatus(__('bgphoto successfully updated.'));
+    }
+
+    /** Created with ❤️ by Iyad Sammour
+        * Change the profile image
+        *
+        * @param  Illuminate\Http\Request $request
+        * @return \Illuminate\Http\RedirectResponse
+    */
+    public function otherphotoBackground(Request $request,$id)
+    {
+        $user = User::find($id);
+        $image = $request->file('bgphoto');
+        $filename = date('dmYHis') .'-usr'. $id . '.' . $image->getClientOriginalExtension();
+
+        $width = 600; // your max width
+        $height = 600; // your max height
+        $image = Image::make($image->getRealPath());
+        $image->height() > $image->width() ? $width=null : $height=null;
+        $image->resize($width, $height, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+
+        $image->save('profiles/bgphoto/' . $filename);
+
+        $user->userProfile()->update(['bgphoto' => $filename]);
+
+        return back()->withStatus(__('bgphoto successfully updated.'));
     }
 }

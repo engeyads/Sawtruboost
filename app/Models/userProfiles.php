@@ -9,7 +9,7 @@ class userProfiles extends Model
 {
     use HasFactory;
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
@@ -46,10 +46,9 @@ class userProfiles extends Model
         'work_permit',
         'visa',
         'team',
-        'public',
     ];
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * The attributes that should be cast.
      *
      * @var array<string, string>

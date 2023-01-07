@@ -12,7 +12,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class LeadsController extends Controller
 {
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Display a listing of the leads
      *
      *
@@ -26,7 +26,7 @@ class LeadsController extends Controller
         ]); //returns the view with posts
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -54,7 +54,7 @@ class LeadsController extends Controller
         return back()->withStatus(__('Suceessfuly stored!'));
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Show the form for creating a new resource.
      *
      *
@@ -64,7 +64,7 @@ class LeadsController extends Controller
         return 'pages.crm.leads.create';
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Display the specified resource.
      *
      * @param  int  $id
@@ -75,7 +75,7 @@ class LeadsController extends Controller
         return view('pages.crm.leads.show',compact('lead'));
     }
 
-   /**
+   /** Created with ❤️ by Iyad Sammour
      * Update the lead
      *
      * @param  \Illuminate\Http\Request  $request
@@ -88,7 +88,7 @@ class LeadsController extends Controller
         return back()->withStatus(__('Profile successfully updated.'));
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Remove the specified resource from storage.
      *
      * @param  int  $id
@@ -100,7 +100,7 @@ class LeadsController extends Controller
                         ->with('success','Lead deleted successfully');
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Show the form for editing the profile.
      *
      * @return \Illuminate\View\View
@@ -113,7 +113,7 @@ class LeadsController extends Controller
     }
 
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
     * @param $customer_data
     */
    public function ExportExcel($customer_data){
@@ -135,7 +135,7 @@ class LeadsController extends Controller
     }
 }
 
-/**
+/** Created with ❤️ by Iyad Sammour
  *This function loads the customer data from the database then converts it
  * into an Array that will be exported to Excel
  */
@@ -188,8 +188,8 @@ function exportData(Request $req){
     $this->ExportExcel($data_array);
 }
 
-    /**Eyad
-     * Sammour
+    /** Created with ❤️ by Iyad Sammour
+     *
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

@@ -12,7 +12,7 @@ use Notification;
 class PagesController extends Controller
 {
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -22,7 +22,7 @@ class PagesController extends Controller
         return view('about');
     }
 
-     /**
+     /** Created with ❤️ by Iyad Sammour
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -32,7 +32,7 @@ class PagesController extends Controller
         return view('services');
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Show the Contacts Page.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -42,7 +42,7 @@ class PagesController extends Controller
         return view('contact');
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Show the Careers Page.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -52,7 +52,7 @@ class PagesController extends Controller
         return view('careers');
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Show the Partners Page.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -62,7 +62,7 @@ class PagesController extends Controller
         return view('partners');
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Show the Terms Page.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -72,7 +72,7 @@ class PagesController extends Controller
         return view('terms');
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Show the Privacy Page.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -82,7 +82,7 @@ class PagesController extends Controller
         return view('privacy');
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Show the Cookies Page.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -91,7 +91,7 @@ class PagesController extends Controller
     {
         return view('cookies');
     }
-     /**
+     /** Created with ❤️ by Iyad Sammour
      * Show the Boostnow Landing Page.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -101,7 +101,7 @@ class PagesController extends Controller
         return view('landing.boostnow');
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Show the People Page.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -144,7 +144,7 @@ class PagesController extends Controller
         ]); //returns the view with posts
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -191,7 +191,7 @@ class PagesController extends Controller
         return back()->withStatus(__('Suceessfuly stored!'));
     }
 
-    /**Eyad
+    /** Created with ❤️ by Iyad SammourEyad
      * Sammour
      * Display all the static pages when authenticated
      *
@@ -207,7 +207,7 @@ class PagesController extends Controller
         return abort(404);
     }
 
-    /**
+    /** Created with ❤️ by Iyad Sammour
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -220,7 +220,7 @@ class PagesController extends Controller
         ]);
     }
 
-    /**Eyad
+    /** Created with ❤️ by Iyad SammourEyad
      * Sammour
      * Store a newly created resource in storage.
      *

@@ -6,14 +6,10 @@ use Illuminate\Http\Request;
 use App;
 class LangController extends Controller
 {
-    /**
-
+    /** Created with ❤️ by Iyad Sammour
      * Display a listing of the resource.
-
      *
-
      * @return \Illuminate\Http\Response
-
     */
 
     public function index()
@@ -26,14 +22,10 @@ class LangController extends Controller
 
 
 
-    /**
-
+    /** Created with ❤️ by Iyad Sammour
      * Display a listing of the resource.
-
      *
-
      * @return \Illuminate\Http\Response
-
     */
 
     public function change(Request $request)
