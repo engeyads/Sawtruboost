@@ -309,7 +309,7 @@
                     </tr>
                     <tr align="center">
                         <td colspan="2">
-                            <input name='website' type="text" placeholder="{{ __('messages.website') }}" >
+                            <textarea name='website' type="text" placeholder="{{ __('messages.website') }}" ></textarea>
                         </td>
                     </tr>
                     <tr align="center">
