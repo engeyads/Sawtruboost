@@ -87,6 +87,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('blog/editdate/{id}', ['as' => 'blog.editdate', 'uses' => 'App\Http\Controllers\BlogPostController@editdate']);
     Route::put('blog/comment', ['as' => 'blog.comment', 'uses' => 'App\Http\Controllers\PagesController@addCommenttoPost']);
 
+    // translator
+    Route::resource('/dashboard/translator', TranslatorController::class )->parameters([
+        'translator' => 'document'
+    ]);
 
     // CRM Leads and deals
     Route::get('/dashboard/crm/leads/export', ['as' => 'leads.export', 'uses' => 'App\Http\Controllers\LeadsController@exportData']);
