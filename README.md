@@ -36,11 +36,6 @@ We collaborate with you from concept to accomplishment to achieve ntransformatio
 
 ## What is inside this project
 
-### Blog:
-### People:
-
-when admin adds useres to the dashboard, and make their profile as public, they are going to be shown in the people page with their names and translations throgh the dashboard.
-
 ### Dashboard:
 
 the dashboard is combination of user administration, blog mangement, crm management
