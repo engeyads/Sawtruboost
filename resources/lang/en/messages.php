@@ -185,7 +185,7 @@ return [
     'area' => 'COUNTRY CODE',
     'phone' => 'PHONE NUMBER',
     'email' => 'EMAIL',
-    'website' => 'BUSINESS WEBSITE',
+    'website' => 'BUSINESS WEBSITE / or YOUR SOCIAL MEDIA ACCOUNTS',
     'services' => 'SERVICES YOU\'RE INTERESTED IN',
     'msg' => 'YOUR MESSAGE',
     'submit' => 'SUBMIT',
